@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="Space Math" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/Space Math" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+				</Compiler>
+				<Linker>
+					<Add library="sfml-graphics-d" />
+					<Add library="sfml-window-d" />
+					<Add library="sfml-system-d" />
+					<Add library="sfml-audio-d" />
+				</Linker>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/Space Math" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="0" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+					<Add library="sfml-graphics" />
+					<Add library="sfml-window" />
+					<Add library="sfml-system" />
+					<Add library="sfml-audio" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add directory="C:/Program Files (x86)/CodeBlocks/MinGW/sfml/include" />
+			<Add directory="E:/SFML-2.5.1/include" />
+			<Add directory="D:/Scoala/Informatica/SFML-2.5.1/include" />
+		</Compiler>
+		<Linker>
+			<Add library="mingw32" />
+			<Add library="user32" />
+			<Add library="gdi32" />
+			<Add library="winmm" />
+			<Add library="dxguid" />
+			<Add library="sfml-audio-d" />
+			<Add directory="C:/Program Files (x86)/CodeBlocks/MinGW/sfml/lib" />
+			<Add directory="E:/SFML-2.5.1/lib" />
+			<Add directory="D:/Scoala/Informatica/SFML-2.5.1/lib" />
+		</Linker>
+		<Unit filename="Collision.cpp" />
+		<Unit filename="Collision.h" />
+		<Unit filename="MKE/Animation.cpp" />
+		<Unit filename="MKE/Animation.h" />
+		<Unit filename="MKE/AssetManager.cpp" />
+		<Unit filename="MKE/AssetManager.h" />
+		<Unit filename="MKE/DeltaTime.cpp" />
+		<Unit filename="MKE/DeltaTime.h" />
+		<Unit filename="MKE/Effect.cpp" />
+		<Unit filename="MKE/Effect.h" />
+		<Unit filename="MKE/Input.cpp" />
+		<Unit filename="MKE/Input.h" />
+		<Unit filename="MKE/MKE.h" />
+		<Unit filename="MKE/Particles.cpp" />
+		<Unit filename="MKE/Particles.h" />
+		<Unit filename="MKE/Random.cpp" />
+		<Unit filename="MKE/Random.h" />
+		<Unit filename="MKE/SpriteBatch.cpp" />
+		<Unit filename="MKE/SpriteBatch.h" />
+		<Unit filename="MKE/State.h" />
+		<Unit filename="MKE/StateMachine.cpp" />
+		<Unit filename="MKE/StateMachine.h" />
+		<Unit filename="MKE/Utility.cpp" />
+		<Unit filename="MKE/Utility.h" />
+		<Unit filename="main.cpp" />
+		<Unit filename="source/Background.cpp" />
+		<Unit filename="source/Background.h" />
+		<Unit filename="source/Button.cpp" />
+		<Unit filename="source/Button.h" />
+		<Unit filename="source/DoveEnemy.cpp" />
+		<Unit filename="source/DoveEnemy.h" />
+		<Unit filename="source/Enemy.cpp" />
+		<Unit filename="source/Enemy.h" />
+		<Unit filename="source/Equations.cpp" />
+		<Unit filename="source/Equations.h" />
+		<Unit filename="source/Game.cpp" />
+		<Unit filename="source/Game.h" />
+		<Unit filename="source/GameOverState.cpp" />
+		<Unit filename="source/GameOverState.h" />
+		<Unit filename="source/GameSettings.cpp" />
+		<Unit filename="source/GameSettings.h" />
+		<Unit filename="source/GameState.cpp" />
+		<Unit filename="source/GameState.h" />
+		<Unit filename="source/LevelSelectState.cpp" />
+		<Unit filename="source/LevelSelectState.h" />
+		<Unit filename="source/MainMenuState.cpp" />
+		<Unit filename="source/MainMenuState.h" />
+		<Unit filename="source/MotherShip.cpp" />
+		<Unit filename="source/MotherShip.h" />
+		<Unit filename="source/PauseMenuState.cpp" />
+		<Unit filename="source/PauseMenuState.h" />
+		<Unit filename="source/ProgressBar.cpp" />
+		<Unit filename="source/ProgressBar.h" />
+		<Unit filename="source/SettingsState.cpp" />
+		<Unit filename="source/SettingsState.h" />
+		<Unit filename="source/ShootingAbility.cpp" />
+		<Unit filename="source/ShootingAbility.h" />
+		<Unit filename="tinyxml2.cpp" />
+		<Unit filename="tinyxml2.h" />
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+			<lib_finder disable_auto="1" />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

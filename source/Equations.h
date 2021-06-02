@@ -41,6 +41,7 @@ private:
     std::string generateBasicMath();
     std::string generateEquation();
     std::string generateTrigonometry();
+    std::string generateEverything();
     void generateQuestion();
 };
 

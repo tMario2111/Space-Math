@@ -1,7 +1,12 @@
 <?xml version = "1.0" encoding = "UTF-8"?>
-<high_score>129</high_score>
+<high_scores>
+    <level1>2</level1>
+    <level2>3</level2>
+    <level3>4</level3>
+    <level4>5</level4>
+</high_scores>
 
 <settings>
     <game_volume>70</game_volume>
-    <music_volume>20</music_volume>
+    <music_volume>10</music_volume>
 </settings>

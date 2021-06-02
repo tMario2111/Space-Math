@@ -14,7 +14,7 @@ class Game;
 class GameOverState : public mke::State
 {
 public:
-    GameOverState(Game& game, sf::Image background_texture, int score);
+    GameOverState(Game& game, sf::Image background_texture, int score, unsigned int level);
     void update();
     void render();
 private:

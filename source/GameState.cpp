@@ -95,7 +95,7 @@ void GameState::gameOverEvent()
         game.states.states_just_changed = 1;
         music_timestamp = music.getPlayingOffset();
         music.stop();
-        game.states.push(std::make_unique<GameOverState>(game, texture.copyToImage(), (int)score));
+        game.states.push(std::make_unique<GameOverState>(game, texture.copyToImage(), (int)score, level));
     }
 }
 

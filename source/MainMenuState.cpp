@@ -29,12 +29,6 @@ void MainMenuState::setupTitle()
     title.setString("SPACE MATH");
     title.setOrigin(title.getLocalBounds().width / 2, title.getLocalBounds().height / 2);
     title.setPosition(game.win.getSize().x / 2, game.win.getSize().y / 4);
-
-    high_score.setFont(game.assets.getFont("font"));
-    high_score.setCharacterSize(30);
-    high_score.setString("HIGH SCORE: " + std::to_string(game.game_settings.high_score));
-    high_score.setOrigin(high_score.getLocalBounds().width / 2, high_score.getLocalBounds().height / 2);
-    high_score.setPosition(game.win.getSize().x / 2 + title.getGlobalBounds().width / 2, game.win.getSize().y / 4 + BUTTON_MARGIN);
 }
 
 void MainMenuState::setupButtons()
@@ -69,7 +63,6 @@ void MainMenuState::setupButtons()
 
 void MainMenuState::update()
 {
-    high_score.setString("HIGH SCORE: " + std::to_string(game.game_settings.high_score));
     if (start.selected(game.win) && game.input.isButtonReleased(sf::Mouse::Left))
         game.states.push(std::make_unique<LevelSelectState>(game, background));
     if (settings.selected(game.win) && game.input.isButtonReleased(sf::Mouse::Left))
@@ -83,7 +76,6 @@ void MainMenuState::render()
 {
     game.win.draw(background);
     game.win.draw(title);
-    game.win.draw(high_score);
     game.win.draw(start);
     game.win.draw(settings);
     game.win.draw(exit);

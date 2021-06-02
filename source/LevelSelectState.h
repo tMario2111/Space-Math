@@ -22,11 +22,16 @@ private:
     Background& background;
     const float BUTTON_MARGIN = 50.f;
     sf::Text title;
+    sf::Text high_score_level1;
+    sf::Text high_score_level2;
+    sf::Text high_score_level3;
+    sf::Text high_score_level4;
     Button level1;
     Button level2;
     Button level3;
     Button level4;
     void setupTitle();
+    void setupHighScores();
     void setupButtons();
 };
 

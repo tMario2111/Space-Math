@@ -7,6 +7,7 @@ LevelSelectState::LevelSelectState(Game& game, Background& background) :
     name = "LevelSelect";
     setupTitle();
     setupButtons();
+    setupHighScores();
 }
 
 void LevelSelectState::setupTitle()
@@ -16,6 +17,37 @@ void LevelSelectState::setupTitle()
     title.setString("SELECT LEVEL");
     title.setOrigin(title.getLocalBounds().width / 2, title.getLocalBounds().height / 2);
     title.setPosition(game.win.getSize().x / 2, game.win.getSize().y / 5);
+}
+
+void LevelSelectState::setupHighScores()
+{
+    high_score_level1.setFont(game.assets.getFont("font"));
+    high_score_level1.setCharacterSize(35);
+    high_score_level1.setString("BEST: " + std::to_string(game.game_settings.high_score_level1));
+    high_score_level1.setOrigin(0, high_score_level1.getLocalBounds().height / 2);
+    high_score_level1.setPosition(level1.body.getPosition().x + level1.body.getGlobalBounds().width / 2 + 50.f, 0.f);
+    mke::utility::centerYAxis(high_score_level1, level1.body.getGlobalBounds().top, level1.body.getGlobalBounds().top + level1.body.getGlobalBounds().height);
+
+    high_score_level2.setFont(game.assets.getFont("font"));
+    high_score_level2.setCharacterSize(35);
+    high_score_level2.setString("BEST: " + std::to_string(game.game_settings.high_score_level2));
+    high_score_level2.setOrigin(0, high_score_level2.getLocalBounds().height / 2);
+    high_score_level2.setPosition(level2.body.getPosition().x + level2.body.getGlobalBounds().width / 2 + 50.f, 0.f);
+    mke::utility::centerYAxis(high_score_level2, level2.body.getGlobalBounds().top, level2.body.getGlobalBounds().top + level2.body.getGlobalBounds().height);
+
+    high_score_level3.setFont(game.assets.getFont("font"));
+    high_score_level3.setCharacterSize(35);
+    high_score_level3.setString("BEST: " + std::to_string(game.game_settings.high_score_level3));
+    high_score_level3.setOrigin(0, high_score_level3.getLocalBounds().height / 2);
+    high_score_level3.setPosition(level3.body.getPosition().x + level3 .body.getGlobalBounds().width / 2 + 50.f, 0.f);
+    mke::utility::centerYAxis(high_score_level3, level3.body.getGlobalBounds().top, level3.body.getGlobalBounds().top + level3.body.getGlobalBounds().height);
+
+    high_score_level4.setFont(game.assets.getFont("font"));
+    high_score_level4.setCharacterSize(35);
+    high_score_level4.setString("BEST: " + std::to_string(game.game_settings.high_score_level4));
+    high_score_level4.setOrigin(0, high_score_level4.getLocalBounds().height / 2);
+    high_score_level4.setPosition(level4.body.getPosition().x + level4.body.getGlobalBounds().width / 2 + 50.f, 0.f);
+    mke::utility::centerYAxis(high_score_level4, level4.body.getGlobalBounds().top, level4.body.getGlobalBounds().top + level4.body.getGlobalBounds().height);
 }
 
 void LevelSelectState::setupButtons()
@@ -75,7 +107,11 @@ void LevelSelectState::render()
     game.win.draw(background);
     game.win.draw(title);
     game.win.draw(level1);
+    game.win.draw(high_score_level1);
     game.win.draw(level2);
+    game.win.draw(high_score_level2);
     game.win.draw(level3);
+    game.win.draw(high_score_level3);
     game.win.draw(level4);
+    game.win.draw(high_score_level4);
 }

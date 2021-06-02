@@ -24,7 +24,6 @@ private:
     Game& game;
     Background background;
     sf::Text title;
-    sf::Text high_score;
     const float BUTTON_MARGIN = 50.f;
     Button start;
     Button settings;

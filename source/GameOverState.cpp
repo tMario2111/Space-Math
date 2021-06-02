@@ -1,6 +1,6 @@
 #include "GameOverState.h"
 
-GameOverState::GameOverState(Game& game, sf::Image background_texture, int score) :
+GameOverState::GameOverState(Game& game, sf::Image background_texture, int score, unsigned int level) :
     game(game)
 {
     name = "GameOver";
@@ -11,10 +11,38 @@ GameOverState::GameOverState(Game& game, sf::Image background_texture, int score
     setupText();
     setupButtons();
 
-    if (score > game.game_settings.high_score)
+    switch (level)
     {
-        game.game_settings.high_score = score;
-        game.game_settings.saveDoc("data/data.dat");
+    case 1:
+        if(score > game.game_settings.high_score_level1)
+        {
+            game.game_settings.high_score_level1 = score;
+            game.game_settings.saveDoc("data/data.dat");
+        }
+        break;
+    case 2:
+        if(score > game.game_settings.high_score_level2)
+        {
+            game.game_settings.high_score_level2 = score;
+            game.game_settings.saveDoc("data/data.dat");
+        }
+        break;
+    case 3:
+        if(score > game.game_settings.high_score_level3)
+        {
+            game.game_settings.high_score_level3 = score;
+            game.game_settings.saveDoc("data/data.dat");
+        }
+        break;
+    case 4:
+        if(score > game.game_settings.high_score_level4)
+        {
+            game.game_settings.high_score_level4 = score;
+            game.game_settings.saveDoc("data/data.dat");
+        }
+        break;
+    default:
+        break;
     }
 }
 

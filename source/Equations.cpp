@@ -111,20 +111,24 @@ std::string Equations::generateTrigonometry()
     std::vector<int> angles = {0, 30, 45, 60, 90, 120, 135, 150, 180, 210, 225, 240, 270, 300, 315, 330, 360};
 
     std::vector<std::string> sin_results = {"0", "1/2", "sqrt2/2", "sqrt3/2", "1", "sqrt3/2", "sqrt2/2", "1/2", "0", "-1/2", "-sqrt2/2", "-sqrt3/2",
-                                            "-1",  "-sqrt3/2", "-sqrt2/2", "-1/2", "0"};
-    std::vector<std::string> cos_results = {"1", "sqrt3/2", "sqrt2/2", "1/2", "0", "-1/2", "-sqrt2/2", "-sqrt3/2", "-1", "-sqrt3/2", "-sqrt2/2", "-1/2"
-                                            "0", "1/2", "sqrt2/2", "sqrt3/2", "0"};
+                                            "-1",  "-sqrt3/2", "-sqrt2/2", "-1/2", "0"
+                                           };
+    std::vector<std::string> cos_results = {"1", "sqrt3/2", "sqrt2/2", "1/2", "0", "-1/2", "-sqrt2/2", "-sqrt3/2", "-1", "-sqrt3/2", "-sqrt2/2",
+                                            "-1/2","0", "1/2", "sqrt2/2", "sqrt3/2","1"
+                                           };
     std::vector<std::string> tg_results = {"0", "sqrt3/3", "1", "sqrt3", "-", "-sqrt3", "-1", "-sqrt3/3", "0", "sqrt3/3", "1", "sqrt3", "-", "-sqrt3",
-                                            "-1", "-sqrt3/3", "0"};
+                                           "-1", "-sqrt3/3", "0"
+                                          };
     std::vector<std::string> ctg_results = {"-", "sqrt3", "1", "sqrt3/3", "0", "-sqrt3/3", "-1", "-sqrt3", "-", "sqrt3", "1", "sqrt3/3", "0", "-sqrt3/3",
-                                            "-1", "-sqrt3", "-"};
+                                            "-1", "-sqrt3", "-"
+                                           };
     enum TrigonometricFunction
     {
         Sin,
         Cos,
         Tg,
         Ctg
-    }Function;
+    } Function;
     int index = random.getInt(0,angles.size() - 1);
     int angle = angles[index];
     Function = static_cast<TrigonometricFunction>(random.getInt(0,3));
@@ -146,7 +150,31 @@ std::string Equations::generateTrigonometry()
         equation = "ctg" + std::to_string(angle);
         result_value = ctg_results[index];
         break;
+    default:
+        break;
     }
+    return equation;
+}
+
+std::string Equations::generateEverything()
+{
+    std::string equation;
+    int rand = random.getInt(1,3);
+    switch(rand)
+    {
+    case 1:
+        equation = generateBasicMath();
+        break;
+    case 2:
+        equation = generateEquation();
+        break;
+    case 3:
+        equation = generateTrigonometry();
+        break;
+    default:
+        break;
+    }
+
     return equation;
 }
 
@@ -165,6 +193,7 @@ void Equations::generateQuestion()
         str = generateTrigonometry();
         break;
     case 4:
+        str = generateEverything();
         break;
     default:
         break;

@@ -1222,7 +1222,7 @@
 1622643900 source:c:\users\bogdan\documents\github\space-math\main.cpp
 	"source/Game.h"
 
-1622643900 c:\users\bogdan\documents\github\space-math\source\game.h
+1622722772 c:\users\bogdan\documents\github\space-math\source\game.h
 	<SFML/Graphics.hpp>
 	"../MKE/MKE.h"
 	<ctime>
@@ -1437,7 +1437,7 @@
 	"Background.h"
 	"Button.h"
 
-1622643900 c:\users\bogdan\documents\github\space-math\source\gamestate.h
+1622726102 c:\users\bogdan\documents\github\space-math\source\gamestate.h
 	<SFML/Graphics.hpp>
 	<SFML/Audio.hpp>
 	"../MKE/MKE.h"
@@ -1449,6 +1449,7 @@
 	"MotherShip.h"
 	"Enemy.h"
 	"DoveEnemy.h"
+	"LighterEnemy.h"
 	"ProgressBar.h"
 	"Equations.h"
 	"PauseMenuState.h"
@@ -1465,7 +1466,7 @@
 	"Enemy.h"
 	"Equations.h"
 
-1622643900 c:\users\bogdan\documents\github\space-math\source\enemy.h
+1622722772 c:\users\bogdan\documents\github\space-math\source\enemy.h
 	<SFML/Graphics.hpp>
 	"../MKE/MKE.h"
 	"ShootingAbility.h"
@@ -1482,7 +1483,7 @@
 	<string>
 	<cmath>
 
-1622643900 c:\users\bogdan\documents\github\space-math\source\doveenemy.h
+1622722772 c:\users\bogdan\documents\github\space-math\source\doveenemy.h
 	<SFML/Graphics.hpp>
 	"../MKE/MKE.h"
 	<cmath>
@@ -1510,7 +1511,7 @@
 	"Button.h"
 	"GameState.h"
 
-1622643900 c:\users\bogdan\documents\github\space-math\source\settingsstate.h
+1622723631 c:\users\bogdan\documents\github\space-math\source\settingsstate.h
 	<SFML/Graphics.hpp>
 	"../MKE/MKE.h"
 	"Background.h"
@@ -1555,7 +1556,7 @@
 1622643900 source:c:\users\bogdan\documents\github\space-math\source\button.cpp
 	"Button.h"
 
-1622643900 source:c:\users\bogdan\documents\github\space-math\source\doveenemy.cpp
+1622722772 source:c:\users\bogdan\documents\github\space-math\source\doveenemy.cpp
 	"DoveEnemy.h"
 
 1622643900 source:c:\users\bogdan\documents\github\space-math\source\enemy.cpp
@@ -1564,7 +1565,7 @@
 1622645130 source:c:\users\bogdan\documents\github\space-math\source\equations.cpp
 	"Equations.h"
 
-1622643900 source:c:\users\bogdan\documents\github\space-math\source\game.cpp
+1622724874 source:c:\users\bogdan\documents\github\space-math\source\game.cpp
 	"Game.h"
 
 1622646117 source:c:\users\bogdan\documents\github\space-math\source\gameoverstate.cpp
@@ -1573,13 +1574,13 @@
 1622645899 source:c:\users\bogdan\documents\github\space-math\source\gamesettings.cpp
 	"GameSettings.h"
 
-1622646171 source:c:\users\bogdan\documents\github\space-math\source\gamestate.cpp
+1622726120 source:c:\users\bogdan\documents\github\space-math\source\gamestate.cpp
 	"GameState.h"
 
 1622647249 source:c:\users\bogdan\documents\github\space-math\source\levelselectstate.cpp
 	"LevelSelectState.h"
 
-1622646287 source:c:\users\bogdan\documents\github\space-math\source\mainmenustate.cpp
+1622722772 source:c:\users\bogdan\documents\github\space-math\source\mainmenustate.cpp
 	"MainMenuState.h"
 
 1622643900 source:c:\users\bogdan\documents\github\space-math\source\mothership.cpp
@@ -1591,7 +1592,7 @@
 1622643900 source:c:\users\bogdan\documents\github\space-math\source\progressbar.cpp
 	"ProgressBar.h"
 
-1622643900 source:c:\users\bogdan\documents\github\space-math\source\settingsstate.cpp
+1622724155 source:c:\users\bogdan\documents\github\space-math\source\settingsstate.cpp
 	"SettingsState.h"
 
 1622643900 source:c:\users\bogdan\documents\github\space-math\source\shootingability.cpp
@@ -1604,4 +1605,14 @@
 	<stdarg.h>
 	<cstddef>
 	<cstdarg>
+
+1622725033 c:\users\bogdan\documents\github\space-math\source\lighterenemy.h
+	<SFML/Graphics.hpp>
+	"../MKE/MKE.h"
+	<cmath>
+	"Enemy.h"
+	"ShootingAbility.h"
+
+1622725980 source:c:\users\bogdan\documents\github\space-math\source\lighterenemy.cpp
+	"LighterEnemy.h"
 

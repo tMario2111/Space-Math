@@ -10,12 +10,25 @@ SettingsState::SettingsState(Game& game, Background& background) :
 }
 
 void SettingsState::setupTexts()
+
 {
+    music_volume.setFont(game.assets.getFont("font"));
+    music_volume.setCharacterSize(40);
+    music_volume.setString(std::to_string(game.game_settings.music_volume));
+    music_volume.setOrigin(music_volume.getLocalBounds().width / 2, music_volume.getLocalBounds().height / 2);
+    music_volume.setPosition(game.win.getSize().x / 2, game.win.getSize().y / 2 - BUTTON_MARGIN);
+
+    music_volume_text.setFont(game.assets.getFont("font"));
+    music_volume_text.setCharacterSize(40);
+    music_volume_text.setString("MUSIC VOLUME");
+    music_volume_text.setOrigin(music_volume_text.getLocalBounds().width / 2, music_volume_text.getLocalBounds().height / 2);
+    music_volume_text.setPosition(music_volume.getPosition().x, music_volume.getPosition().y - 2 * music_volume.getGlobalBounds().height);
+
     game_volume.setFont(game.assets.getFont("font"));
     game_volume.setCharacterSize(40);
     game_volume.setString(std::to_string(game.game_settings.game_volume));
     game_volume.setOrigin(game_volume.getLocalBounds().width / 2, game_volume.getLocalBounds().height / 2);
-    game_volume.setPosition(game.win.getSize().x / 2, game.win.getSize().y / 2 - 2 * BUTTON_MARGIN);
+    game_volume.setPosition(game.win.getSize().x / 2, music_volume.getPosition().y - music_volume.getGlobalBounds().height - music_volume_text.getLocalBounds().height - 2 * BUTTON_MARGIN);
 
     game_volume_text.setFont(game.assets.getFont("font"));
     game_volume_text.setCharacterSize(40);
@@ -23,17 +36,23 @@ void SettingsState::setupTexts()
     game_volume_text.setOrigin(game_volume_text.getLocalBounds().width / 2, game_volume_text.getLocalBounds().height / 2);
     game_volume_text.setPosition(game_volume.getPosition().x, game_volume.getPosition().y - 2 * game_volume.getGlobalBounds().height);
 
-    music_volume.setFont(game.assets.getFont("font"));
-    music_volume.setCharacterSize(40);
-    music_volume.setString(std::to_string(game.game_settings.music_volume));
-    music_volume.setOrigin(music_volume.getLocalBounds().width / 2, music_volume.getLocalBounds().height / 2);
-    music_volume.setPosition(game.win.getSize().x / 2, game.win.getSize().y / 2 + 2 * BUTTON_MARGIN);
+    sqrt_key.setFont(game.assets.getFont("font"));
+    sqrt_key.setCharacterSize(40);
+    sqrt_key.setString("PRESS \"S\" TO INSERT \"sqrt\" ");
+    sqrt_key.setOrigin(sqrt_key.getLocalBounds().width / 2, sqrt_key.getLocalBounds().height / 2);
+    sqrt_key.setPosition(game.win.getSize().x / 2, game.win.getSize().y / 2 + 2 * BUTTON_MARGIN);
 
-    music_volume_text.setFont(game.assets.getFont("font"));
-    music_volume_text.setCharacterSize(40);
-    music_volume_text.setString("MUSIC VOLUME");
-    music_volume_text.setOrigin(music_volume_text.getLocalBounds().width / 2, music_volume_text.getLocalBounds().height / 2);
-    music_volume_text.setPosition(music_volume.getPosition().x, music_volume.getPosition().y - 2 * music_volume.getGlobalBounds().height);
+    clear_key.setFont(game.assets.getFont("font"));
+    clear_key.setCharacterSize(40);
+    clear_key.setString("PRESS \"C\" TO CLEAR INPUT");
+    clear_key.setOrigin(clear_key.getLocalBounds().width / 2, clear_key.getLocalBounds().height / 2);
+    clear_key.setPosition(game.win.getSize().x / 2, sqrt_key.getPosition().y + sqrt_key.getGlobalBounds().height / 2 + BUTTON_MARGIN);
+
+    show_fps_key.setFont(game.assets.getFont("font"));
+    show_fps_key.setCharacterSize(40);
+    show_fps_key.setString("PRESS \"F\" TO SHOW FPS COUNTER");
+    show_fps_key.setOrigin(show_fps_key.getLocalBounds().width / 2, show_fps_key.getLocalBounds().height / 2);
+    show_fps_key.setPosition(game.win.getSize().x / 2, clear_key.getPosition().y + clear_key.getGlobalBounds().height / 2 + BUTTON_MARGIN);
 }
 
 void SettingsState::setupButtons()
@@ -108,4 +127,7 @@ void SettingsState::render()
     game.win.draw(music_volume);
     game.win.draw(music_volume_l);
     game.win.draw(music_volume_r);
+    game.win.draw(sqrt_key);
+    game.win.draw(clear_key);
+    game.win.draw(show_fps_key);
 }

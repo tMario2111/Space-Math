@@ -24,6 +24,9 @@ private:
     sf::Text game_volume;
     sf::Text music_volume_text;
     sf::Text music_volume;
+    sf::Text sqrt_key;
+    sf::Text clear_key;
+    sf::Text show_fps_key;
     Button game_volume_l, game_volume_r, music_volume_l, music_volume_r;
     void setupTexts();
     void setupButtons();

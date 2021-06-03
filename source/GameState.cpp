@@ -58,7 +58,25 @@ void GameState::setupScore()
 
 void GameState::spawnEnemy()
 {
-    auto new_enemy = std::make_unique<DoveEnemy>(game.assets, game.win, game.dt);
+    std::unique_ptr<Enemy> new_enemy;
+    switch (level)
+    {
+    case 1:
+        new_enemy = std::make_unique<DoveEnemy>(game.assets, game.win, game.dt);
+        break;
+    case 2:
+        new_enemy = std::make_unique<LighterEnemy>(game.assets, game.win, game.dt);
+        break;
+    case 3:
+        new_enemy = std::make_unique<LighterEnemy>(game.assets, game.win, game.dt);
+        break;
+    case 4:
+        new_enemy = std::make_unique<LighterEnemy>(game.assets, game.win, game.dt);
+        break;
+    default:
+        break;
+    }
+
     sf::Vector2f position;
     position.x = game.random.getInt(0, 1) ? 0.f : game.win.getSize().x;
     position.y = game.random.getInt(-ENEMY_SPAWN_MARGIN, game.win.getSize().y + ENEMY_SPAWN_MARGIN);
@@ -162,17 +180,36 @@ void GameState::update()
     score_text.setString("score: " + std::to_string(score));
     enemy_spawn_delay = 5.f - (score / 25.f);
     gameOverEvent();
-    dove_enemies_batch.clear();
+    enemies_batch.clear();
     for (auto& i : enemies)
         if (!i.get()->going_to_die)
-            dove_enemies_batch.append(i.get()->sprite);
+            enemies_batch.append(i.get()->sprite);
     addBulletsToBatch();
 }
 
 void GameState::render()
 {
     game.win.draw(background);
-    game.win.draw(dove_enemies_batch, sf::RenderStates(&game.assets.getTexture("dove_enemy")));
+    sf::RenderStates enemy_texture;
+    switch(level)
+    {
+    case 1:
+        enemy_texture.texture = &game.assets.getTexture("dove_enemy");
+        break;
+    case 2:
+        enemy_texture.texture = &game.assets.getTexture("lighter_enemy");
+        break;
+    case 3:
+        enemy_texture.texture = &game.assets.getTexture("dove_enemy");
+        break;
+    case 4:
+        enemy_texture.texture = &game.assets.getTexture("dove_enemy");
+        break;
+    default:
+        enemy_texture.texture = &game.assets.getTexture("dove_enemy");
+        break;
+    }
+    game.win.draw(enemies_batch, enemy_texture);
     game.win.draw(mother_ship);
     game.win.draw(bullets_batch, sf::RenderStates(&game.assets.getTexture("long_bullets")));
     for (auto& i : enemies)

@@ -13,6 +13,7 @@
 #include "MotherShip.h"
 #include "Enemy.h"
 #include "DoveEnemy.h"
+#include "LighterEnemy.h"
 #include "ProgressBar.h"
 #include "Equations.h"
 #include "PauseMenuState.h"
@@ -41,7 +42,7 @@ private:
     sf::Music music;
     sf::Time music_timestamp;
     std::vector<std::unique_ptr<Enemy>> enemies;
-    mke::SpriteBatch dove_enemies_batch;
+    mke::SpriteBatch enemies_batch;
     mke::SpriteBatch bullets_batch;
     Equations equations;
     void setupBackground();

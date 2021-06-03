@@ -28,7 +28,6 @@ protected:
     float movement_speed;
     float radius_to_mother_ship;
     void setupExplosion();
-    virtual void loadAssets() = 0;
     virtual void setupAnimation() = 0;
     virtual void setupSprite() = 0;
     virtual void movement() = 0;

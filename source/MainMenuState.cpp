@@ -12,10 +12,6 @@ MainMenuState::MainMenuState(Game& game) :
 
 void MainMenuState::setupBackground()
 {
-    game.assets.loadTexture("background1", "assets/backgrounds/purple_nebula.png");
-    game.assets.loadTexture("background2", "assets/backgrounds/blue_nebula.png");
-    game.assets.loadTexture("background3", "assets/backgrounds/pink_nebula.png");
-    game.assets.loadTexture("background4", "assets/backgrounds/white_nebula.png");
     std::vector<std::string> numbers = {"1", "2", "3", "4"};
     std::random_shuffle(numbers.begin(), numbers.end());
     background.setTexture(game.assets.getTexture("background" + numbers[0]));
@@ -33,9 +29,6 @@ void MainMenuState::setupTitle()
 
 void MainMenuState::setupButtons()
 {
-    game.assets.loadTexture("button_pressed", "assets/buttons/button_pressed.png");
-    game.assets.loadTexture("button_released", "assets/buttons/button_released.png");
-
     start.setTextures(game.assets.getTexture("button_pressed"), game.assets.getTexture("button_released"));
     start.setFonts(game.assets.getFont("font"), game.assets.getFont("font"));
     start.body.setScale(1.5f, 1.5f);

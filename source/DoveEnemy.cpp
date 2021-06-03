@@ -6,16 +6,9 @@ DoveEnemy::DoveEnemy(mke::AssetManager& assets, sf::RenderWindow& win, mke::Delt
     movement_speed = 50.f;
     radius_to_mother_ship = 250.f;
     damage = 2.5f;
-    loadAssets();
     setupAnimation();
     setupSprite();
     setupShootingAbility();
-}
-
-void DoveEnemy::loadAssets()
-{
-    assets.loadTexture("dove_enemy", "assets/spaceships/Dove.png");
-    assets.loadTexture("long_bullets", "assets/bullets/long_bullets.png");
 }
 
 void DoveEnemy::setupAnimation()
@@ -45,7 +38,7 @@ void DoveEnemy::setupShootingAbility()
 
 void DoveEnemy::onSpawn()
 {
-    rotation =  mke::utility::toDeg(atan2(win.getSize().y / 2 - sprite.getPosition().y, win.getSize().x / 2 - sprite.getPosition().x));
+    rotation = mke::utility::toDeg(atan2(win.getSize().y / 2 - sprite.getPosition().y, win.getSize().x / 2 - sprite.getPosition().x));
     sprite.setRotation(rotation + 90.f);
     shooting_ability.rotation = rotation;
 }

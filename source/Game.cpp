@@ -7,9 +7,31 @@ Game::Game() :
     game_settings("data/data.dat")
 {
     win.setFramerateLimit(60);
-    assets.loadFont("font", "assets/fonts/nulshock bd.ttf");
+    loadAssets();
     setupFpsCounter();
     states.push(std::make_unique<MainMenuState>(*this));
+}
+
+void Game::loadAssets()
+{
+    assets.loadFont("font", "assets/fonts/nulshock bd.ttf");
+
+    assets.loadTexture("background1", "assets/backgrounds/purple_nebula.png");
+    assets.loadTexture("background2", "assets/backgrounds/blue_nebula.png");
+    assets.loadTexture("background3", "assets/backgrounds/pink_nebula.png");
+    assets.loadTexture("background4", "assets/backgrounds/white_nebula.png");
+
+    assets.loadTexture("button_pressed", "assets/buttons/button_pressed.png");
+    assets.loadTexture("button_released", "assets/buttons/button_released.png");
+
+    assets.loadTexture("explosion_texture", "assets/effects/explosion.png");
+    assets.loadSound("explosion_sound", "assets/sounds/explosion.wav");
+
+    assets.loadTexture("health_bar_empty", "assets/progress_bars/progress_fill_blue.png");
+    assets.loadTexture("health_bar_fill", "assets/progress_bars/progress_fill_lightblue.png");
+
+    assets.loadTexture("dove_enemy", "assets/spaceships/Dove.png");
+    assets.loadTexture("long_bullets", "assets/bullets/long_bullets.png");
 }
 
 void Game::setupFpsCounter()

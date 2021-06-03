@@ -36,8 +36,6 @@ void GameState::setupBackground()
 
 void GameState::setupMusic()
 {
-    game.assets.loadTexture("explosion_texture", "assets/effects/explosion.png");
-    game.assets.loadSound("explosion_sound", "assets/sounds/explosion.wav");
     game.assets.getSound("explosion_sound").setVolume(game.game_settings.game_volume);
     music.setLoop(1);
     music.setVolume(game.game_settings.music_volume);
@@ -47,8 +45,6 @@ void GameState::setupMusic()
 
 void GameState::setupHealthBar()
 {
-    game.assets.loadTexture("health_bar_empty", "assets/progress_bars/progress_fill_blue.png");
-    game.assets.loadTexture("health_bar_fill", "assets/progress_bars/progress_fill_lightblue.png");
     health_bar.setTextures(game.assets.getTexture("health_bar_empty"), game.assets.getTexture("health_bar_fill"));
     health_bar.setPosition(sf::Vector2f(game.win.getSize().x / 2, 25.f));
 }

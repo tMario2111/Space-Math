@@ -15,7 +15,6 @@ public:
     void onSpawn();
     void update();
 private:
-    void loadAssets();
     void setupAnimation();
     void setupSprite();
     void setupShootingAbility();

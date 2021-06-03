@@ -23,6 +23,7 @@ public:
     bool showing_fps = 0;
     void run();
 private:
+    void loadAssets();
     void setupFpsCounter();
     void winEvents();
 };

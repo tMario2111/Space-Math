@@ -100,6 +100,8 @@
 		<Unit filename="source/GameState.h" />
 		<Unit filename="source/LevelSelectState.cpp" />
 		<Unit filename="source/LevelSelectState.h" />
+		<Unit filename="source/LighterEnemy.cpp" />
+		<Unit filename="source/LighterEnemy.h" />
 		<Unit filename="source/MainMenuState.cpp" />
 		<Unit filename="source/MainMenuState.h" />
 		<Unit filename="source/MotherShip.cpp" />

@@ -9,6 +9,7 @@ GameState::GameState(Game& game, Background& background, unsigned int level) :
 {
     name = "Game";
     setupBackground();
+    setupEnemiesRenderStates();
     setupMusic();
     setupHealthBar();
     spawnEnemy();
@@ -17,19 +18,27 @@ GameState::GameState(Game& game, Background& background, unsigned int level) :
 
 void GameState::setupBackground()
 {
-    switch (level)
+    background.setTexture(game.assets.getTexture("background" + std::to_string(level)));
+}
+
+void GameState::setupEnemiesRenderStates()
+{
+    switch(level)
     {
     case 1:
-        background.setTexture(game.assets.getTexture("background1"));
+        enemies_render_states.texture = &game.assets.getTexture("dove_enemy");
         break;
     case 2:
-        background.setTexture(game.assets.getTexture("background2"));
+        enemies_render_states.texture = &game.assets.getTexture("lighter_enemy");
         break;
     case 3:
-        background.setTexture(game.assets.getTexture("background3"));
+        enemies_render_states.texture = &game.assets.getTexture("lighter_enemy");
         break;
     case 4:
-        background.setTexture(game.assets.getTexture("background4"));
+        enemies_render_states.texture = &game.assets.getTexture("lighter_enemy");
+        break;
+    default:
+        enemies_render_states.texture = &game.assets.getTexture("dove_enemy");
         break;
     }
 }
@@ -190,28 +199,9 @@ void GameState::update()
 void GameState::render()
 {
     game.win.draw(background);
-    sf::RenderStates enemy_texture;
-    switch(level)
-    {
-    case 1:
-        enemy_texture.texture = &game.assets.getTexture("dove_enemy");
-        break;
-    case 2:
-        enemy_texture.texture = &game.assets.getTexture("lighter_enemy");
-        break;
-    case 3:
-        enemy_texture.texture = &game.assets.getTexture("dove_enemy");
-        break;
-    case 4:
-        enemy_texture.texture = &game.assets.getTexture("dove_enemy");
-        break;
-    default:
-        enemy_texture.texture = &game.assets.getTexture("dove_enemy");
-        break;
-    }
-    game.win.draw(enemies_batch, enemy_texture);
-    game.win.draw(mother_ship);
     game.win.draw(bullets_batch, sf::RenderStates(&game.assets.getTexture("long_bullets")));
+    game.win.draw(enemies_batch, enemies_render_states);
+    game.win.draw(mother_ship);
     for (auto& i : enemies)
         game.win.draw(i.get()->explosion);
     game.win.draw(health_bar);

@@ -626,7 +626,7 @@
 	"Background.h"
 	"Button.h"
 
-1622395816 c:\users\mario\downloads\c++ projects\space-math\source\gamestate.h
+1622741413 c:\users\mario\downloads\c++ projects\space-math\source\gamestate.h
 	<SFML/Graphics.hpp>
 	<SFML/Audio.hpp>
 	"../MKE/MKE.h"
@@ -638,6 +638,7 @@
 	"MotherShip.h"
 	"Enemy.h"
 	"DoveEnemy.h"
+	"LighterEnemy.h"
 	"ProgressBar.h"
 	"Equations.h"
 	"PauseMenuState.h"
@@ -702,7 +703,7 @@
 	"Button.h"
 	"GameState.h"
 
-1620990127 c:\users\mario\downloads\c++ projects\space-math\source\settingsstate.h
+1622734373 c:\users\mario\downloads\c++ projects\space-math\source\settingsstate.h
 	<SFML/Graphics.hpp>
 	"../MKE/MKE.h"
 	"Background.h"
@@ -756,7 +757,7 @@
 1622706318 source:c:\users\mario\downloads\c++ projects\space-math\source\equations.cpp
 	"Equations.h"
 
-1622713066 source:c:\users\mario\downloads\c++ projects\space-math\source\game.cpp
+1622741268 source:c:\users\mario\downloads\c++ projects\space-math\source\game.cpp
 	"Game.h"
 
 1622651287 source:c:\users\mario\downloads\c++ projects\space-math\source\gameoverstate.cpp
@@ -765,7 +766,7 @@
 1622651287 source:c:\users\mario\downloads\c++ projects\space-math\source\gamesettings.cpp
 	"GameSettings.h"
 
-1622712950 source:c:\users\mario\downloads\c++ projects\space-math\source\gamestate.cpp
+1622741792 source:c:\users\mario\downloads\c++ projects\space-math\source\gamestate.cpp
 	"GameState.h"
 
 1622651287 source:c:\users\mario\downloads\c++ projects\space-math\source\levelselectstate.cpp
@@ -783,7 +784,7 @@
 1620921565 source:c:\users\mario\downloads\c++ projects\space-math\source\progressbar.cpp
 	"ProgressBar.h"
 
-1622276999 source:c:\users\mario\downloads\c++ projects\space-math\source\settingsstate.cpp
+1622734373 source:c:\users\mario\downloads\c++ projects\space-math\source\settingsstate.cpp
 	"SettingsState.h"
 
 1620891389 source:c:\users\mario\downloads\c++ projects\space-math\source\shootingability.cpp
@@ -1614,5 +1615,15 @@
 	"ShootingAbility.h"
 
 1622725980 source:c:\users\bogdan\documents\github\space-math\source\lighterenemy.cpp
+	"LighterEnemy.h"
+
+1622734373 c:\users\mario\downloads\c++ projects\space-math\source\lighterenemy.h
+	<SFML/Graphics.hpp>
+	"../MKE/MKE.h"
+	<cmath>
+	"Enemy.h"
+	"ShootingAbility.h"
+
+1622734373 source:c:\users\mario\downloads\c++ projects\space-math\source\lighterenemy.cpp
 	"LighterEnemy.h"
 

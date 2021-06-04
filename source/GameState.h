@@ -43,9 +43,11 @@ private:
     sf::Time music_timestamp;
     std::vector<std::unique_ptr<Enemy>> enemies;
     mke::SpriteBatch enemies_batch;
+    sf::RenderStates enemies_render_states;
     mke::SpriteBatch bullets_batch;
     Equations equations;
     void setupBackground();
+    void setupEnemiesRenderStates();
     void setupMusic();
     void setupHealthBar();
     void setupScore();

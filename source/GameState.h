@@ -14,6 +14,8 @@
 #include "Enemy.h"
 #include "DoveEnemy.h"
 #include "LighterEnemy.h"
+#include "ParanoidEnemy.h"
+#include "UFOEnemy.h"
 #include "ProgressBar.h"
 #include "Equations.h"
 #include "PauseMenuState.h"
@@ -44,10 +46,12 @@ private:
     std::vector<std::unique_ptr<Enemy>> enemies;
     mke::SpriteBatch enemies_batch;
     sf::RenderStates enemies_render_states;
+    sf::RenderStates bullets_render_states;
     mke::SpriteBatch bullets_batch;
     Equations equations;
     void setupBackground();
     void setupEnemiesRenderStates();
+    void setupBulletsRenderStates();
     void setupMusic();
     void setupHealthBar();
     void setupScore();

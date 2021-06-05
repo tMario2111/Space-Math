@@ -46,6 +46,7 @@ void ShootingAbility::movement()
         velocity.x = bullet_speed * cos(mke::utility::toRad(rotation)) * dt.get().asSeconds();
         velocity.y = bullet_speed * sin(mke::utility::toRad(rotation)) * dt.get().asSeconds();
         i.move(velocity);
+        i.rotate(rotation_speed * dt.get().asSeconds());
     }
 }
 

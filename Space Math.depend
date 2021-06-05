@@ -1438,7 +1438,7 @@
 	"Background.h"
 	"Button.h"
 
-1622726102 c:\users\bogdan\documents\github\space-math\source\gamestate.h
+1622890075 c:\users\bogdan\documents\github\space-math\source\gamestate.h
 	<SFML/Graphics.hpp>
 	<SFML/Audio.hpp>
 	"../MKE/MKE.h"
@@ -1451,6 +1451,8 @@
 	"Enemy.h"
 	"DoveEnemy.h"
 	"LighterEnemy.h"
+	"ParanoidEnemy.h"
+	"UFOEnemy.h"
 	"ProgressBar.h"
 	"Equations.h"
 	"PauseMenuState.h"
@@ -1472,7 +1474,7 @@
 	"../MKE/MKE.h"
 	"ShootingAbility.h"
 
-1622643900 c:\users\bogdan\documents\github\space-math\source\shootingability.h
+1622890866 c:\users\bogdan\documents\github\space-math\source\shootingability.h
 	<SFML/Graphics.hpp>
 	"../MKE/MKE.h"
 	<vector>
@@ -1566,7 +1568,7 @@
 1622645130 source:c:\users\bogdan\documents\github\space-math\source\equations.cpp
 	"Equations.h"
 
-1622724874 source:c:\users\bogdan\documents\github\space-math\source\game.cpp
+1622889684 source:c:\users\bogdan\documents\github\space-math\source\game.cpp
 	"Game.h"
 
 1622646117 source:c:\users\bogdan\documents\github\space-math\source\gameoverstate.cpp
@@ -1575,7 +1577,7 @@
 1622645899 source:c:\users\bogdan\documents\github\space-math\source\gamesettings.cpp
 	"GameSettings.h"
 
-1622726120 source:c:\users\bogdan\documents\github\space-math\source\gamestate.cpp
+1622890035 source:c:\users\bogdan\documents\github\space-math\source\gamestate.cpp
 	"GameState.h"
 
 1622647249 source:c:\users\bogdan\documents\github\space-math\source\levelselectstate.cpp
@@ -1596,7 +1598,7 @@
 1622724155 source:c:\users\bogdan\documents\github\space-math\source\settingsstate.cpp
 	"SettingsState.h"
 
-1622643900 source:c:\users\bogdan\documents\github\space-math\source\shootingability.cpp
+1622890871 source:c:\users\bogdan\documents\github\space-math\source\shootingability.cpp
 	"ShootingAbility.h"
 
 1622643900 source:c:\users\bogdan\documents\github\space-math\tinyxml2.cpp
@@ -1614,7 +1616,7 @@
 	"Enemy.h"
 	"ShootingAbility.h"
 
-1622725980 source:c:\users\bogdan\documents\github\space-math\source\lighterenemy.cpp
+1622726333 source:c:\users\bogdan\documents\github\space-math\source\lighterenemy.cpp
 	"LighterEnemy.h"
 
 1622734373 c:\users\mario\downloads\c++ projects\space-math\source\lighterenemy.h
@@ -1626,4 +1628,24 @@
 
 1622734373 source:c:\users\mario\downloads\c++ projects\space-math\source\lighterenemy.cpp
 	"LighterEnemy.h"
+
+1622891118 source:c:\users\bogdan\documents\github\space-math\source\paranoidenemy.cpp
+	"ParanoidEnemy.h"
+
+1622888661 c:\users\bogdan\documents\github\space-math\source\paranoidenemy.h
+	<SFML/Graphics.hpp>
+	"../MKE/MKE.h"
+	<cmath>
+	"Enemy.h"
+	"ShootingAbility.h"
+
+1622889787 c:\users\bogdan\documents\github\space-math\source\ufoenemy.h
+	<SFML/Graphics.hpp>
+	"../MKE/MKE.h"
+	<cmath>
+	"Enemy.h"
+	"ShootingAbility.h"
+
+1622890866 source:c:\users\bogdan\documents\github\space-math\source\ufoenemy.cpp
+	"UFOEnemy.h"
 

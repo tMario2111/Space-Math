@@ -10,8 +10,9 @@ class ShootingAbility
 {
 public:
     ShootingAbility(sf::RenderWindow& win, mke::DeltaTime& dt);
+    float rotation_speed = 0.f;
     float bullet_speed;
-    unsigned int shooting_speed;
+    float shooting_speed;
     float rotation;
     sf::Vector2f scale;
     std::vector<sf::Sprite> bullets;

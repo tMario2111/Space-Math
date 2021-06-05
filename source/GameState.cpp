@@ -10,6 +10,7 @@ GameState::GameState(Game& game, Background& background, unsigned int level) :
     name = "Game";
     setupBackground();
     setupEnemiesRenderStates();
+    setupBulletsRenderStates();
     setupMusic();
     setupHealthBar();
     spawnEnemy();
@@ -32,13 +33,33 @@ void GameState::setupEnemiesRenderStates()
         enemies_render_states.texture = &game.assets.getTexture("lighter_enemy");
         break;
     case 3:
-        enemies_render_states.texture = &game.assets.getTexture("lighter_enemy");
+        enemies_render_states.texture = &game.assets.getTexture("paranoid_enemy");
         break;
     case 4:
-        enemies_render_states.texture = &game.assets.getTexture("lighter_enemy");
+        enemies_render_states.texture = &game.assets.getTexture("ufo_enemy");
         break;
     default:
-        enemies_render_states.texture = &game.assets.getTexture("dove_enemy");
+        break;
+    }
+}
+
+void GameState::setupBulletsRenderStates()
+{
+    switch(level)
+    {
+    case 1:
+        bullets_render_states.texture = &game.assets.getTexture("long_bullets");
+        break;
+    case 2:
+        bullets_render_states.texture = &game.assets.getTexture("long_bullets");
+        break;
+    case 3:
+        bullets_render_states.texture = &game.assets.getTexture("rocket_bullet");
+        break;
+    case 4:
+        bullets_render_states.texture = &game.assets.getTexture("star_bullets");
+        break;
+    default:
         break;
     }
 }
@@ -77,10 +98,10 @@ void GameState::spawnEnemy()
         new_enemy = std::make_unique<LighterEnemy>(game.assets, game.win, game.dt);
         break;
     case 3:
-        new_enemy = std::make_unique<LighterEnemy>(game.assets, game.win, game.dt);
+        new_enemy = std::make_unique<ParanoidEnemy>(game.assets, game.win, game.dt);
         break;
     case 4:
-        new_enemy = std::make_unique<LighterEnemy>(game.assets, game.win, game.dt);
+        new_enemy = std::make_unique<UFOEnemy>(game.assets, game.win, game.dt);
         break;
     default:
         break;
@@ -199,7 +220,7 @@ void GameState::update()
 void GameState::render()
 {
     game.win.draw(background);
-    game.win.draw(bullets_batch, sf::RenderStates(&game.assets.getTexture("long_bullets")));
+    game.win.draw(bullets_batch, bullets_render_states);
     game.win.draw(enemies_batch, enemies_render_states);
     game.win.draw(mother_ship);
     for (auto& i : enemies)

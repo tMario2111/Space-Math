@@ -32,9 +32,9 @@ void UFOEnemy::setupShootingAbility()
     shooting_ability.shooting_speed = 0.5f;
     shooting_ability.rotation_speed = 720.f;
     shooting_ability.scale = sf::Vector2f(0.65f, 0.65f);
-    sf::Texture& texture = assets.getTexture("star_bullets");
+    sf::Texture& texture = assets.getTexture("star_bullet");
     shooting_ability.setTexture(texture);
-    shooting_ability.setTextureRect(sf::IntRect(texture.getSize().x / 5 * 3, 0, texture.getSize().x / 5, texture.getSize().y));
+    shooting_ability.setTextureRect(sf::IntRect(0, 0, texture.getSize().x, texture.getSize().y));
 }
 
 void UFOEnemy::onSpawn()

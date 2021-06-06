@@ -36,7 +36,7 @@ void Game::loadAssets()
     assets.loadTexture("paranoid_enemy", "assets/spaceships/Paranoid.png");
     assets.loadTexture("rocket_bullet", "assets/bullets/rocket_green.png");
     assets.loadTexture("ufo_enemy", "assets/spaceships/UFO.png");
-    assets.loadTexture("star_bullets", "assets/bullets/stars.png");
+    assets.loadTexture("star_bullet", "assets/bullets/star.png");
 }
 
 void Game::setupFpsCounter()

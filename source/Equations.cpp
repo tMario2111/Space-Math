@@ -7,7 +7,7 @@ Equations::Equations(mke::AssetManager& assets, sf::RenderWindow& win, mke::Rand
     input(input),
     dt(dt),
     level(level),
-    frame(sf::Vector2f(600.f, 100.f))
+    frame(sf::Vector2f(700.f, 100.f))
 {
     setupFrame();
     setupTexts();
@@ -18,6 +18,8 @@ void Equations::setupFrame()
 {
     frame.setOrigin(frame.getLocalBounds().width / 2, frame.getLocalBounds().height / 2);
     frame.setFillColor(sf::Color(114, 107, 146));
+    frame.setOutlineThickness(5.f);
+    frame.setOutlineColor(sf::Color::Black);
     frame.setPosition(win.getSize().x / 2, win.getSize().y / 1.1f);
 }
 

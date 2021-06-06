@@ -106,6 +106,7 @@
 		<Unit filename="source/MainMenuState.h" />
 		<Unit filename="source/MotherShip.cpp" />
 		<Unit filename="source/MotherShip.h" />
+		<Unit filename="source/ParanoidEnemy.cpp" />
 		<Unit filename="source/PauseMenuState.cpp" />
 		<Unit filename="source/PauseMenuState.h" />
 		<Unit filename="source/ProgressBar.cpp" />
@@ -114,6 +115,7 @@
 		<Unit filename="source/SettingsState.h" />
 		<Unit filename="source/ShootingAbility.cpp" />
 		<Unit filename="source/ShootingAbility.h" />
+		<Unit filename="source/UFOEnemy.cpp" />
 		<Unit filename="tinyxml2.cpp" />
 		<Unit filename="tinyxml2.h" />
 		<Extensions>

@@ -57,7 +57,7 @@ void GameState::setupBulletsRenderStates()
         bullets_render_states.texture = &game.assets.getTexture("rocket_bullet");
         break;
     case 4:
-        bullets_render_states.texture = &game.assets.getTexture("star_bullets");
+        bullets_render_states.texture = &game.assets.getTexture("star_bullet");
         break;
     default:
         break;

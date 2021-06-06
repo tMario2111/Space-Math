@@ -208,7 +208,7 @@ void GameState::update()
     collisionBulletsMothership();
     deleteEnemies();
     score_text.setString("score: " + std::to_string(score));
-    enemy_spawn_delay = 5.f - (score / 25.f);
+    enemy_spawn_delay = DEFAULT_ENEMY_SPAWN_DELAY - (score / 25.f);
     gameOverEvent();
     enemies_batch.clear();
     for (auto& i : enemies)

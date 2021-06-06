@@ -37,7 +37,8 @@ private:
     MotherShip mother_ship;
     const float ENEMY_SPAWN_MARGIN = 100.f;
     float enemies_spawn_clock = 0;
-    float enemy_spawn_delay = 5.f;
+    float enemy_spawn_delay = 7.5f;
+    const float DEFAULT_ENEMY_SPAWN_DELAY = 7.5f;
     unsigned int score = 0;
     sf::Text score_text;
     ProgressBar health_bar;

@@ -3,7 +3,7 @@
 DoveEnemy::DoveEnemy(mke::AssetManager& assets, sf::RenderWindow& win, mke::DeltaTime& dt) :
     Enemy(assets, win, dt)
 {
-    movement_speed = 50.f;
+    movement_speed = win.getSize().x * win.getSize().y / 41472.f;
     radius_to_mother_ship = 250.f;
     damage = 2.5f;
     setupAnimation();

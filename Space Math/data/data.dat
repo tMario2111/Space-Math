@@ -1,0 +1,12 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<high_scores>
+    <level1>34</level1>
+    <level2>7</level2>
+    <level3>13</level3>
+    <level4>45</level4>
+</high_scores>
+
+<settings>
+    <game_volume>85</game_volume>
+    <music_volume>30</music_volume>
+</settings>

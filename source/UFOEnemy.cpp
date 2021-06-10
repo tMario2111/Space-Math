@@ -3,7 +3,7 @@
 UFOEnemy::UFOEnemy(mke::AssetManager& assets, sf::RenderWindow& win, mke::DeltaTime& dt) :
 Enemy(assets, win, dt)
 {
-    movement_speed = 40.f;
+    movement_speed = win.getSize().x * win.getSize().y / 51840.f;
     radius_to_mother_ship = 275.f;
     damage = 0.75f;
     setupAnimation();

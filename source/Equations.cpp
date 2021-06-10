@@ -224,7 +224,7 @@ void Equations::update()
         result_string = result_string.substr(0, result_string.size() - 1);
     if (input.isKeyReleased(sf::Keyboard::S))
         result_string += "sqrt";
-    if ((input.isKeyReleased(sf::Keyboard::Slash)))
+    if (input.isKeyReleased(sf::Keyboard::Slash) || input.isKeyReleased(sf::Keyboard::Divide))
         result_string += "/";
     if (input.isKeyReleased(sf::Keyboard::Dash) || input.isKeyReleased(sf::Keyboard::Subtract))
         result_string += "-";

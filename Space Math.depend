@@ -750,7 +750,7 @@
 1622276445 source:c:\users\mario\downloads\c++ projects\space-math\source\button.cpp
 	"Button.h"
 
-1622713221 source:c:\users\mario\downloads\c++ projects\space-math\source\doveenemy.cpp
+1623217651 source:c:\users\mario\downloads\c++ projects\space-math\source\doveenemy.cpp
 	"DoveEnemy.h"
 
 1620987213 source:c:\users\mario\downloads\c++ projects\space-math\source\enemy.cpp
@@ -759,7 +759,7 @@
 1622980917 source:c:\users\mario\downloads\c++ projects\space-math\source\equations.cpp
 	"Equations.h"
 
-1622980698 source:c:\users\mario\downloads\c++ projects\space-math\source\game.cpp
+1623218561 source:c:\users\mario\downloads\c++ projects\space-math\source\game.cpp
 	"Game.h"
 
 1622651287 source:c:\users\mario\downloads\c++ projects\space-math\source\gameoverstate.cpp
@@ -1628,7 +1628,7 @@
 	"Enemy.h"
 	"ShootingAbility.h"
 
-1622734373 source:c:\users\mario\downloads\c++ projects\space-math\source\lighterenemy.cpp
+1623218224 source:c:\users\mario\downloads\c++ projects\space-math\source\lighterenemy.cpp
 	"LighterEnemy.h"
 
 1622891118 source:c:\users\bogdan\documents\github\space-math\source\paranoidenemy.cpp
@@ -1665,9 +1665,11 @@
 	"Enemy.h"
 	"ShootingAbility.h"
 
-1622916170 source:c:\users\mario\downloads\c++ projects\space-math\source\paranoidenemy.cpp
+1623218291 source:c:\users\mario\downloads\c++ projects\space-math\source\paranoidenemy.cpp
 	"ParanoidEnemy.h"
 
-1622980786 source:c:\users\mario\downloads\c++ projects\space-math\source\ufoenemy.cpp
+1623218318 source:c:\users\mario\downloads\c++ projects\space-math\source\ufoenemy.cpp
 	"UFOEnemy.h"
+
+1623218974 source:c:\users\mario\downloads\c++ projects\space-math\icon.rc
 

@@ -79,6 +79,9 @@
 		<Unit filename="MKE/StateMachine.h" />
 		<Unit filename="MKE/Utility.cpp" />
 		<Unit filename="MKE/Utility.h" />
+		<Unit filename="icon.rc">
+			<Option compilerVar="WINDRES" />
+		</Unit>
 		<Unit filename="main.cpp" />
 		<Unit filename="source/Background.cpp" />
 		<Unit filename="source/Background.h" />

@@ -4,7 +4,7 @@
 LighterEnemy::LighterEnemy(mke::AssetManager& assets, sf::RenderWindow& win, mke::DeltaTime& dt) :
     Enemy(assets, win, dt)
 {
-    movement_speed = 25.f;
+    movement_speed = win.getSize().x * win.getSize().y / 82944.f;
     radius_to_mother_ship = 400.f;
     damage = 4.f;
     setupAnimation();

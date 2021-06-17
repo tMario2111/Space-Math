@@ -26,12 +26,14 @@ private:
     sf::Text high_score_level2;
     sf::Text high_score_level3;
     sf::Text high_score_level4;
+    sf::Text instructions;
     Button level1;
     Button level2;
     Button level3;
     Button level4;
     void setupTitle();
     void setupHighScores();
+    void setupInstructions();
     void setupButtons();
 };
 

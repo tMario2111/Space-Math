@@ -1,7 +1,7 @@
 #include "Game.h"
 
 Game::Game() :
-    win(sf::VideoMode(1920, 1080), "Space Math", sf::Style::Fullscreen),
+    win(sf::VideoMode::getDesktopMode(), "Space Math", sf::Style::Fullscreen),
     assets(win),
     random(time(0)),
     game_settings("data/data.dat")

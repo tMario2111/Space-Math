@@ -8,6 +8,7 @@ LevelSelectState::LevelSelectState(Game& game, Background& background) :
     setupTitle();
     setupButtons();
     setupHighScores();
+    setupInstructions();
 }
 
 void LevelSelectState::setupTitle()
@@ -48,6 +49,16 @@ void LevelSelectState::setupHighScores()
     high_score_level4.setOrigin(0, high_score_level4.getLocalBounds().height / 2);
     high_score_level4.setPosition(level4.body.getPosition().x + level4.body.getGlobalBounds().width / 2 + 50.f, 0.f);
     mke::utility::centerYAxis(high_score_level4, level4.body.getGlobalBounds().top, level4.body.getGlobalBounds().top + level4.body.getGlobalBounds().height);
+}
+
+void LevelSelectState::setupInstructions()
+{
+    instructions.setFont(game.assets.getFont("font"));
+    instructions.setCharacterSize(20);
+    instructions.setString(game.game_settings.doc.FirstChildElement("strings")->FirstChildElement("instructions")->GetText());
+    instructions.setOrigin(instructions.getLocalBounds().width / 2, instructions.getLocalBounds().height / 2 );
+    instructions.setPosition(game.win.getSize().x / 4, game.win.getSize().y / 2);
+    mke::utility::centerBothAxes(instructions, 0, level1.body.getGlobalBounds().left, 0, game.win.getSize().y);
 }
 
 void LevelSelectState::setupButtons()
@@ -114,4 +125,5 @@ void LevelSelectState::render()
     game.win.draw(high_score_level3);
     game.win.draw(level4);
     game.win.draw(high_score_level4);
+    game.win.draw(instructions);
 }

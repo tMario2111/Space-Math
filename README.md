@@ -1,10 +1,17 @@
 # Space Math
 :)
 TODO
+
 -instructions DONE
--red flash(damage)
+
+-red flash(damage) DONE
+
 -menu music
--textures(nava mama, butoane, tot:) )
+
+-textures
+
 -equations history
+
 -abilities
+
 -bosses

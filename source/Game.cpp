@@ -7,6 +7,7 @@ Game::Game() :
     game_settings("data/data.dat")
 {
     win.setFramerateLimit(60);
+    win.setVerticalSyncEnabled(1);
     loadAssets();
     setupFpsCounter();
     states.push(std::make_unique<MainMenuState>(*this));

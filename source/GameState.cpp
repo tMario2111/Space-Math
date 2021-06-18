@@ -5,7 +5,8 @@ GameState::GameState(Game& game, Background& background, unsigned int level) :
     background(background),
     level(level),
     mother_ship(game.assets, game.win, game.dt),
-    equations(game.assets, game.win, game.random, game.input, game.dt, level)
+    equations(game.assets, game.win, game.random, game.input, game.dt, level),
+    damage_effect(static_cast<sf::Vector2f>(game.win.getSize()))
 {
     name = "Game";
     setupBackground();
@@ -15,6 +16,7 @@ GameState::GameState(Game& game, Background& background, unsigned int level) :
     setupHealthBar();
     spawnEnemy();
     setupScore();
+    setupDamageEffect();
 }
 
 void GameState::setupBackground()
@@ -84,6 +86,12 @@ void GameState::setupScore()
     score_text.setFont(game.assets.getFont("font"));
     score_text.setCharacterSize(40);
     score_text.setPosition(10.f, 10.f);
+}
+
+void GameState::setupDamageEffect()
+{
+    damage_effect.setFillColor(sf::Color(255, 0, 0, 0));
+    damage_effect.setPosition(0.f, 0.f);
 }
 
 void GameState::spawnEnemy()
@@ -159,6 +167,7 @@ void GameState::collisionBulletsMothership()
             {
                 enemies[i].get()->shooting_ability.bullets.erase(enemies[i].get()->shooting_ability.bullets.begin() + j--);
                 mother_ship.HP -= enemies[i].get()->damage;
+                damage_effect.setFillColor(sf::Color(255, 0, 0, 80));
             }
 }
 
@@ -187,6 +196,18 @@ void GameState::deleteEnemies()
         }
 }
 
+void GameState::updateDamageEffect()
+{
+    int opacity = damage_effect.getFillColor().a;
+    if (opacity == 0)
+        return;
+    const unsigned int DECREMENT = 160.f;
+    opacity -= DECREMENT * game.dt.get().asSeconds();
+    opacity = opacity < 0 ? 0 : opacity;
+    damage_effect.setFillColor(sf::Color(damage_effect.getFillColor().r, damage_effect.getFillColor().g, damage_effect.getFillColor().b,
+                                         opacity));
+}
+
 void GameState::update()
 {
     if (music.getStatus() == sf::Music::Stopped)
@@ -210,6 +231,7 @@ void GameState::update()
     score_text.setString("score: " + std::to_string(score));
     enemy_spawn_delay = DEFAULT_ENEMY_SPAWN_DELAY - (score / 25.f);
     gameOverEvent();
+    updateDamageEffect();
     enemies_batch.clear();
     for (auto& i : enemies)
         if (!i.get()->going_to_die)
@@ -225,6 +247,7 @@ void GameState::render()
     game.win.draw(mother_ship);
     for (auto& i : enemies)
         game.win.draw(i.get()->explosion);
+    game.win.draw(damage_effect);
     game.win.draw(health_bar);
     game.win.draw(equations);
     game.win.draw(score_text);

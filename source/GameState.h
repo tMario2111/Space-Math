@@ -50,12 +50,14 @@ private:
     sf::RenderStates bullets_render_states;
     mke::SpriteBatch bullets_batch;
     Equations equations;
+    sf::RectangleShape damage_effect;
     void setupBackground();
     void setupEnemiesRenderStates();
     void setupBulletsRenderStates();
     void setupMusic();
     void setupHealthBar();
     void setupScore();
+    void setupDamageEffect();
     void pauseMenuEvent();
     void gameOverEvent();
     void spawnEnemy();
@@ -63,6 +65,7 @@ private:
     void deleteEnemies();
     void addBulletsToBatch();
     void collisionBulletsMothership();
+    void updateDamageEffect();
 };
 
 #endif

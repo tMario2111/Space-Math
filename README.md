@@ -2,9 +2,9 @@
 :)
 TODO
 
--instructions DONE
+-instructions [DONE] 
 
--red flash(damage) DONE
+-red flash(damage) [DONE] 
 
 -menu music
 

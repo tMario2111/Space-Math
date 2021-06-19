@@ -17,7 +17,6 @@ public:
 private:
     sf::Sprite empty_bar;
     sf::Sprite filled_bar;
-    sf::Font& font;
     sf::Text text;
     void draw(sf::RenderTarget& target, sf::RenderStates states) const;
 };

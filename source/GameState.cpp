@@ -5,9 +5,9 @@ GameState::GameState(Game& game, Background& background, unsigned int level) :
     background(background),
     level(level),
     mother_ship(game.assets, game.win, game.dt),
+    health_bar(game.assets.getFont("font")),
     equations(game.assets, game.win, game.random, game.input, game.dt, level),
-    damage_effect(static_cast<sf::Vector2f>(game.win.getSize())),
-    health_bar(game.assets.getFont("font"))
+    damage_effect(static_cast<sf::Vector2f>(game.win.getSize()))
 {
     name = "Game";
     setupBackground();
@@ -237,7 +237,7 @@ void GameState::update()
     for (auto& i : enemies)
         if (!i.get()->going_to_die)
             enemies_batch.append(i.get()->sprite);
-    addBulletsToBatch();
+    addBulletsToBatch();;
 }
 
 void GameState::render()

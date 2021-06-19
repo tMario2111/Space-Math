@@ -671,7 +671,7 @@
 	<vector>
 	<cmath>
 
-1622651287 c:\users\mario\downloads\c++ projects\space-math\source\equations.h
+1624124137 c:\users\mario\downloads\c++ projects\space-math\source\equations.h
 	<SFML/Graphics.hpp>
 	"../MKE/MKE.h"
 	<string>
@@ -684,8 +684,10 @@
 	"Enemy.h"
 	"ShootingAbility.h"
 
-1620908912 c:\users\mario\downloads\c++ projects\space-math\source\progressbar.h
+1624124013 c:\users\mario\downloads\c++ projects\space-math\source\progressbar.h
 	<SFML/Graphics.hpp>
+	"../MKE/MKE.h"
+	<cmath>
 
 1620973339 c:\users\mario\downloads\c++ projects\space-math\source\pausemenustate.h
 	<SFML/Graphics.hpp>
@@ -756,10 +758,10 @@
 1620987213 source:c:\users\mario\downloads\c++ projects\space-math\source\enemy.cpp
 	"Enemy.h"
 
-1623253690 source:c:\users\mario\downloads\c++ projects\space-math\source\equations.cpp
+1624119953 source:c:\users\mario\downloads\c++ projects\space-math\source\equations.cpp
 	"Equations.h"
 
-1623999227 source:c:\users\mario\downloads\c++ projects\space-math\source\game.cpp
+1624119953 source:c:\users\mario\downloads\c++ projects\space-math\source\game.cpp
 	"Game.h"
 
 1622651287 source:c:\users\mario\downloads\c++ projects\space-math\source\gameoverstate.cpp
@@ -768,7 +770,7 @@
 1622651287 source:c:\users\mario\downloads\c++ projects\space-math\source\gamesettings.cpp
 	"GameSettings.h"
 
-1622988024 source:c:\users\mario\downloads\c++ projects\space-math\source\gamestate.cpp
+1624123980 source:c:\users\mario\downloads\c++ projects\space-math\source\gamestate.cpp
 	"GameState.h"
 
 1623999227 source:c:\users\mario\downloads\c++ projects\space-math\source\levelselectstate.cpp
@@ -783,7 +785,7 @@
 1620973724 source:c:\users\mario\downloads\c++ projects\space-math\source\pausemenustate.cpp
 	"PauseMenuState.h"
 
-1620921565 source:c:\users\mario\downloads\c++ projects\space-math\source\progressbar.cpp
+1624124021 source:c:\users\mario\downloads\c++ projects\space-math\source\progressbar.cpp
 	"ProgressBar.h"
 
 1622734373 source:c:\users\mario\downloads\c++ projects\space-math\source\settingsstate.cpp

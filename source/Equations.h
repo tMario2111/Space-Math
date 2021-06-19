@@ -45,6 +45,7 @@ private:
     std::string generateTrigonometry();
     std::string generateEverything();
     void generateQuestion();
+    void updateSkippedQuestionResultAlpha();
 };
 
 #endif

@@ -37,7 +37,7 @@ void Equations::setupTexts()
     skipped_question_result.setFont(assets.getFont("font"));
     skipped_question_result.setCharacterSize(20);
     skipped_question_result.setPosition(-1000.f, -1000.f);
-    skipped_question_result.setColor(sf::Color(255, 255, 255, 0));
+    skipped_question_result.setFillColor(sf::Color(255, 255, 255, 0));
 }
 
 std::string Equations::generateBasicMath()
@@ -207,6 +207,13 @@ void Equations::generateQuestion()
     this->equation.setString(str);
 }
 
+void Equations::updateSkippedQuestionResultAlpha()
+{
+    int alpha = skipped_question_result.getFillColor().a - skipped_question_result_decrement * dt.get().asSeconds();
+    alpha = alpha < 0 ? 0 : alpha;
+    skipped_question_result.setFillColor(sf::Color(255, 255, 255, alpha));
+}
+
 void Equations::update()
 {
     skip_clock += dt.get();
@@ -248,11 +255,7 @@ void Equations::update()
         skip_text.setString("PRESS ENTER TO SKIP");
     mke::utility::centerBothAxes(skip_text, frame.getPosition().x, frame.getPosition().x,
     frame.getPosition().y - frame.getGlobalBounds().height / 2, frame.getPosition().y - 25.f);
-    {
-        int x = skipped_question_result.getColor().a - skipped_question_result_decrement * dt.get().asSeconds();
-        x = x < 0 ? 0 : x;
-        skipped_question_result.setColor(sf::Color(255, 255, 255, x));
-    }
+    updateSkippedQuestionResultAlpha();
     if (remaining_time <= 0 && input.isKeyReleased(sf::Keyboard::Enter))
     {
         result_string.clear();
@@ -260,7 +263,7 @@ void Equations::update()
         skipped_question_result.setString("RIGHT ANSWER: " + result_value);
         skipped_question_result.setPosition(0.f, frame.getGlobalBounds().top - skipped_question_result.getGlobalBounds().height - 15.f);
         mke::utility::centerXAxis(skipped_question_result, frame.getGlobalBounds().left, frame.getGlobalBounds().left + frame.getGlobalBounds().width);
-        skipped_question_result.setColor(sf::Color(255, 255, 255, 255));
+        skipped_question_result.setFillColor(sf::Color(255, 255, 255, 255));
         generateQuestion();
     }
 

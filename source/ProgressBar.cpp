@@ -1,7 +1,6 @@
 #include "ProgressBar.h"
 
-ProgressBar::ProgressBar(sf::Font& font) :
-    font(font)
+ProgressBar::ProgressBar(sf::Font& font)
 {
     text.setFont(font);
     text.setCharacterSize(22);

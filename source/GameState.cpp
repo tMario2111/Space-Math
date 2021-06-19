@@ -6,7 +6,8 @@ GameState::GameState(Game& game, Background& background, unsigned int level) :
     level(level),
     mother_ship(game.assets, game.win, game.dt),
     equations(game.assets, game.win, game.random, game.input, game.dt, level),
-    damage_effect(static_cast<sf::Vector2f>(game.win.getSize()))
+    damage_effect(static_cast<sf::Vector2f>(game.win.getSize())),
+    health_bar(game.assets.getFont("font"))
 {
     name = "Game";
     setupBackground();
@@ -78,7 +79,7 @@ void GameState::setupMusic()
 void GameState::setupHealthBar()
 {
     health_bar.setTextures(game.assets.getTexture("health_bar_empty"), game.assets.getTexture("health_bar_fill"));
-    health_bar.setPosition(sf::Vector2f(game.win.getSize().x / 2, 25.f));
+    health_bar.setPosition(sf::Vector2f(game.win.getSize().x / 2, 55.f));
 }
 
 void GameState::setupScore()

@@ -1,6 +1,7 @@
 # Space Math
 :)
 TODO
+<<<<<<< Updated upstream
 
 -instructions [DONE] 
 
@@ -12,6 +13,14 @@ TODO
 
 -equations history
 
+=======
+-instructions DONE
+-red flash(damage) DONE
+-menu music
+-textures(nava mama, butoane, tot:) )
+-equations history DONE
+>>>>>>> Stashed changes
 -abilities
 
 -bosses
+-achievement

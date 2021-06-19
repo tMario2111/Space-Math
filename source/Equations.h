@@ -28,6 +28,8 @@ private:
     sf::Time skip_clock = sf::seconds(0.f);
     sf::Time skip_delay = sf::seconds(5.f);
     sf::Text skip_text;
+    sf::Text skipped_question_result;
+    const int skipped_question_result_decrement = 45;
     enum OperationType
     {
         Sum,

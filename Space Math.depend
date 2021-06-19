@@ -1440,7 +1440,7 @@
 	"Background.h"
 	"Button.h"
 
-1623078915 c:\users\bogdan\documents\github\space-math\source\gamestate.h
+1623996693 c:\users\bogdan\documents\github\space-math\source\gamestate.h
 	<SFML/Graphics.hpp>
 	<SFML/Audio.hpp>
 	"../MKE/MKE.h"
@@ -1482,7 +1482,7 @@
 	<vector>
 	<cmath>
 
-1622644857 c:\users\bogdan\documents\github\space-math\source\equations.h
+1624115905 c:\users\bogdan\documents\github\space-math\source\equations.h
 	<SFML/Graphics.hpp>
 	"../MKE/MKE.h"
 	<string>
@@ -1495,8 +1495,10 @@
 	"Enemy.h"
 	"ShootingAbility.h"
 
-1622643900 c:\users\bogdan\documents\github\space-math\source\progressbar.h
+1624113942 c:\users\bogdan\documents\github\space-math\source\progressbar.h
 	<SFML/Graphics.hpp>
+	"../MKE/MKE.h"
+	<cmath>
 
 1622643900 c:\users\bogdan\documents\github\space-math\source\pausemenustate.h
 	<SFML/Graphics.hpp>
@@ -1567,10 +1569,10 @@
 1622643900 source:c:\users\bogdan\documents\github\space-math\source\enemy.cpp
 	"Enemy.h"
 
-1623443252 source:c:\users\bogdan\documents\github\space-math\source\equations.cpp
+1624115845 source:c:\users\bogdan\documents\github\space-math\source\equations.cpp
 	"Equations.h"
 
-1623948377 source:c:\users\bogdan\documents\github\space-math\source\game.cpp
+1624111850 source:c:\users\bogdan\documents\github\space-math\source\game.cpp
 	"Game.h"
 
 1622646117 source:c:\users\bogdan\documents\github\space-math\source\gameoverstate.cpp
@@ -1579,7 +1581,7 @@
 1622645899 source:c:\users\bogdan\documents\github\space-math\source\gamesettings.cpp
 	"GameSettings.h"
 
-1623078915 source:c:\users\bogdan\documents\github\space-math\source\gamestate.cpp
+1624113741 source:c:\users\bogdan\documents\github\space-math\source\gamestate.cpp
 	"GameState.h"
 
 1623948202 source:c:\users\bogdan\documents\github\space-math\source\levelselectstate.cpp
@@ -1594,7 +1596,7 @@
 1622643900 source:c:\users\bogdan\documents\github\space-math\source\pausemenustate.cpp
 	"PauseMenuState.h"
 
-1622643900 source:c:\users\bogdan\documents\github\space-math\source\progressbar.cpp
+1624114098 source:c:\users\bogdan\documents\github\space-math\source\progressbar.cpp
 	"ProgressBar.h"
 
 1622724155 source:c:\users\bogdan\documents\github\space-math\source\settingsstate.cpp

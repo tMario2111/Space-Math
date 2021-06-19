@@ -28,8 +28,8 @@ void Game::loadAssets()
     assets.loadTexture("explosion_texture", "assets/effects/explosion.png");
     assets.loadSound("explosion_sound", "assets/sounds/explosion.wav");
 
-    assets.loadTexture("health_bar_empty", "assets/progress_bars/progress_fill_blue.png");
-    assets.loadTexture("health_bar_fill", "assets/progress_bars/progress_fill_lightblue.png");
+    assets.loadTexture("health_bar_empty", "assets/progress_bars/progress_empty.png");
+    assets.loadTexture("health_bar_fill", "assets/progress_bars/progress_fill.png");
 
     assets.loadTexture("dove_enemy", "assets/spaceships/Dove.png");
     assets.loadTexture("long_bullets", "assets/bullets/long_bullets.png");

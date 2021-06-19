@@ -34,6 +34,10 @@ void Equations::setupTexts()
     skip_text.setFont(assets.getFont("font"));
     skip_text.setCharacterSize(20);
     skip_text.setPosition(-1000.f, -1000.f);
+    skipped_question_result.setFont(assets.getFont("font"));
+    skipped_question_result.setCharacterSize(20);
+    skipped_question_result.setPosition(-1000.f, -1000.f);
+    skipped_question_result.setColor(sf::Color(255, 255, 255, 0));
 }
 
 std::string Equations::generateBasicMath()
@@ -243,11 +247,20 @@ void Equations::update()
     else
         skip_text.setString("PRESS ENTER TO SKIP");
     mke::utility::centerBothAxes(skip_text, frame.getPosition().x, frame.getPosition().x,
-                                 frame.getPosition().y - frame.getGlobalBounds().height / 2, frame.getPosition().y - 25.f);
+    frame.getPosition().y - frame.getGlobalBounds().height / 2, frame.getPosition().y - 25.f);
+    {
+        int x = skipped_question_result.getColor().a - skipped_question_result_decrement * dt.get().asSeconds();
+        x = x < 0 ? 0 : x;
+        skipped_question_result.setColor(sf::Color(255, 255, 255, x));
+    }
     if (remaining_time <= 0 && input.isKeyReleased(sf::Keyboard::Enter))
     {
         result_string.clear();
         skip_clock = sf::seconds(0.f);
+        skipped_question_result.setString("RIGHT ANSWER: " + result_value);
+        skipped_question_result.setPosition(0.f, frame.getGlobalBounds().top - skipped_question_result.getGlobalBounds().height - 15.f);
+        mke::utility::centerXAxis(skipped_question_result, frame.getGlobalBounds().left, frame.getGlobalBounds().left + frame.getGlobalBounds().width);
+        skipped_question_result.setColor(sf::Color(255, 255, 255, 255));
         generateQuestion();
     }
 
@@ -259,4 +272,5 @@ void Equations::draw(sf::RenderTarget& target, sf::RenderStates states) const
     target.draw(skip_text);
     target.draw(equation);
     target.draw(result);
+    target.draw(skipped_question_result);
 }

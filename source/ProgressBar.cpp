@@ -1,8 +1,10 @@
 #include "ProgressBar.h"
 
-ProgressBar::ProgressBar()
+ProgressBar::ProgressBar(sf::Font& font) :
+    font(font)
 {
-
+    text.setFont(font);
+    text.setCharacterSize(22);
 }
 
 void ProgressBar::setTextures(sf::Texture& t_empty, sf::Texture& t_fill)
@@ -26,7 +28,14 @@ void ProgressBar::setProgress(float percentage)
     else
         filled = 0;
     sf::Vector2u size = filled_bar.getTexture()->getSize();
-    filled_bar.setTextureRect(sf::IntRect(0, 0, percentage / 100.f * size.x, size.y));
+    filled_bar.setTextureRect(sf::IntRect(0, 0, 116 + percentage / 100.f * (size.x - 135), size.y));
+
+    text.setString(std::to_string((int)std::ceil(percentage)) + "%");
+    text.setOrigin(text.getLocalBounds().width / 2, text.getLocalBounds().height / 2);
+    sf::Vector2f margin;
+    margin.x = empty_bar.getGlobalBounds().left;
+    margin.y = empty_bar.getGlobalBounds().top;
+    mke::utility::centerBothAxes(text, margin.x + 12, margin.x + 96, margin.y + 12, margin.y + 93);
 }
 
 void ProgressBar::draw(sf::RenderTarget& target, sf::RenderStates states) const
@@ -35,5 +44,6 @@ void ProgressBar::draw(sf::RenderTarget& target, sf::RenderStates states) const
     {
         target.draw(empty_bar, states);
         target.draw(filled_bar, states);
+        target.draw(text, states);
     }
 }

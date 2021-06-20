@@ -134,7 +134,7 @@ void GameState::pauseMenuEvent()
         game.states.states_just_changed = 1;
         music_timestamp = music.getPlayingOffset();
         music.stop();
-        game.states.push(std::make_unique<PauseMenuState>(game, texture.copyToImage()));
+        game.states.push(std::make_unique<PauseMenuState>(game, texture.copyToImage(), background));
     }
 }
 
@@ -148,7 +148,7 @@ void GameState::gameOverEvent()
         game.states.states_just_changed = 1;
         music_timestamp = music.getPlayingOffset();
         music.stop();
-        game.states.push(std::make_unique<GameOverState>(game, texture.copyToImage(), (int)score, level));
+        game.states.push(std::make_unique<GameOverState>(game, texture.copyToImage(), (int)score, level, background));
     }
 }
 
@@ -211,6 +211,8 @@ void GameState::updateDamageEffect()
 
 void GameState::update()
 {
+    music.setVolume(game.game_settings.music_volume);
+    game.assets.getSound("explosion_sound").setVolume(game.game_settings.game_volume);
     if (music.getStatus() == sf::Music::Stopped)
     {
         music.setPlayingOffset(music_timestamp);

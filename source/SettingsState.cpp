@@ -92,6 +92,14 @@ void SettingsState::setupButtons()
     music_volume_r.body.setPosition(music_volume.getPosition().x + music_volume_r.body.getGlobalBounds().width, music_volume.getPosition().y + 10.f);
     music_volume_r.setupText(music_volume_r.text, game.assets.getFont("font"), 40, ">", sf::Color::White);
     music_volume_r.centerTextToBody();
+
+    back_.setTextures(game.assets.getTexture("button_pressed"), game.assets.getTexture("button_released"));
+    back_.setFonts(game.assets.getFont("font"), game.assets.getFont("font"));
+    back_.body.setScale(0.5f, 1.f);
+    back_.setOriginsToCenter();
+    back_.body.setPosition(back_.body.getGlobalBounds().width / 2 + 20.f, back_.body.getGlobalBounds().height / 2 + 20.f);
+    back_.setupText(back_.text, game.assets.getFont("font"), 20, "BACK", sf::Color::White);
+    back_.centerTextToBody();
 }
 
 void SettingsState::update()
@@ -114,6 +122,8 @@ void SettingsState::update()
         game.game_settings.music_volume -= 5;
     if (music_volume_r.selected(game.win) && game.input.isButtonReleased(sf::Mouse::Left) && game.game_settings.music_volume < 100)
         game.game_settings.music_volume += 5;
+    if (back_.selected(game.win) && game.input.isButtonReleased(sf::Mouse::Left))
+        game.states.pop();
 }
 
 void SettingsState::render()
@@ -129,5 +139,6 @@ void SettingsState::render()
     game.win.draw(music_volume_r);
     game.win.draw(sqrt_key);
     game.win.draw(clear_key);
+    game.win.draw(back_);
     game.win.draw(show_fps_key);
 }

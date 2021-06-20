@@ -31,6 +31,7 @@ private:
     Button level2;
     Button level3;
     Button level4;
+    Button back_;
     void setupTitle();
     void setupHighScores();
     void setupInstructions();

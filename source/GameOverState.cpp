@@ -1,7 +1,9 @@
 #include "GameOverState.h"
 
-GameOverState::GameOverState(Game& game, sf::Image background_texture, int score, unsigned int level) :
-    game(game)
+GameOverState::GameOverState(Game& game, sf::Image background_texture, int score, unsigned int level, Background& background) :
+    game(game),
+    background(background),
+    level(level)
 {
     name = "GameOver";
     this->score = score;
@@ -63,11 +65,19 @@ void GameOverState::setupText()
 
 void GameOverState::setupButtons()
 {
+    reset.setTextures(game.assets.getTexture("button_pressed"), game.assets.getTexture("button_released"));
+    reset.setFonts(game.assets.getFont("font"), game.assets.getFont("font"));
+    reset.body.setScale(1.5f, 1.5f);
+    reset.setOriginsToCenter();
+    reset.body.setPosition(game.win.getSize().x / 2 , game.win.getSize().y / 2 - reset.body.getGlobalBounds().height / 2 - BUTTON_MARGIN / 2);
+    reset.setupText(reset.text, game.assets.getFont("font"), 40, "TRY AGAIN", sf::Color::White);
+    reset.centerTextToBody();
+
     main_menu.setTextures(game.assets.getTexture("button_pressed"), game.assets.getTexture("button_released"));
     main_menu.setFonts(game.assets.getFont("font"), game.assets.getFont("font"));
     main_menu.body.setScale(1.5f, 1.5f);
     main_menu.setOriginsToCenter();
-    main_menu.body.setPosition(game.win.getSize().x / 2, game.win.getSize().y / 2);
+    main_menu.body.setPosition(game.win.getSize().x / 2, game.win.getSize().y / 2 + main_menu.body.getGlobalBounds().height / 2 + BUTTON_MARGIN / 2);
     main_menu.setupText(main_menu.text, game.assets.getFont("font"), 40, "MAIN MENU", sf::Color::White);
     main_menu.centerTextToBody();
 }
@@ -76,6 +86,12 @@ void GameOverState::update()
 {
     if (main_menu.selected(game.win) && game.input.isButtonReleased(sf::Mouse::Left))
         game.states.popStatesUntil("MainMenu");
+    else if (reset.selected(game.win) && game.input.isButtonReleased(sf::Mouse::Left))
+        {
+            game.states.pop();
+            game.states.pop();
+            game.states.push(std::make_unique<GameState>(game, background, level));
+        }
 }
 
 void GameOverState::render()
@@ -84,4 +100,5 @@ void GameOverState::render()
     game.win.draw(game_over_text);
     game.win.draw(high_score);
     game.win.draw(main_menu);
+    game.win.draw(reset);
 }

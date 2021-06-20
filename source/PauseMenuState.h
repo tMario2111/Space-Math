@@ -6,21 +6,25 @@
 
 #include "Game.h"
 #include "Button.h"
+#include "Background.h"
+#include "SettingsState.h"
 
 class Game;
 
 class PauseMenuState : public mke::State
 {
 public:
-    PauseMenuState(Game& game, sf::Image background_texture);
+    PauseMenuState(Game& game, sf::Image background_texture, Background& background);
     void update();
     void render();
 private:
     Game& game;
+    Background& background;
     sf::Texture background_texture;
     sf::Sprite background_sprite;
-    const float BUTTON_MARGIN = 50.f;
+    const float BUTTON_MARGIN = 80.f;
     Button resume;
+    Button settings;
     Button main_menu;
     void setupButtons();
 };

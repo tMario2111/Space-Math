@@ -1434,7 +1434,7 @@
 	"Button.h"
 	"Background.h"
 
-1623946816 c:\users\bogdan\documents\github\space-math\source\levelselectstate.h
+1624197943 c:\users\bogdan\documents\github\space-math\source\levelselectstate.h
 	<SFML/Graphics.hpp>
 	"../MKE/MKE.h"
 	"Game.h"
@@ -1484,7 +1484,7 @@
 	<vector>
 	<cmath>
 
-1624115905 c:\users\bogdan\documents\github\space-math\source\equations.h
+1624134221 c:\users\bogdan\documents\github\space-math\source\equations.h
 	<SFML/Graphics.hpp>
 	"../MKE/MKE.h"
 	<string>
@@ -1497,22 +1497,24 @@
 	"Enemy.h"
 	"ShootingAbility.h"
 
-1624113942 c:\users\bogdan\documents\github\space-math\source\progressbar.h
+1624134221 c:\users\bogdan\documents\github\space-math\source\progressbar.h
 	<SFML/Graphics.hpp>
 	"../MKE/MKE.h"
 	<cmath>
 
-1622643900 c:\users\bogdan\documents\github\space-math\source\pausemenustate.h
+1624199204 c:\users\bogdan\documents\github\space-math\source\pausemenustate.h
 	<SFML/Graphics.hpp>
 	"../MKE/MKE.h"
 	"Game.h"
 	"Button.h"
+	"Background.h"
+	"SettingsState.h"
 
 1622643900 c:\users\bogdan\documents\github\space-math\source\button.h
 	<SFML/Graphics.hpp>
 	"../MKE/MKE.h"
 
-1622645960 c:\users\bogdan\documents\github\space-math\source\gameoverstate.h
+1624200023 c:\users\bogdan\documents\github\space-math\source\gameoverstate.h
 	<SFML/Graphics.hpp>
 	"../MKE/MKE.h"
 	"Background.h"
@@ -1520,7 +1522,7 @@
 	"Button.h"
 	"GameState.h"
 
-1622723631 c:\users\bogdan\documents\github\space-math\source\settingsstate.h
+1624198338 c:\users\bogdan\documents\github\space-math\source\settingsstate.h
 	<SFML/Graphics.hpp>
 	"../MKE/MKE.h"
 	"Background.h"
@@ -1571,10 +1573,10 @@
 1622643900 source:c:\users\bogdan\documents\github\space-math\source\enemy.cpp
 	"Enemy.h"
 
-1624115845 source:c:\users\bogdan\documents\github\space-math\source\equations.cpp
+1624134221 source:c:\users\bogdan\documents\github\space-math\source\equations.cpp
 	"Equations.h"
 
-1624111850 source:c:\users\bogdan\documents\github\space-math\source\game.cpp
+1624116297 source:c:\users\bogdan\documents\github\space-math\source\game.cpp
 	"Game.h"
 
 1622646117 source:c:\users\bogdan\documents\github\space-math\source\gameoverstate.cpp
@@ -1583,10 +1585,10 @@
 1622645899 source:c:\users\bogdan\documents\github\space-math\source\gamesettings.cpp
 	"GameSettings.h"
 
-1624113741 source:c:\users\bogdan\documents\github\space-math\source\gamestate.cpp
+1624199621 source:c:\users\bogdan\documents\github\space-math\source\gamestate.cpp
 	"GameState.h"
 
-1623948202 source:c:\users\bogdan\documents\github\space-math\source\levelselectstate.cpp
+1624198255 source:c:\users\bogdan\documents\github\space-math\source\levelselectstate.cpp
 	"LevelSelectState.h"
 
 1622722772 source:c:\users\bogdan\documents\github\space-math\source\mainmenustate.cpp
@@ -1595,13 +1597,13 @@
 1622643900 source:c:\users\bogdan\documents\github\space-math\source\mothership.cpp
 	"MotherShip.h"
 
-1622643900 source:c:\users\bogdan\documents\github\space-math\source\pausemenustate.cpp
+1624199080 source:c:\users\bogdan\documents\github\space-math\source\pausemenustate.cpp
 	"PauseMenuState.h"
 
-1624114098 source:c:\users\bogdan\documents\github\space-math\source\progressbar.cpp
+1624134221 source:c:\users\bogdan\documents\github\space-math\source\progressbar.cpp
 	"ProgressBar.h"
 
-1622724155 source:c:\users\bogdan\documents\github\space-math\source\settingsstate.cpp
+1624198390 source:c:\users\bogdan\documents\github\space-math\source\settingsstate.cpp
 	"SettingsState.h"
 
 1622890871 source:c:\users\bogdan\documents\github\space-math\source\shootingability.cpp

@@ -95,6 +95,13 @@ void LevelSelectState::setupButtons()
     level4.setupText(level4.text, game.assets.getFont("font"), 35, "EVERYTHING", sf::Color::White);
     level4.centerTextToBody();
 
+    back_.setTextures(game.assets.getTexture("button_pressed"), game.assets.getTexture("button_released"));
+    back_.setFonts(game.assets.getFont("font"), game.assets.getFont("font"));
+    back_.body.setScale(0.5f, 1.f);
+    back_.setOriginsToCenter();
+    back_.body.setPosition(back_.body.getGlobalBounds().width / 2 + 20.f, back_.body.getGlobalBounds().height / 2 + 20.f);
+    back_.setupText(back_.text, game.assets.getFont("font"), 20, "BACK", sf::Color::White);
+    back_.centerTextToBody();
 }
 
 void LevelSelectState::update()
@@ -110,6 +117,8 @@ void LevelSelectState::update()
         game.states.push(std::make_unique<GameState>(game, background, 3));
     else if (level4.selected(game.win) && game.input.isButtonReleased(sf::Mouse::Left))
         game.states.push(std::make_unique<GameState>(game, background, 4));
+    else if (back_.selected(game.win) && game.input.isButtonReleased(sf::Mouse::Left))
+        game.states.pop();
 
 }
 
@@ -125,5 +134,6 @@ void LevelSelectState::render()
     game.win.draw(high_score_level3);
     game.win.draw(level4);
     game.win.draw(high_score_level4);
+    game.win.draw(back_);
     game.win.draw(instructions);
 }

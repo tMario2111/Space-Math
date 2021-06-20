@@ -28,6 +28,7 @@ private:
     sf::Text clear_key;
     sf::Text show_fps_key;
     Button game_volume_l, game_volume_r, music_volume_l, music_volume_r;
+    Button back_;
     void setupTexts();
     void setupButtons();
 };

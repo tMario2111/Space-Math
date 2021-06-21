@@ -69,7 +69,7 @@ void GameOverState::setupButtons()
     reset.setFonts(game.assets.getFont("font"), game.assets.getFont("font"));
     reset.body.setScale(1.5f, 1.5f);
     reset.setOriginsToCenter();
-    reset.body.setPosition(game.win.getSize().x / 2 , game.win.getSize().y / 2 - reset.body.getGlobalBounds().height / 2 - BUTTON_MARGIN / 2);
+    reset.body.setPosition(game.win.getSize().x / 2, game.win.getSize().y / 2 - reset.body.getGlobalBounds().height / 2 - BUTTON_MARGIN / 2);
     reset.setupText(reset.text, game.assets.getFont("font"), 40, "TRY AGAIN", sf::Color::White);
     reset.centerTextToBody();
 
@@ -87,11 +87,7 @@ void GameOverState::update()
     if (main_menu.selected(game.win) && game.input.isButtonReleased(sf::Mouse::Left))
         game.states.popStatesUntil("MainMenu");
     else if (reset.selected(game.win) && game.input.isButtonReleased(sf::Mouse::Left))
-        {
-            game.states.pop();
-            game.states.pop();
-            game.states.push(std::make_unique<GameState>(game, background, level));
-        }
+        game.states.popStatesUntilAndPush("LevelSelect", std::make_unique<GameState>(game, background, level));
 }
 
 void GameOverState::render()

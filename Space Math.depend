@@ -411,7 +411,7 @@
 	<SFML/Graphics/Drawable.hpp>
 	<SFML/Window/GlResource.hpp>
 
-1622712735 c:\users\mario\downloads\c++ projects\space-math\source\game.h
+1624260101 c:\users\mario\downloads\c++ projects\space-math\source\game.h
 	<SFML/Graphics.hpp>
 	"../MKE/MKE.h"
 	<ctime>
@@ -537,7 +537,7 @@
 	<SFML/Audio/Export.hpp>
 	<string>
 
-1622276445 c:\users\mario\downloads\c++ projects\space-math\mke\statemachine.h
+1624259469 c:\users\mario\downloads\c++ projects\space-math\mke\statemachine.h
 	<stack>
 	<memory>
 	<string>
@@ -618,7 +618,7 @@
 	"Button.h"
 	"Background.h"
 
-1623999227 c:\users\mario\downloads\c++ projects\space-math\source\levelselectstate.h
+1624204086 c:\users\mario\downloads\c++ projects\space-math\source\levelselectstate.h
 	<SFML/Graphics.hpp>
 	"../MKE/MKE.h"
 	"Game.h"
@@ -689,17 +689,19 @@
 	"../MKE/MKE.h"
 	<cmath>
 
-1620973339 c:\users\mario\downloads\c++ projects\space-math\source\pausemenustate.h
+1624204086 c:\users\mario\downloads\c++ projects\space-math\source\pausemenustate.h
 	<SFML/Graphics.hpp>
 	"../MKE/MKE.h"
 	"Game.h"
 	"Button.h"
+	"Background.h"
+	"SettingsState.h"
 
 1622646927 c:\users\mario\downloads\c++ projects\space-math\source\button.h
 	<SFML/Graphics.hpp>
 	"../MKE/MKE.h"
 
-1622651287 c:\users\mario\downloads\c++ projects\space-math\source\gameoverstate.h
+1624204086 c:\users\mario\downloads\c++ projects\space-math\source\gameoverstate.h
 	<SFML/Graphics.hpp>
 	"../MKE/MKE.h"
 	"Background.h"
@@ -707,7 +709,7 @@
 	"Button.h"
 	"GameState.h"
 
-1622734373 c:\users\mario\downloads\c++ projects\space-math\source\settingsstate.h
+1624204086 c:\users\mario\downloads\c++ projects\space-math\source\settingsstate.h
 	<SFML/Graphics.hpp>
 	"../MKE/MKE.h"
 	"Background.h"
@@ -740,7 +742,7 @@
 1620847023 source:c:\users\mario\downloads\c++ projects\space-math\mke\spritebatch.cpp
 	"SpriteBatch.h"
 
-1620822998 source:c:\users\mario\downloads\c++ projects\space-math\mke\statemachine.cpp
+1624259508 source:c:\users\mario\downloads\c++ projects\space-math\mke\statemachine.cpp
 	"StateMachine.h"
 
 1620920209 source:c:\users\mario\downloads\c++ projects\space-math\mke\utility.cpp
@@ -758,22 +760,22 @@
 1620987213 source:c:\users\mario\downloads\c++ projects\space-math\source\enemy.cpp
 	"Enemy.h"
 
-1624119953 source:c:\users\mario\downloads\c++ projects\space-math\source\equations.cpp
+1624124274 source:c:\users\mario\downloads\c++ projects\space-math\source\equations.cpp
 	"Equations.h"
 
-1624119953 source:c:\users\mario\downloads\c++ projects\space-math\source\game.cpp
+1624260435 source:c:\users\mario\downloads\c++ projects\space-math\source\game.cpp
 	"Game.h"
 
-1622651287 source:c:\users\mario\downloads\c++ projects\space-math\source\gameoverstate.cpp
+1624259589 source:c:\users\mario\downloads\c++ projects\space-math\source\gameoverstate.cpp
 	"GameOverState.h"
 
 1622651287 source:c:\users\mario\downloads\c++ projects\space-math\source\gamesettings.cpp
 	"GameSettings.h"
 
-1624123980 source:c:\users\mario\downloads\c++ projects\space-math\source\gamestate.cpp
+1624204086 source:c:\users\mario\downloads\c++ projects\space-math\source\gamestate.cpp
 	"GameState.h"
 
-1623999227 source:c:\users\mario\downloads\c++ projects\space-math\source\levelselectstate.cpp
+1624204086 source:c:\users\mario\downloads\c++ projects\space-math\source\levelselectstate.cpp
 	"LevelSelectState.h"
 
 1622712867 source:c:\users\mario\downloads\c++ projects\space-math\source\mainmenustate.cpp
@@ -782,13 +784,13 @@
 1622286885 source:c:\users\mario\downloads\c++ projects\space-math\source\mothership.cpp
 	"MotherShip.h"
 
-1620973724 source:c:\users\mario\downloads\c++ projects\space-math\source\pausemenustate.cpp
+1624204086 source:c:\users\mario\downloads\c++ projects\space-math\source\pausemenustate.cpp
 	"PauseMenuState.h"
 
 1624124021 source:c:\users\mario\downloads\c++ projects\space-math\source\progressbar.cpp
 	"ProgressBar.h"
 
-1622734373 source:c:\users\mario\downloads\c++ projects\space-math\source\settingsstate.cpp
+1624204086 source:c:\users\mario\downloads\c++ projects\space-math\source\settingsstate.cpp
 	"SettingsState.h"
 
 1622917049 source:c:\users\mario\downloads\c++ projects\space-math\source\shootingability.cpp

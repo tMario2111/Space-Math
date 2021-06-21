@@ -15,6 +15,7 @@ public:
     void push(std::unique_ptr<mke::State> state);
     void pop();
     void popStatesUntil(std::string name);
+    void popStatesUntilAndPush(std::string name, std::unique_ptr<mke::State> state);
     State& top();
     bool states_just_changed = 0;
     unsigned int size();

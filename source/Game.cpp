@@ -6,11 +6,19 @@ Game::Game() :
     random(time(0)),
     game_settings("data/data.dat")
 {
-    win.setFramerateLimit(60);
-    win.setVerticalSyncEnabled(1);
+    setupWin();
     loadAssets();
     setupFpsCounter();
     states.push(std::make_unique<MainMenuState>(*this));
+}
+
+void Game::setupWin()
+{
+    win.setFramerateLimit(60);
+    win.setVerticalSyncEnabled(1);
+    sf::Image icon;
+    icon.loadFromFile("assets/icons/SpaceMathIcon.png");
+    win.setIcon(icon.getSize().x, icon.getSize().y, icon.getPixelsPtr());
 }
 
 void Game::loadAssets()

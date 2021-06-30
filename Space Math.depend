@@ -1229,7 +1229,7 @@
 1622643900 source:c:\users\bogdan\documents\github\space-math\main.cpp
 	"source/Game.h"
 
-1622722772 c:\users\bogdan\documents\github\space-math\source\game.h
+1624296323 c:\users\bogdan\documents\github\space-math\source\game.h
 	<SFML/Graphics.hpp>
 	"../MKE/MKE.h"
 	<ctime>
@@ -1355,7 +1355,7 @@
 	<SFML/Audio/Export.hpp>
 	<string>
 
-1622643900 c:\users\bogdan\documents\github\space-math\mke\statemachine.h
+1624296322 c:\users\bogdan\documents\github\space-math\mke\statemachine.h
 	<stack>
 	<memory>
 	<string>
@@ -1444,7 +1444,7 @@
 	"Background.h"
 	"Button.h"
 
-1623996693 c:\users\bogdan\documents\github\space-math\source\gamestate.h
+1625044174 c:\users\bogdan\documents\github\space-math\source\gamestate.h
 	<SFML/Graphics.hpp>
 	<SFML/Audio.hpp>
 	"../MKE/MKE.h"
@@ -1486,7 +1486,7 @@
 	<vector>
 	<cmath>
 
-1624134221 c:\users\bogdan\documents\github\space-math\source\equations.h
+1625041834 c:\users\bogdan\documents\github\space-math\source\equations.h
 	<SFML/Graphics.hpp>
 	"../MKE/MKE.h"
 	<string>
@@ -1557,7 +1557,7 @@
 1622643900 source:c:\users\bogdan\documents\github\space-math\mke\spritebatch.cpp
 	"SpriteBatch.h"
 
-1622643900 source:c:\users\bogdan\documents\github\space-math\mke\statemachine.cpp
+1624296322 source:c:\users\bogdan\documents\github\space-math\mke\statemachine.cpp
 	"StateMachine.h"
 
 1622643900 source:c:\users\bogdan\documents\github\space-math\mke\utility.cpp
@@ -1575,13 +1575,13 @@
 1622643900 source:c:\users\bogdan\documents\github\space-math\source\enemy.cpp
 	"Enemy.h"
 
-1624134221 source:c:\users\bogdan\documents\github\space-math\source\equations.cpp
+1625043389 source:c:\users\bogdan\documents\github\space-math\source\equations.cpp
 	"Equations.h"
 
-1624116297 source:c:\users\bogdan\documents\github\space-math\source\game.cpp
+1625044109 source:c:\users\bogdan\documents\github\space-math\source\game.cpp
 	"Game.h"
 
-1622646117 source:c:\users\bogdan\documents\github\space-math\source\gameoverstate.cpp
+1624296323 source:c:\users\bogdan\documents\github\space-math\source\gameoverstate.cpp
 	"GameOverState.h"
 
 1622645899 source:c:\users\bogdan\documents\github\space-math\source\gamesettings.cpp

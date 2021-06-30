@@ -6,21 +6,20 @@ Equations::Equations(mke::AssetManager& assets, sf::RenderWindow& win, mke::Rand
     random(random),
     input(input),
     dt(dt),
-    level(level),
-    frame(sf::Vector2f(700.f, 100.f))
+    level(level)
 {
-    setupFrame();
+    setupPanel();
     setupTexts();
     generateQuestion();
 }
 
-void Equations::setupFrame()
+void Equations::setupPanel()
 {
-    frame.setOrigin(frame.getLocalBounds().width / 2, frame.getLocalBounds().height / 2);
-    frame.setFillColor(sf::Color(114, 107, 146));
-    frame.setOutlineThickness(5.f);
-    frame.setOutlineColor(sf::Color::Black);
-    frame.setPosition(win.getSize().x / 2, win.getSize().y / 1.1f);
+    panel.setTexture(assets.getTexture("panel"));
+    panel.setOrigin(panel.getLocalBounds().width / 2, panel.getLocalBounds().height / 2);
+    panel.setScale(1.1f,1.f);
+    panel.setColor(sf::Color(255, 255, 255, 180)); /// FEATURE
+    panel.setPosition(win.getSize().x / 2, win.getSize().y / 1.1f);
 }
 
 void Equations::setupTexts()
@@ -219,12 +218,12 @@ void Equations::update()
     skip_clock += dt.get();
 
     equation.setOrigin(equation.getLocalBounds().width / 2, equation.getLocalBounds().height / 2);
-    mke::utility::centerBothAxes(equation, frame.getPosition().x - frame.getGlobalBounds().width / 2, frame.getPosition().x,
-                                 frame.getPosition().y - frame.getGlobalBounds().height, frame.getPosition().y + frame.getGlobalBounds().height);
+    mke::utility::centerBothAxes(equation, panel.getPosition().x - panel.getGlobalBounds().width / 2, panel.getPosition().x,
+                                 panel.getPosition().y - panel.getGlobalBounds().height + 55.f, panel.getPosition().y + panel.getGlobalBounds().height);
     result.setString(result_string);
     result.setOrigin(result.getLocalBounds().width / 2, result.getLocalBounds().height / 2);
-    mke::utility::centerBothAxes(result, frame.getPosition().x, frame.getPosition().x + frame.getGlobalBounds().width / 2,
-                                 frame.getPosition().y - frame.getGlobalBounds().height, frame.getPosition().y + frame.getGlobalBounds().height);
+    mke::utility::centerBothAxes(result, panel.getPosition().x, panel.getPosition().x + panel.getGlobalBounds().width / 2,
+                                 panel.getPosition().y - panel.getGlobalBounds().height + 55.f, panel.getPosition().y + panel.getGlobalBounds().height);
     for (int i = sf::Keyboard::Num0; i <= sf::Keyboard::Num9; i++)
         if (input.isKeyReleased(static_cast<sf::Keyboard::Key>(i)))
             result_string += std::to_string(i - sf::Keyboard::Num0);
@@ -253,16 +252,16 @@ void Equations::update()
         skip_text.setString(std::to_string(remaining_time));
     else
         skip_text.setString("PRESS ENTER TO SKIP");
-    mke::utility::centerBothAxes(skip_text, frame.getPosition().x, frame.getPosition().x,
-    frame.getPosition().y - frame.getGlobalBounds().height / 2, frame.getPosition().y - 25.f);
+    mke::utility::centerBothAxes(skip_text, panel.getPosition().x, panel.getPosition().x,
+    panel.getPosition().y - panel.getGlobalBounds().height / 2 + 70.f, panel.getPosition().y - 25.f);
     updateSkippedQuestionResultAlpha();
     if (remaining_time <= 0 && input.isKeyReleased(sf::Keyboard::Enter))
     {
         result_string.clear();
         skip_clock = sf::seconds(0.f);
         skipped_question_result.setString("RIGHT ANSWER: " + result_value);
-        skipped_question_result.setPosition(0.f, frame.getGlobalBounds().top - skipped_question_result.getGlobalBounds().height - 15.f);
-        mke::utility::centerXAxis(skipped_question_result, frame.getGlobalBounds().left, frame.getGlobalBounds().left + frame.getGlobalBounds().width);
+        skipped_question_result.setPosition(0.f, panel.getGlobalBounds().top + skipped_question_result.getGlobalBounds().height + 3.f);
+        mke::utility::centerXAxis(skipped_question_result, panel.getGlobalBounds().left, panel.getGlobalBounds().left + panel.getGlobalBounds().width);
         skipped_question_result.setFillColor(sf::Color(255, 255, 255, 255));
         generateQuestion();
     }
@@ -271,7 +270,7 @@ void Equations::update()
 
 void Equations::draw(sf::RenderTarget& target, sf::RenderStates states) const
 {
-    target.draw(frame, states);
+    target.draw(panel, states);
     target.draw(skip_text);
     target.draw(equation);
     target.draw(result);

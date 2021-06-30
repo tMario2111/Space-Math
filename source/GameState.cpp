@@ -7,7 +7,12 @@ GameState::GameState(Game& game, Background& background, unsigned int level) :
     mother_ship(game.assets, game.win, game.dt),
     health_bar(game.assets.getFont("font")),
     equations(game.assets, game.win, game.random, game.input, game.dt, level),
-    damage_effect(static_cast<sf::Vector2f>(game.win.getSize()))
+    damage_effect(static_cast<sf::Vector2f>(game.win.getSize())),
+
+
+    fire_circle_animation(fire_circle)
+
+
 {
     name = "Game";
     setupBackground();
@@ -18,6 +23,20 @@ GameState::GameState(Game& game, Background& background, unsigned int level) :
     spawnEnemy();
     setupScore();
     setupDamageEffect();
+
+
+
+
+    fire_circle_animation.loadAtlas(game.assets.getTexture("fire_circle"), sf::Vector2u(8, 8));
+    for(int i = 0; i < 7; i++)
+        for(int j = 0; j < 8; j++)
+            fire_circle_animation.addFrame(sf::Vector2u(j, i), sf::seconds(0.0001f));
+    for(int j = 0; j < 5; j++)
+        fire_circle_animation.addFrame(sf::Vector2u(j, 7), sf::seconds(0.0001f));
+    fire_circle_animation.setSpriteFrame(sf::Vector2u(0, 0));
+    fire_circle.setScale(3.f, 3.f);
+    fire_circle.setOrigin(fire_circle.getLocalBounds().width / 2, fire_circle.getLocalBounds().height / 2);
+    fire_circle.setPosition(game.win.getSize().x / 2, game.win.getSize().y / 2);
 }
 
 void GameState::setupBackground()
@@ -240,6 +259,15 @@ void GameState::update()
         if (!i.get()->going_to_die)
             enemies_batch.append(i.get()->sprite);
     addBulletsToBatch();;
+
+
+
+    fire_circle_animation.run(game.dt.get());
+    fire_circle.setOrigin(fire_circle.getLocalBounds().width / 2, fire_circle.getLocalBounds().height / 2);
+    fire_circle.setPosition(game.win.getSize().x / 2, game.win.getSize().y / 2);
+
+
+
 }
 
 void GameState::render()
@@ -254,4 +282,10 @@ void GameState::render()
     game.win.draw(health_bar);
     game.win.draw(equations);
     game.win.draw(score_text);
+
+
+
+    game.win.draw(fire_circle);
+
+
 }

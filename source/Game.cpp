@@ -35,6 +35,7 @@ void Game::loadAssets()
 
     assets.loadTexture("explosion_texture", "assets/effects/explosion.png");
     assets.loadSound("explosion_sound", "assets/sounds/explosion.wav");
+    assets.loadTexture("fire_circle","assets/effects/fire_circle.png");
 
     assets.loadTexture("health_bar_empty", "assets/progress_bars/progress_empty.png");
     assets.loadTexture("health_bar_fill", "assets/progress_bars/progress_fill.png");
@@ -46,6 +47,8 @@ void Game::loadAssets()
     assets.loadTexture("rocket_bullet", "assets/bullets/rocket_green.png");
     assets.loadTexture("ufo_enemy", "assets/spaceships/UFO.png");
     assets.loadTexture("star_bullet", "assets/bullets/star.png");
+
+    assets.loadTexture("panel", "assets/misc/panel.png");
 }
 
 void Game::setupFpsCounter()

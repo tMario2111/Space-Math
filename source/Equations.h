@@ -20,7 +20,7 @@ private:
     mke::Input& input;
     mke::DeltaTime& dt;
     unsigned int level;
-    sf::RectangleShape frame;
+    sf::Sprite panel;
     sf::Text equation;
     sf::Text result;
     std::string result_string;
@@ -38,7 +38,7 @@ private:
         Power,
         SquareRoot
     };
-    void setupFrame();
+    void setupPanel();
     void setupTexts();
     std::string generateBasicMath();
     std::string generateEquation();

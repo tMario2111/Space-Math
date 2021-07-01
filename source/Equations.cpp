@@ -9,6 +9,7 @@ Equations::Equations(mke::AssetManager& assets, sf::RenderWindow& win, mke::Rand
     level(level)
 {
     setupPanel();
+    setupStar();
     setupTexts();
     generateQuestion();
 }
@@ -20,6 +21,15 @@ void Equations::setupPanel()
     panel.setScale(1.1f,1.f);
     panel.setColor(sf::Color(255, 255, 255, 180)); /// FEATURE
     panel.setPosition(win.getSize().x / 2, win.getSize().y / 1.1f);
+}
+
+void Equations::setupStar()
+{
+    star.setTexture(assets.getTexture("star"));
+    star.setOrigin(star.getLocalBounds().width / 2, star.getLocalBounds().height / 2);
+    star.setScale(0.125f, 0.125f);
+    star.setPosition(panel.getGlobalBounds().left + 0.9f * panel.getGlobalBounds().width,
+                     panel.getGlobalBounds().top + 0.4f * panel.getGlobalBounds().height );
 }
 
 void Equations::setupTexts()
@@ -271,6 +281,7 @@ void Equations::update()
 void Equations::draw(sf::RenderTarget& target, sf::RenderStates states) const
 {
     target.draw(panel, states);
+    target.draw(star);
     target.draw(skip_text);
     target.draw(equation);
     target.draw(result);

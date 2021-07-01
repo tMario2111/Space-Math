@@ -93,6 +93,7 @@
 		<Unit filename="source/Enemy.h" />
 		<Unit filename="source/Equations.cpp" />
 		<Unit filename="source/Equations.h" />
+		<Unit filename="source/FireBarrierAbility.cpp" />
 		<Unit filename="source/Game.cpp" />
 		<Unit filename="source/Game.h" />
 		<Unit filename="source/GameOverState.cpp" />
@@ -122,9 +123,6 @@
 		<Unit filename="tinyxml2.cpp" />
 		<Unit filename="tinyxml2.h" />
 		<Extensions>
-			<code_completion />
-			<envvars />
-			<debugger />
 			<lib_finder disable_auto="1" />
 		</Extensions>
 	</Project>

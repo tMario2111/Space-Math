@@ -10,8 +10,16 @@ TODO:
 
 -equations history [DONE]
 
--abilities
+-abilities[IN PROGRESS]
 
 -bosses
 
 -achievements
+
+-spaceship damage
+
+-final explosion (0%)
+
+-STAR question
+
+-skins

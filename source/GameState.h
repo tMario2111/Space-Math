@@ -20,6 +20,7 @@
 #include "Equations.h"
 #include "PauseMenuState.h"
 #include "GameOverState.h"
+#include "FireBarrierAbility.h"
 
 class Game;
 class MotherShip;
@@ -42,10 +43,6 @@ private:
     unsigned int score = 0;
     sf::Text score_text;
     ProgressBar health_bar;
-
-    sf::Sprite fire_circle;
-    mke::Animation fire_circle_animation;
-
     sf::Music music;
     sf::Time music_timestamp;
     std::vector<std::unique_ptr<Enemy>> enemies;
@@ -55,6 +52,7 @@ private:
     mke::SpriteBatch bullets_batch;
     Equations equations;
     sf::RectangleShape damage_effect;
+    FireBarrierAbility fire_barrier_ability;
     void setupBackground();
     void setupEnemiesRenderStates();
     void setupBulletsRenderStates();

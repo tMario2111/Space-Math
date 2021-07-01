@@ -21,6 +21,7 @@ private:
     mke::DeltaTime& dt;
     unsigned int level;
     sf::Sprite panel;
+    sf::Sprite star;
     sf::Text equation;
     sf::Text result;
     std::string result_string;
@@ -39,6 +40,7 @@ private:
         SquareRoot
     };
     void setupPanel();
+    void setupStar();
     void setupTexts();
     std::string generateBasicMath();
     std::string generateEquation();

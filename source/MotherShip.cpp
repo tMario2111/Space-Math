@@ -5,20 +5,13 @@ MotherShip::MotherShip(mke::AssetManager& assets, sf::RenderWindow& win, mke::De
     win(win),
     dt(dt)
 {
-    loadTextures();
     setupSprite();
     setupTarget();
 }
 
-void MotherShip::loadTextures()
-{
-    assets.loadTexture("mother_ship", "assets/spaceships/mother_ship.png");
-    assets.loadTexture("target", "assets/misc/target.png");
-}
-
 void MotherShip::setupSprite()
 {
-    sprite.setTexture(assets.getTexture("mother_ship"));
+    sprite.setTexture(assets.getTexture("mother_ship_100%"));
     sprite.setOrigin(sprite.getLocalBounds().width / 2, sprite.getLocalBounds().height / 2);
     sprite.setScale(0.75f, 0.75f);
     sprite.setPosition(win.getSize().x / 2, win.getSize().y / 2);
@@ -68,9 +61,23 @@ void MotherShip::findClosestEnemy(std::vector<std::unique_ptr<Enemy>>& enemies, 
         enemies[min_i].get()->locked_on = 1;
 }
 
+void MotherShip::updateDamageTexture()
+{
+    if (HP >= 75.f)
+        sprite.setTexture(assets.getTexture("mother_ship_100%"));
+    else if (HP <= 75.f && HP >= 50.f)
+        sprite.setTexture(assets.getTexture("mother_ship_75%"));
+    else if (HP <= 50.f && HP >= 25.f)
+        sprite.setTexture(assets.getTexture("mother_ship_50%"));
+    else
+        sprite.setTexture(assets.getTexture("mother_ship_25%"));
+
+}
+
 void MotherShip::update()
 {
     rotate();
+    updateDamageTexture();
 }
 
 void MotherShip::draw(sf::RenderTarget& target, sf::RenderStates states) const

@@ -24,10 +24,10 @@ private:
     mke::DeltaTime& dt;
     sf::Sprite target;
     float rotation_speed = -5.f;
-    void loadTextures();
     void setupSprite();
     void setupTarget();
     void rotate();
+    void updateDamageTexture();
 };
 
 #endif

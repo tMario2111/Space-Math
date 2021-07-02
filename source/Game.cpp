@@ -41,6 +41,12 @@ void Game::loadAssets()
     assets.loadTexture("health_bar_empty", "assets/progress_bars/progress_empty.png");
     assets.loadTexture("health_bar_fill", "assets/progress_bars/progress_fill.png");
 
+    assets.loadTexture("mother_ship_100%", "assets/spaceships/mother_ship_100.png");
+    assets.loadTexture("mother_ship_75%", "assets/spaceships/mother_ship_75.png");
+    assets.loadTexture("mother_ship_50%", "assets/spaceships/mother_ship_50.png");
+    assets.loadTexture("mother_ship_25%", "assets/spaceships/mother_ship_25.png");
+    assets.loadTexture("target", "assets/misc/target.png");
+
     assets.loadTexture("dove_enemy", "assets/spaceships/Dove.png");
     assets.loadTexture("long_bullets", "assets/bullets/long_bullets.png");
     assets.loadTexture("lighter_enemy", "assets/spaceships/Ligher.png");

@@ -20,6 +20,6 @@ TODO:
 
 -final explosion (0%)
 
--STAR question
+-STAR question[IN PROGRESS] - draw how many stars
 
 -skins

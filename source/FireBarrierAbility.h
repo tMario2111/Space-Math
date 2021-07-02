@@ -10,6 +10,9 @@ class FireBarrierAbility : public sf::Drawable
 public:
     FireBarrierAbility(sf::RenderWindow& win, mke::AssetManager& assets, mke::DeltaTime& dt);
     void draw(sf::RenderTarget& target, sf::RenderStates states) const;
+    void setActive();
+    bool getActive();
+    float HP = 25.f;
     sf::Sprite sprite;
     void update();
 private:
@@ -17,7 +20,8 @@ private:
     mke::AssetManager& assets;
     mke::DeltaTime& dt;
     mke::Animation animation;
-    bool active = 1;
+    bool active = 0;
+    const float default_HP = 25.f;
     void setupAnimation();
     void setupSprite();
 };

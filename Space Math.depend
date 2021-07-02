@@ -1444,7 +1444,7 @@
 	"Background.h"
 	"Button.h"
 
-1625163068 c:\users\bogdan\documents\github\space-math\source\gamestate.h
+1625218950 c:\users\bogdan\documents\github\space-math\source\gamestate.h
 	<SFML/Graphics.hpp>
 	<SFML/Audio.hpp>
 	"../MKE/MKE.h"
@@ -1487,7 +1487,7 @@
 	<vector>
 	<cmath>
 
-1625164836 c:\users\bogdan\documents\github\space-math\source\equations.h
+1625218799 c:\users\bogdan\documents\github\space-math\source\equations.h
 	<SFML/Graphics.hpp>
 	"../MKE/MKE.h"
 	<string>
@@ -1576,7 +1576,7 @@
 1622643900 source:c:\users\bogdan\documents\github\space-math\source\enemy.cpp
 	"Enemy.h"
 
-1625166030 source:c:\users\bogdan\documents\github\space-math\source\equations.cpp
+1625218470 source:c:\users\bogdan\documents\github\space-math\source\equations.cpp
 	"Equations.h"
 
 1625164603 source:c:\users\bogdan\documents\github\space-math\source\game.cpp
@@ -1588,7 +1588,7 @@
 1622645899 source:c:\users\bogdan\documents\github\space-math\source\gamesettings.cpp
 	"GameSettings.h"
 
-1625163356 source:c:\users\bogdan\documents\github\space-math\source\gamestate.cpp
+1625219106 source:c:\users\bogdan\documents\github\space-math\source\gamestate.cpp
 	"GameState.h"
 
 1624198255 source:c:\users\bogdan\documents\github\space-math\source\levelselectstate.cpp
@@ -1684,10 +1684,10 @@
 
 1623443252 source:c:\users\bogdan\documents\github\space-math\icon.rc
 
-1625163689 c:\users\bogdan\documents\github\space-math\source\firebarrierability.h
+1625219131 c:\users\bogdan\documents\github\space-math\source\firebarrierability.h
 	<SFML/Graphics.hpp>
 	"../MKE/MKE.h"
 
-1625163285 source:c:\users\bogdan\documents\github\space-math\source\firebarrierability.cpp
+1625219068 source:c:\users\bogdan\documents\github\space-math\source\firebarrierability.cpp
 	"FireBarrierAbility.h"
 

@@ -94,6 +94,7 @@
 		<Unit filename="source/Equations.cpp" />
 		<Unit filename="source/Equations.h" />
 		<Unit filename="source/FireBarrierAbility.cpp" />
+		<Unit filename="source/FireBarrierAbility.h" />
 		<Unit filename="source/Game.cpp" />
 		<Unit filename="source/Game.h" />
 		<Unit filename="source/GameOverState.cpp" />
@@ -111,6 +112,7 @@
 		<Unit filename="source/MotherShip.cpp" />
 		<Unit filename="source/MotherShip.h" />
 		<Unit filename="source/ParanoidEnemy.cpp" />
+		<Unit filename="source/ParanoidEnemy.h" />
 		<Unit filename="source/PauseMenuState.cpp" />
 		<Unit filename="source/PauseMenuState.h" />
 		<Unit filename="source/ProgressBar.cpp" />
@@ -120,6 +122,7 @@
 		<Unit filename="source/ShootingAbility.cpp" />
 		<Unit filename="source/ShootingAbility.h" />
 		<Unit filename="source/UFOEnemy.cpp" />
+		<Unit filename="source/UFOEnemy.h" />
 		<Unit filename="tinyxml2.cpp" />
 		<Unit filename="tinyxml2.h" />
 		<Extensions>

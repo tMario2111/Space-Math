@@ -21,7 +21,6 @@
 #include "PauseMenuState.h"
 #include "GameOverState.h"
 #include "FireBarrierAbility.h"
-
 class Game;
 class MotherShip;
 
@@ -67,6 +66,7 @@ private:
     void deleteEnemies();
     void addBulletsToBatch();
     void collisionBulletsMothership();
+    void collisionBulletsFireBarrierAbility();
     void updateDamageEffect();
 };
 

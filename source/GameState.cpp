@@ -173,6 +173,19 @@ void GameState::collisionBulletsMothership()
             }
 }
 
+void GameState::collisionBulletsFireBarrierAbility()
+{
+    if(fire_barrier_ability.getActive() == 0)
+        return;
+    for (unsigned int i = 0; i < enemies.size(); i++)
+        for (unsigned int j = 0; j < enemies[i].get()->shooting_ability.bullets.size(); j++)
+            if (Collision::PixelPerfectTest(fire_barrier_ability.sprite, enemies[i].get()->shooting_ability.bullets[j], 1))
+            {
+                enemies[i].get()->shooting_ability.bullets.erase(enemies[i].get()->shooting_ability.bullets.begin() + j--);
+                fire_barrier_ability.HP -= enemies[i].get()->damage;
+            }
+}
+
 void GameState::spawnEnemies()
 {
     enemies_spawn_clock += game.dt.get().asSeconds();
@@ -226,12 +239,18 @@ void GameState::update()
     equations.update();
     mother_ship.update();
     fire_barrier_ability.update();
+    if(equations.star_questions_count == equations.star_questions_target)
+    {
+        fire_barrier_ability.setActive();
+        equations.star_questions_count = 0;
+    }
     health_bar.setProgress(mother_ship.HP);
     spawnEnemies();
     for (auto& i : enemies)
         i.get()->update();
     mother_ship.findClosestEnemy(enemies, equations, score);
     collisionBulletsMothership();
+    collisionBulletsFireBarrierAbility();
     deleteEnemies();
     score_text.setString("score: " + std::to_string(score));
     enemy_spawn_delay = DEFAULT_ENEMY_SPAWN_DELAY - (score / 25.f);

@@ -25,12 +25,25 @@ void FireBarrierAbility::setupSprite()
 {
     animation.setSpriteFrame(sf::Vector2u(0, 0));
     sprite.setScale(3.f, 3.f);
-    sprite.setOrigin(sprite.getLocalBounds().width / 4.25f, sprite.getLocalBounds().height / 4.25f);
+    sprite.setOrigin(sprite.getLocalBounds().width / 4.15f, sprite.getLocalBounds().height / 4.15f);
     sprite.setPosition(win.getSize().x / 2, win.getSize().y / 2);
+}
+
+void FireBarrierAbility::setActive()
+{
+    active = 1;
+    HP = default_HP;
+}
+
+bool FireBarrierAbility::getActive()
+{
+    return active;
 }
 
 void FireBarrierAbility::update()
 {
+    if(HP <= 0)
+        active = 0;
     animation.run(dt.get());
 }
 

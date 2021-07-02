@@ -194,6 +194,9 @@ std::string Equations::generateEverything()
 
 void Equations::generateQuestion()
 {
+    float r = random.getFloat(0.f, 100.f);
+    star_question = r <= star_chance ? 1 : 0;
+    star.setColor(sf::Color(255, 255, 255, 190));
     std::string str;
     switch (level)
     {
@@ -220,6 +223,13 @@ void Equations::updateSkippedQuestionResultAlpha()
     int alpha = skipped_question_result.getFillColor().a - skipped_question_result_decrement * dt.get().asSeconds();
     alpha = alpha < 0 ? 0 : alpha;
     skipped_question_result.setFillColor(sf::Color(255, 255, 255, alpha));
+}
+
+void Equations::updateStarQuestionAlpha()
+{
+    int alpha = star.getColor().a - star_question_decrement * dt.get().asSeconds();
+    alpha = alpha < 0 ? 0 : alpha;
+    star.setColor(sf::Color(255, 255, 255, alpha));
 }
 
 void Equations::update()
@@ -251,6 +261,8 @@ void Equations::update()
         result_string.clear();
     if (result_string.compare(result_value) == 0)
     {
+        if(star_question)
+            star_questions_count++;
         result_string.clear();
         correct_result = 1;
         skip_clock = sf::seconds(0.f);
@@ -260,10 +272,15 @@ void Equations::update()
     if (remaining_time > 0)
         skip_text.setString(std::to_string(remaining_time));
     else
-        skip_text.setString("PRESS ENTER TO SKIP");
+        {
+            skip_text.setString("PRESS ENTER TO SKIP");
+            star_question = 0;
+        }
     mke::utility::centerBothAxes(skip_text, panel.getPosition().x, panel.getPosition().x,
     panel.getPosition().y - panel.getGlobalBounds().height / 2 + 70.f, panel.getPosition().y - 25.f);
     updateSkippedQuestionResultAlpha();
+    if( remaining_time <= 1.f && star_question)
+        updateStarQuestionAlpha();
     if (remaining_time <= 0 && input.isKeyReleased(sf::Keyboard::Enter))
     {
         result_string.clear();
@@ -280,7 +297,8 @@ void Equations::update()
 void Equations::draw(sf::RenderTarget& target, sf::RenderStates states) const
 {
     target.draw(panel, states);
-    target.draw(star);
+    if(star_question)
+        target.draw(star);
     target.draw(skip_text);
     target.draw(equation);
     target.draw(result);

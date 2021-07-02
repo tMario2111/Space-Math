@@ -1,25 +1,31 @@
 TODO:
 
--instructions [DONE] 
+DONE:
 
--red flash(damage) [DONE] 
+-instructions
 
--menu music
+-red flash(damage)
 
--textures [IN PROGRESS]
+-textures
 
--equations history [DONE]
+-equations history
 
--abilities[IN PROGRESS]
+-spaceship damage
+
+IN PROGRESS:
+
+-abilities
+
+-STAR question
+
+NOT STARTED:
 
 -bosses
 
 -achievements
 
--spaceship damage
-
--final explosion (0%)
-
--STAR question[IN PROGRESS] - draw how many stars
+-final explosion
 
 -skins
+
+-menu music

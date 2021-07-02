@@ -19,7 +19,6 @@ void Equations::setupPanel()
     panel.setTexture(assets.getTexture("panel"));
     panel.setOrigin(panel.getLocalBounds().width / 2, panel.getLocalBounds().height / 2);
     panel.setScale(1.1f,1.f);
-    panel.setColor(sf::Color(255, 255, 255, 180)); /// FEATURE
     panel.setPosition(win.getSize().x / 2, win.getSize().y / 1.1f);
 }
 

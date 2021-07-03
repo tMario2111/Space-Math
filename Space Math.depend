@@ -607,7 +607,7 @@
 	<android/log.h>
 	<assert.h>
 
-1622651287 c:\users\mario\downloads\c++ projects\space-math\source\mainmenustate.h
+1625318540 c:\users\mario\downloads\c++ projects\space-math\source\mainmenustate.h
 	<SFML/Graphics.hpp>
 	"../MKE/MKE.h"
 	<vector>
@@ -617,6 +617,7 @@
 	"SettingsState.h"
 	"Button.h"
 	"Background.h"
+	"AchievementsState.h"
 
 1624204086 c:\users\mario\downloads\c++ projects\space-math\source\levelselectstate.h
 	<SFML/Graphics.hpp>
@@ -672,7 +673,7 @@
 	<vector>
 	<cmath>
 
-1625246544 c:\users\mario\downloads\c++ projects\space-math\source\equations.h
+1625319242 c:\users\mario\downloads\c++ projects\space-math\source\equations.h
 	<SFML/Graphics.hpp>
 	"../MKE/MKE.h"
 	<string>
@@ -761,7 +762,7 @@
 1620987213 source:c:\users\mario\downloads\c++ projects\space-math\source\enemy.cpp
 	"Enemy.h"
 
-1625246544 source:c:\users\mario\downloads\c++ projects\space-math\source\equations.cpp
+1625318540 source:c:\users\mario\downloads\c++ projects\space-math\source\equations.cpp
 	"Equations.h"
 
 1625246993 source:c:\users\mario\downloads\c++ projects\space-math\source\game.cpp
@@ -779,10 +780,10 @@
 1624204086 source:c:\users\mario\downloads\c++ projects\space-math\source\levelselectstate.cpp
 	"LevelSelectState.h"
 
-1622712867 source:c:\users\mario\downloads\c++ projects\space-math\source\mainmenustate.cpp
+1625318540 source:c:\users\mario\downloads\c++ projects\space-math\source\mainmenustate.cpp
 	"MainMenuState.h"
 
-1622286885 source:c:\users\mario\downloads\c++ projects\space-math\source\mothership.cpp
+1625247140 source:c:\users\mario\downloads\c++ projects\space-math\source\mothership.cpp
 	"MotherShip.h"
 
 1624204086 source:c:\users\mario\downloads\c++ projects\space-math\source\pausemenustate.cpp
@@ -1693,11 +1694,11 @@
 1625219068 source:c:\users\bogdan\documents\github\space-math\source\firebarrierability.cpp
 	"FireBarrierAbility.h"
 
-1625246544 c:\users\mario\downloads\c++ projects\space-math\source\firebarrierability.h
+1625319210 c:\users\mario\downloads\c++ projects\space-math\source\firebarrierability.h
 	<SFML/Graphics.hpp>
 	"../MKE/MKE.h"
 
-1625246544 source:c:\users\mario\downloads\c++ projects\space-math\source\firebarrierability.cpp
+1625319327 source:c:\users\mario\downloads\c++ projects\space-math\source\firebarrierability.cpp
 	"FireBarrierAbility.h"
 
 1625308337 c:\users\bogdan\documents\github\space-math\source\achievementsstate.h
@@ -1707,5 +1708,14 @@
 	"Background.h"
 
 1625308473 source:c:\users\bogdan\documents\github\space-math\source\achievementsstate.cpp
+	"AchievementsState.h"
+
+1625318540 c:\users\mario\downloads\c++ projects\space-math\source\achievementsstate.h
+	<SFML/Graphics.hpp>
+	"../MKE/MKE.h"
+	"Game.h"
+	"Background.h"
+
+1625318540 source:c:\users\mario\downloads\c++ projects\space-math\source\achievementsstate.cpp
 	"AchievementsState.h"
 

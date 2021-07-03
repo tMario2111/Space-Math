@@ -11,6 +11,7 @@
 #include "SettingsState.h"
 #include "Button.h"
 #include "Background.h"
+#include "AchievementsState.h"
 
 class Game;
 
@@ -24,8 +25,9 @@ private:
     Game& game;
     Background background;
     sf::Text title;
-    const float BUTTON_MARGIN = 50.f;
+    const float BUTTON_MARGIN = 40.f;
     Button start;
+    Button achievements;
     Button settings;
     Button exit;
     void setupBackground();

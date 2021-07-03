@@ -1426,7 +1426,7 @@
 	<android/log.h>
 	<assert.h>
 
-1622646303 c:\users\bogdan\documents\github\space-math\source\mainmenustate.h
+1625308533 c:\users\bogdan\documents\github\space-math\source\mainmenustate.h
 	<SFML/Graphics.hpp>
 	"../MKE/MKE.h"
 	<vector>
@@ -1436,6 +1436,7 @@
 	"SettingsState.h"
 	"Button.h"
 	"Background.h"
+	"AchievementsState.h"
 
 1624197943 c:\users\bogdan\documents\github\space-math\source\levelselectstate.h
 	<SFML/Graphics.hpp>
@@ -1469,7 +1470,7 @@
 1622643900 c:\users\bogdan\documents\github\space-math\source\background.h
 	<SFML/Graphics.hpp>
 
-1622643900 c:\users\bogdan\documents\github\space-math\source\mothership.h
+1625244608 c:\users\bogdan\documents\github\space-math\source\mothership.h
 	<SFML/Graphics.hpp>
 	"../MKE/MKE.h"
 	<memory>
@@ -1488,7 +1489,7 @@
 	<vector>
 	<cmath>
 
-1625218799 c:\users\bogdan\documents\github\space-math\source\equations.h
+1625307026 c:\users\bogdan\documents\github\space-math\source\equations.h
 	<SFML/Graphics.hpp>
 	"../MKE/MKE.h"
 	<string>
@@ -1577,10 +1578,10 @@
 1622643900 source:c:\users\bogdan\documents\github\space-math\source\enemy.cpp
 	"Enemy.h"
 
-1625218470 source:c:\users\bogdan\documents\github\space-math\source\equations.cpp
+1625307005 source:c:\users\bogdan\documents\github\space-math\source\equations.cpp
 	"Equations.h"
 
-1625164603 source:c:\users\bogdan\documents\github\space-math\source\game.cpp
+1625244608 source:c:\users\bogdan\documents\github\space-math\source\game.cpp
 	"Game.h"
 
 1624296323 source:c:\users\bogdan\documents\github\space-math\source\gameoverstate.cpp
@@ -1595,10 +1596,10 @@
 1624198255 source:c:\users\bogdan\documents\github\space-math\source\levelselectstate.cpp
 	"LevelSelectState.h"
 
-1622722772 source:c:\users\bogdan\documents\github\space-math\source\mainmenustate.cpp
+1625308516 source:c:\users\bogdan\documents\github\space-math\source\mainmenustate.cpp
 	"MainMenuState.h"
 
-1622643900 source:c:\users\bogdan\documents\github\space-math\source\mothership.cpp
+1625244608 source:c:\users\bogdan\documents\github\space-math\source\mothership.cpp
 	"MotherShip.h"
 
 1624199080 source:c:\users\bogdan\documents\github\space-math\source\pausemenustate.cpp
@@ -1698,4 +1699,13 @@
 
 1625246544 source:c:\users\mario\downloads\c++ projects\space-math\source\firebarrierability.cpp
 	"FireBarrierAbility.h"
+
+1625308337 c:\users\bogdan\documents\github\space-math\source\achievementsstate.h
+	<SFML/Graphics.hpp>
+	"../MKE/MKE.h"
+	"Game.h"
+	"Background.h"
+
+1625308473 source:c:\users\bogdan\documents\github\space-math\source\achievementsstate.cpp
+	"AchievementsState.h"
 

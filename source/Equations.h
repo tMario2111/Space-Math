@@ -26,8 +26,10 @@ private:
     bool star_question = 0;
     sf::Sprite panel;
     sf::Sprite star;
+    sf::Sprite star_counter_sprite;
     sf::Text equation;
     sf::Text result;
+    sf::Text stars_counter_text;
     std::string result_string;
     std::string result_value;
     sf::Time skip_clock = sf::seconds(0.f);
@@ -47,6 +49,7 @@ private:
     void setupPanel();
     void setupStar();
     void setupTexts();
+    void setupStarCounterSprite();
     std::string generateBasicMath();
     std::string generateEquation();
     std::string generateTrigonometry();

@@ -10,6 +10,7 @@ Equations::Equations(mke::AssetManager& assets, sf::RenderWindow& win, mke::Rand
 {
     setupPanel();
     setupStar();
+    setupStarCounterSprite();
     setupTexts();
     generateQuestion();
 }
@@ -46,6 +47,17 @@ void Equations::setupTexts()
     skipped_question_result.setCharacterSize(20);
     skipped_question_result.setPosition(-1000.f, -1000.f);
     skipped_question_result.setFillColor(sf::Color(255, 255, 255, 0));
+    stars_counter_text.setFont(assets.getFont("font"));
+    stars_counter_text.setCharacterSize(40);
+    stars_counter_text.setString("0/3");
+    stars_counter_text.setPosition(win.getSize().x - stars_counter_text.getGlobalBounds().width - 15.f - star_counter_sprite.getGlobalBounds().width, 10.f);
+}
+
+void Equations::setupStarCounterSprite()
+{
+    star_counter_sprite.setTexture(assets.getTexture("star"));
+    star_counter_sprite.setScale(0.1f, 0.1f);
+    star_counter_sprite.setPosition(win.getSize().x - star_counter_sprite.getGlobalBounds().width - 10.f, 17.5f);
 }
 
 std::string Equations::generateBasicMath()
@@ -243,6 +255,7 @@ void Equations::update()
     result.setOrigin(result.getLocalBounds().width / 2, result.getLocalBounds().height / 2);
     mke::utility::centerBothAxes(result, panel.getPosition().x, panel.getPosition().x + panel.getGlobalBounds().width / 2,
                                  panel.getPosition().y - panel.getGlobalBounds().height + 55.f, panel.getPosition().y + panel.getGlobalBounds().height);
+    stars_counter_text.setString(std::string(std::to_string(star_questions_count) + "/" + std::to_string(star_questions_target)));
     for (int i = sf::Keyboard::Num0; i <= sf::Keyboard::Num9; i++)
         if (input.isKeyReleased(static_cast<sf::Keyboard::Key>(i)))
             result_string += std::to_string(i - sf::Keyboard::Num0);
@@ -303,4 +316,6 @@ void Equations::draw(sf::RenderTarget& target, sf::RenderStates states) const
     target.draw(equation);
     target.draw(result);
     target.draw(skipped_question_result);
+    target.draw(stars_counter_text);
+    target.draw(star_counter_sprite);
 }

@@ -29,28 +29,36 @@ void MainMenuState::setupTitle()
 
 void MainMenuState::setupButtons()
 {
+    achievements.setTextures(game.assets.getTexture("button_pressed"), game.assets.getTexture("button_released"));
+    achievements.setFonts(game.assets.getFont("font"), game.assets.getFont("font"));
+    achievements.body.setScale(1.5f, 1.5f);
+    achievements.setOriginsToCenter();
+    achievements.body.setPosition(game.win.getSize().x / 2, game.win.getSize().y / 2 - achievements.body.getGlobalBounds().height / 2 - BUTTON_MARGIN / 2);
+    achievements.setupText(achievements.text, game.assets.getFont("font"), 35, "ACHIEVEMENTS", sf::Color::White);
+    achievements.centerTextToBody();
+
     start.setTextures(game.assets.getTexture("button_pressed"), game.assets.getTexture("button_released"));
     start.setFonts(game.assets.getFont("font"), game.assets.getFont("font"));
     start.body.setScale(1.5f, 1.5f);
     start.setOriginsToCenter();
-    start.body.setPosition(game.win.getSize().x / 2, game.win.getSize().y / 2 - start.body.getGlobalBounds().height - BUTTON_MARGIN);
-    start.setupText(start.text, game.assets.getFont("font"), 40, "START", sf::Color::White);
+    start.body.setPosition(game.win.getSize().x / 2, achievements.body.getGlobalBounds().top - start.body.getGlobalBounds().height / 2 - BUTTON_MARGIN);
+    start.setupText(start.text, game.assets.getFont("font"), 35, "START", sf::Color::White);
     start.centerTextToBody();
 
     settings.setTextures(game.assets.getTexture("button_pressed"), game.assets.getTexture("button_released"));
     settings.setFonts(game.assets.getFont("font"), game.assets.getFont("font"));
     settings.body.setScale(1.5f, 1.5f);
     settings.setOriginsToCenter();
-    settings.body.setPosition(game.win.getSize().x / 2, game.win.getSize().y / 2);
-    settings.setupText(settings.text, game.assets.getFont("font"), 40, "SETTINGS", sf::Color::White);
+    settings.body.setPosition(game.win.getSize().x / 2, game.win.getSize().y / 2 + settings.body.getGlobalBounds().height / 2 + BUTTON_MARGIN / 2);
+    settings.setupText(settings.text, game.assets.getFont("font"), 35, "SETTINGS", sf::Color::White);
     settings.centerTextToBody();
 
     exit.setTextures(game.assets.getTexture("button_pressed"), game.assets.getTexture("button_released"));
     exit.setFonts(game.assets.getFont("font"), game.assets.getFont("font"));
     exit.body.setScale(1.5f, 1.5f);
     exit.setOriginsToCenter();
-    exit.body.setPosition(game.win.getSize().x / 2, game.win.getSize().y / 2 + exit.body.getGlobalBounds().height + BUTTON_MARGIN);
-    exit.setupText(exit.text, game.assets.getFont("font"), 40, "EXIT", sf::Color::White);
+    exit.body.setPosition(game.win.getSize().x / 2, settings.body.getGlobalBounds().top + settings.body.getGlobalBounds().height + exit.body.getGlobalBounds().height / 2 + BUTTON_MARGIN);
+    exit.setupText(exit.text, game.assets.getFont("font"), 35, "EXIT", sf::Color::White);
     exit.centerTextToBody();
 }
 
@@ -58,6 +66,8 @@ void MainMenuState::update()
 {
     if (start.selected(game.win) && game.input.isButtonReleased(sf::Mouse::Left))
         game.states.push(std::make_unique<LevelSelectState>(game, background));
+    if (achievements.selected(game.win) && game.input.isButtonReleased(sf::Mouse::Left))
+        game.states.push(std::make_unique<AchievementsState>(game, background));
     if (settings.selected(game.win) && game.input.isButtonReleased(sf::Mouse::Left))
         game.states.push(std::make_unique<SettingsState>(game, background));
     if (exit.selected(game.win) && game.input.isButtonReleased(sf::Mouse::Left))
@@ -70,6 +80,7 @@ void MainMenuState::render()
     game.win.draw(background);
     game.win.draw(title);
     game.win.draw(start);
+    game.win.draw(achievements);
     game.win.draw(settings);
     game.win.draw(exit);
 }

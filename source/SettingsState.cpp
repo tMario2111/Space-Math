@@ -109,7 +109,7 @@ void SettingsState::update()
     game_volume.setString(std::to_string(game.game_settings.game_volume));
     music_volume.setString(std::to_string(game.game_settings.music_volume));
     background.update(game.dt.get());
-    if (game.input.isKeyReleased(sf::Keyboard::Escape))
+    if (game.input.isKeyReleased(sf::Keyboard::Escape) || (back_.selected(game.win) && game.input.isButtonReleased(sf::Mouse::Left)))
     {
         game.game_settings.saveDoc("data/data.dat");
         game.states.pop();
@@ -122,11 +122,6 @@ void SettingsState::update()
         game.game_settings.music_volume -= 5;
     if (music_volume_r.selected(game.win) && game.input.isButtonReleased(sf::Mouse::Left) && game.game_settings.music_volume < 100)
         game.game_settings.music_volume += 5;
-    if (back_.selected(game.win) && game.input.isButtonReleased(sf::Mouse::Left))
-    {
-        game.game_settings.saveDoc("data/data.dat");
-        game.states.pop();
-    }
 }
 
 void SettingsState::render()

@@ -3,6 +3,9 @@
 
 #include <SFML/Graphics.hpp>
 #include "../MKE/MKE.h"
+#include "../tinyxml2.h"
+#include <string>
+#include <vector>
 
 #include "Game.h"
 #include "Background.h"
@@ -16,6 +19,8 @@ public:
 private:
     Game& game;
     Background& background;
+    std::vector<std::pair<sf::Text, sf::Text>> achievements;
+    void setupAchievements();
 };
 
 #endif

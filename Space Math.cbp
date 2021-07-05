@@ -83,6 +83,8 @@
 			<Option compilerVar="WINDRES" />
 		</Unit>
 		<Unit filename="main.cpp" />
+		<Unit filename="source/AchievementsState.cpp" />
+		<Unit filename="source/AchievementsState.h" />
 		<Unit filename="source/Background.cpp" />
 		<Unit filename="source/Background.h" />
 		<Unit filename="source/Button.cpp" />
@@ -127,6 +129,9 @@
 		<Unit filename="tinyxml2.h" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
+			<code_completion />
+			<envvars />
+			<debugger />
 		</Extensions>
 	</Project>
 </CodeBlocks_project_file>

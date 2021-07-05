@@ -11,6 +11,39 @@
     <music_volume>25</music_volume>
 </settings>
 
+<achievements>
+    <achievement>
+        <title>AMATEUR</title>
+        <text>GAIN 10 POINTS IN ANY CATEGORY</text>
+        <done>1</done>
+    </achievement>
+    <achievement>
+        <title>NOVICE</title>
+        <text>GAIN 25 POINTS IN ANY CATEGORY</text>
+        <done>1</done>
+    </achievement>
+    <achievement>
+        <title>INTERMEDIATE</title>
+        <text>GAIN 50 POINTS IN ANY CATEGORY</text>
+        <done>0</done>
+    </achievement>
+    <achievement>
+        <title>EXPERT</title>
+        <text>GAIN 100 POINTS IN ANY CATEGORY</text>
+        <done>0</done>
+    </achievement>
+    <achievement>
+        <title>ELITE</title>
+        <text>GAIN 150 POINTS IN ANY CATEGORY</text>
+        <done>0</done>
+    </achievement>
+    <achievement>
+        <title>MASTER</title>
+        <text>GAIN 200 POINTS IN ANY CATEGORY</text>
+        <done>0</done>
+    </achievement>
+</achievements>
+
 <strings>
     <instructions>
 INSTRUCTIONS:

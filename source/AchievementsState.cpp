@@ -5,9 +5,20 @@ AchievementsState::AchievementsState(Game& game, Background& background) :
     background(background)
 {
     name = "Achievements";
+    setupButtons();
     setupAchievements();
 }
 
+void AchievementsState::setupButtons()
+{
+    back_.setTextures(game.assets.getTexture("button_pressed"), game.assets.getTexture("button_released"));
+    back_.setFonts(game.assets.getFont("font"), game.assets.getFont("font"));
+    back_.body.setScale(0.5f, 1.f);
+    back_.setOriginsToCenter();
+    back_.body.setPosition(back_.body.getGlobalBounds().width / 2 + 20.f, back_.body.getGlobalBounds().height / 2 + 20.f);
+    back_.setupText(back_.text, game.assets.getFont("font"), 20, "BACK", sf::Color::White);
+    back_.centerTextToBody();
+}
 void AchievementsState::setupAchievements()
 {
     const float MARGIN = 50.f;
@@ -44,11 +55,14 @@ void AchievementsState::update()
     background.update(game.dt.get());
     if (game.input.isKeyReleased(sf::Keyboard::Escape))
         game.states.pop();
+    if (back_.selected(game.win) && game.input.isButtonReleased(sf::Mouse::Left))
+        game.states.pop();
 }
 
 void AchievementsState::render()
 {
     game.win.draw(background);
+    game.win.draw(back_);
     for (auto& i : achievements)
     {
         game.win.draw(i.first);

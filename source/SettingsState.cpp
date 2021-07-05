@@ -123,7 +123,10 @@ void SettingsState::update()
     if (music_volume_r.selected(game.win) && game.input.isButtonReleased(sf::Mouse::Left) && game.game_settings.music_volume < 100)
         game.game_settings.music_volume += 5;
     if (back_.selected(game.win) && game.input.isButtonReleased(sf::Mouse::Left))
+    {
+        game.game_settings.saveDoc("data/data.dat");
         game.states.pop();
+    }
 }
 
 void SettingsState::render()

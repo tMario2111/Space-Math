@@ -9,6 +9,7 @@
 
 #include "Game.h"
 #include "Background.h"
+#include "Button.h"
 
 class AchievementsState : public mke::State
 {
@@ -20,6 +21,8 @@ private:
     Game& game;
     Background& background;
     std::vector<std::pair<sf::Text, sf::Text>> achievements;
+    Button back_;
+    void setupButtons();
     void setupAchievements();
 };
 

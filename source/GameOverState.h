@@ -3,6 +3,7 @@
 
 #include <SFML/Graphics.hpp>
 #include "../MKE/MKE.h"
+#include "../tinyxml2.h"
 
 #include "Background.h"
 #include "Game.h"
@@ -29,6 +30,7 @@ private:
     const float BUTTON_MARGIN = 50.f;
     Button main_menu;
     Button reset;
+    void checkAchievements();
     void setupText();
     void setupButtons();
 };

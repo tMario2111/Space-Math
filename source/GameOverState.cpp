@@ -10,6 +10,7 @@ GameOverState::GameOverState(Game& game, sf::Image background_texture, int score
     this->background_texture.loadFromImage(background_texture);
     background_sprite.setTexture(this->background_texture);
     background_sprite.setColor(sf::Color(100, 100, 100));
+    checkAchievements();
     setupText();
     setupButtons();
 
@@ -45,6 +46,18 @@ GameOverState::GameOverState(Game& game, sf::Image background_texture, int score
         break;
     default:
         break;
+    }
+}
+
+void GameOverState::checkAchievements()
+{
+    tinyxml2::XMLElement* root = game.game_settings.doc.FirstChildElement("achievements");
+    for (tinyxml2::XMLElement* i = root->FirstChildElement("achievement"); i != 0; i = i->NextSiblingElement("achievement"))
+    {
+        unsigned int score;
+        i->FirstChildElement("score")->QueryUnsignedText(&score);
+        if (this->score >= score)
+            i->FirstChildElement("done")->SetText(1);
     }
 }
 

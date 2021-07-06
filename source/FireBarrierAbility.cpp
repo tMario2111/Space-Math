@@ -25,7 +25,7 @@ void FireBarrierAbility::setupSprite()
 {
     animation.setSpriteFrame(sf::Vector2u(0, 0));
     sprite.setScale(3.f, 3.f);
-    sprite.setOrigin(sprite.getLocalBounds().width / 4.05f, sprite.getLocalBounds().height / 4.225f);
+    sprite.setOrigin(sprite.getLocalBounds().width / 4.075f, sprite.getLocalBounds().height / 4.3f);
     sprite.setPosition(win.getSize().x / 2, win.getSize().y / 2);
 }
 

@@ -673,7 +673,7 @@
 	<vector>
 	<cmath>
 
-1625319411 c:\users\mario\downloads\c++ projects\space-math\source\equations.h
+1625563339 c:\users\mario\downloads\c++ projects\space-math\source\equations.h
 	<SFML/Graphics.hpp>
 	"../MKE/MKE.h"
 	<string>
@@ -703,9 +703,10 @@
 	<SFML/Graphics.hpp>
 	"../MKE/MKE.h"
 
-1624204086 c:\users\mario\downloads\c++ projects\space-math\source\gameoverstate.h
+1625563459 c:\users\mario\downloads\c++ projects\space-math\source\gameoverstate.h
 	<SFML/Graphics.hpp>
 	"../MKE/MKE.h"
+	"../tinyxml2.h"
 	"Background.h"
 	"Game.h"
 	"Button.h"
@@ -768,7 +769,7 @@
 1625246993 source:c:\users\mario\downloads\c++ projects\space-math\source\game.cpp
 	"Game.h"
 
-1624259589 source:c:\users\mario\downloads\c++ projects\space-math\source\gameoverstate.cpp
+1625563660 source:c:\users\mario\downloads\c++ projects\space-math\source\gameoverstate.cpp
 	"GameOverState.h"
 
 1622651287 source:c:\users\mario\downloads\c++ projects\space-math\source\gamesettings.cpp
@@ -792,7 +793,7 @@
 1624124021 source:c:\users\mario\downloads\c++ projects\space-math\source\progressbar.cpp
 	"ProgressBar.h"
 
-1624204086 source:c:\users\mario\downloads\c++ projects\space-math\source\settingsstate.cpp
+1625562585 source:c:\users\mario\downloads\c++ projects\space-math\source\settingsstate.cpp
 	"SettingsState.h"
 
 1622917049 source:c:\users\mario\downloads\c++ projects\space-math\source\shootingability.cpp
@@ -1698,7 +1699,7 @@
 	<SFML/Graphics.hpp>
 	"../MKE/MKE.h"
 
-1625319327 source:c:\users\mario\downloads\c++ projects\space-math\source\firebarrierability.cpp
+1625563315 source:c:\users\mario\downloads\c++ projects\space-math\source\firebarrierability.cpp
 	"FireBarrierAbility.h"
 
 1625511134 c:\users\bogdan\documents\github\space-math\source\achievementsstate.h
@@ -1714,7 +1715,7 @@
 1625511203 source:c:\users\bogdan\documents\github\space-math\source\achievementsstate.cpp
 	"AchievementsState.h"
 
-1625495479 c:\users\mario\downloads\c++ projects\space-math\source\achievementsstate.h
+1625562585 c:\users\mario\downloads\c++ projects\space-math\source\achievementsstate.h
 	<SFML/Graphics.hpp>
 	"../MKE/MKE.h"
 	"../tinyxml2.h"
@@ -1722,7 +1723,8 @@
 	<vector>
 	"Game.h"
 	"Background.h"
+	"Button.h"
 
-1625496388 source:c:\users\mario\downloads\c++ projects\space-math\source\achievementsstate.cpp
+1625562585 source:c:\users\mario\downloads\c++ projects\space-math\source\achievementsstate.cpp
 	"AchievementsState.h"
 

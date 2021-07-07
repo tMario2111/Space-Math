@@ -14,6 +14,7 @@ class MotherShip : public sf::Drawable
 public:
     MotherShip(mke::AssetManager& assets, sf::RenderWindow& win, mke::DeltaTime& dt);
     sf::Sprite sprite;
+    mke::Effect explosion;
     float HP = 100.f;
     void findClosestEnemy(std::vector<std::unique_ptr<Enemy>>& enemies, Equations& equations, unsigned int& score);
     void update();
@@ -26,6 +27,7 @@ private:
     float rotation_speed = -5.f;
     void setupSprite();
     void setupTarget();
+    void setupExplosion();
     void rotate();
     void updateDamageTexture();
 };

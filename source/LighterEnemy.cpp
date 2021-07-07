@@ -68,7 +68,7 @@ void LighterEnemy::update()
     else
     {
         explosion.sprite.setPosition(sprite.getPosition());
-        explosion.run(dt.get().asMilliseconds());
+        explosion.run(dt.get());
         if (explosion.isDone())
             dead = 1;
     }

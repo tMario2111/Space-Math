@@ -38,7 +38,7 @@ void Effect::loadSound(sf::Sound& sound)
     this->sound = &sound;
 }
 
-void Effect::setDuration(float duration)
+void Effect::setDuration(sf::Time duration)
 {
     this->duration = duration;
 }
@@ -55,25 +55,27 @@ void Effect::restart()
     sound_played = 0;
 }
 
-void Effect::run(float dt)
+void Effect::run(sf::Time dt)
 {
+    running = 1;
     clock += dt;
     if (!sound_played)
     {
         sound->play();
         sound_played = 1;
     }
-    if (!done && clock * 1000 >= duration)
+    if (!done && clock >= sf::seconds(duration.asSeconds() / (size.x * size.y)))
     {
         if (current_frame == size.x * size.y - 1)
         {
+            running = 0;
             done = 1;
             sound->stop();
             return;
         }
         current_frame++;
         sprite.setTextureRect(getIntRect(sf::Vector2i(current_frame % size.x, current_frame / size.x)));
-        clock = 0;
+        clock = sf::seconds(0.f);
     }
 }
 

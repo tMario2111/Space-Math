@@ -7,6 +7,7 @@ MotherShip::MotherShip(mke::AssetManager& assets, sf::RenderWindow& win, mke::De
 {
     setupSprite();
     setupTarget();
+    setupExplosion();
 }
 
 void MotherShip::setupSprite()
@@ -23,6 +24,14 @@ void MotherShip::setupTarget()
     target.setTexture(assets.getTexture("target"));
     target.setOrigin(target.getLocalBounds().width / 2, target.getLocalBounds().height / 2);
     target.setScale(0.2f, 0.2f);
+}
+
+void MotherShip::setupExplosion()
+{
+    explosion.loadSpriteSheet(assets.getTexture("explosion_texture"), sf::Vector2i(4, 4));
+    explosion.setDuration(sf::seconds(1.f));
+    explosion.sprite.setScale(4.f, 4.f);
+    explosion.loadSound(assets.getSound("explosion_sound"));
 }
 
 void MotherShip::rotate()
@@ -82,6 +91,8 @@ void MotherShip::update()
 
 void MotherShip::draw(sf::RenderTarget& target, sf::RenderStates states) const
 {
-    target.draw(sprite, states);
+    if(!explosion.running)
+        target.draw(sprite, states);
     target.draw(this->target, states);
+    target.draw(explosion, states);
 }

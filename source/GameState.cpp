@@ -143,13 +143,21 @@ void GameState::gameOverEvent()
 {
     if (mother_ship.HP <= 0.f)
     {
-        sf::Texture texture;
-        texture.create(game.win.getSize().x, game.win.getSize().y);
-        texture.update(game.win);
-        game.states.states_just_changed = 1;
-        music_timestamp = music.getPlayingOffset();
-        music.stop();
-        game.states.push(std::make_unique<GameOverState>(game, texture.copyToImage(), (int)score, level, background));
+        if(!mother_ship.explosion.isDone())
+        {
+            mother_ship.explosion.sprite.setPosition(mother_ship.sprite.getPosition());
+            mother_ship.explosion.run(game.dt.get());
+        }
+        else
+        {
+            sf::Texture texture;
+            texture.create(game.win.getSize().x, game.win.getSize().y);
+            texture.update(game.win);
+            game.states.states_just_changed = 1;
+            music_timestamp = music.getPlayingOffset();
+            music.stop();
+            game.states.push(std::make_unique<GameOverState>(game, texture.copyToImage(), (int)score, level, background));
+        }
     }
 }
 

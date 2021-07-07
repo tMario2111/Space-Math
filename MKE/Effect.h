@@ -13,9 +13,10 @@ public:
     sf::Sprite sprite;
     void loadSpriteSheet(sf::Texture& sprite_sheet, sf::Vector2i size);
     void loadSound(sf::Sound& sound);
-    void setDuration(float duration);
-    void run(float dt);
+    void setDuration(sf::Time duration);
+    void run(sf::Time dt);
     bool isDone();
+    bool running = 0;
     void restart();
 private:
     sf::Texture* sprite_sheet;
@@ -23,8 +24,8 @@ private:
     bool sound_played = 0;
     sf::Vector2i size;
     sf::Vector2i frame_size;
-    float duration;
-    float clock = 0;
+    sf::Time duration;
+    sf::Time clock = sf::seconds(0.f);
     unsigned int current_frame;
     bool done = 0;
     sf::IntRect getIntRect(sf::Vector2i coords);

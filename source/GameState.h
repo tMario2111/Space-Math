@@ -64,6 +64,7 @@ private:
     void spawnEnemy();
     void spawnEnemies();
     void deleteEnemies();
+    void destroyAllEnemies();
     void addBulletsToBatch();
     void collisionBulletsMothership();
     void collisionBulletsFireBarrierAbility();

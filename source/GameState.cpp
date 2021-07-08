@@ -145,8 +145,10 @@ void GameState::gameOverEvent()
     {
         if(!mother_ship.explosion.isDone())
         {
+            mother_ship.exploding = 1;
             mother_ship.explosion.sprite.setPosition(mother_ship.sprite.getPosition());
             mother_ship.explosion.run(game.dt.get());
+            destroyAllEnemies();
         }
         else
         {
@@ -219,6 +221,12 @@ void GameState::deleteEnemies()
         }
 }
 
+void GameState::destroyAllEnemies()
+{
+    for (auto& i : enemies)
+        i.get()->going_to_die = 1;
+}
+
 void GameState::updateDamageEffect()
 {
     int opacity = damage_effect.getFillColor().a;
@@ -280,8 +288,11 @@ void GameState::render()
     game.win.draw(fire_barrier_ability);
     for (auto& i : enemies)
         game.win.draw(i.get()->explosion);
-    game.win.draw(damage_effect);
-    game.win.draw(health_bar);
-    game.win.draw(equations);
-    game.win.draw(score_text);
+    if (!mother_ship.exploding)
+    {
+        game.win.draw(damage_effect);
+        game.win.draw(health_bar);
+        game.win.draw(equations);
+        game.win.draw(score_text);
+    }
 }

@@ -583,7 +583,7 @@
 1620822998 c:\users\mario\downloads\c++ projects\space-math\mke\spritebatch.h
 	<SFML/Graphics.hpp>
 
-1620924028 c:\users\mario\downloads\c++ projects\space-math\mke\effect.h
+1625774988 c:\users\mario\downloads\c++ projects\space-math\mke\effect.h
 	<SFML/Graphics.hpp>
 	<SFML/Audio.hpp>
 
@@ -627,7 +627,7 @@
 	"Background.h"
 	"Button.h"
 
-1625246544 c:\users\mario\downloads\c++ projects\space-math\source\gamestate.h
+1625775436 c:\users\mario\downloads\c++ projects\space-math\source\gamestate.h
 	<SFML/Graphics.hpp>
 	<SFML/Audio.hpp>
 	"../MKE/MKE.h"
@@ -654,7 +654,7 @@
 1620828899 c:\users\mario\downloads\c++ projects\space-math\source\background.h
 	<SFML/Graphics.hpp>
 
-1625247027 c:\users\mario\downloads\c++ projects\space-math\source\mothership.h
+1625775131 c:\users\mario\downloads\c++ projects\space-math\source\mothership.h
 	<SFML/Graphics.hpp>
 	"../MKE/MKE.h"
 	<memory>
@@ -728,7 +728,7 @@
 1620822998 source:c:\users\mario\downloads\c++ projects\space-math\mke\deltatime.cpp
 	"DeltaTime.h"
 
-1622570830 source:c:\users\mario\downloads\c++ projects\space-math\mke\effect.cpp
+1625774988 source:c:\users\mario\downloads\c++ projects\space-math\mke\effect.cpp
 	"Effect.h"
 	<SFML/Graphics.hpp>
 	<SFML/Audio.hpp>
@@ -757,10 +757,10 @@
 1622276445 source:c:\users\mario\downloads\c++ projects\space-math\source\button.cpp
 	"Button.h"
 
-1623217651 source:c:\users\mario\downloads\c++ projects\space-math\source\doveenemy.cpp
+1625774988 source:c:\users\mario\downloads\c++ projects\space-math\source\doveenemy.cpp
 	"DoveEnemy.h"
 
-1620987213 source:c:\users\mario\downloads\c++ projects\space-math\source\enemy.cpp
+1625774988 source:c:\users\mario\downloads\c++ projects\space-math\source\enemy.cpp
 	"Enemy.h"
 
 1625318540 source:c:\users\mario\downloads\c++ projects\space-math\source\equations.cpp
@@ -775,7 +775,7 @@
 1622651287 source:c:\users\mario\downloads\c++ projects\space-math\source\gamesettings.cpp
 	"GameSettings.h"
 
-1625319403 source:c:\users\mario\downloads\c++ projects\space-math\source\gamestate.cpp
+1625775545 source:c:\users\mario\downloads\c++ projects\space-math\source\gamestate.cpp
 	"GameState.h"
 
 1624204086 source:c:\users\mario\downloads\c++ projects\space-math\source\levelselectstate.cpp
@@ -784,7 +784,7 @@
 1625318540 source:c:\users\mario\downloads\c++ projects\space-math\source\mainmenustate.cpp
 	"MainMenuState.h"
 
-1625247140 source:c:\users\mario\downloads\c++ projects\space-math\source\mothership.cpp
+1625775142 source:c:\users\mario\downloads\c++ projects\space-math\source\mothership.cpp
 	"MotherShip.h"
 
 1624204086 source:c:\users\mario\downloads\c++ projects\space-math\source\pausemenustate.cpp
@@ -1642,7 +1642,7 @@
 	"Enemy.h"
 	"ShootingAbility.h"
 
-1623218224 source:c:\users\mario\downloads\c++ projects\space-math\source\lighterenemy.cpp
+1625774988 source:c:\users\mario\downloads\c++ projects\space-math\source\lighterenemy.cpp
 	"LighterEnemy.h"
 
 1625681578 source:c:\users\bogdan\documents\github\space-math\source\paranoidenemy.cpp
@@ -1679,10 +1679,10 @@
 	"Enemy.h"
 	"ShootingAbility.h"
 
-1623218291 source:c:\users\mario\downloads\c++ projects\space-math\source\paranoidenemy.cpp
+1625774988 source:c:\users\mario\downloads\c++ projects\space-math\source\paranoidenemy.cpp
 	"ParanoidEnemy.h"
 
-1623218318 source:c:\users\mario\downloads\c++ projects\space-math\source\ufoenemy.cpp
+1625774988 source:c:\users\mario\downloads\c++ projects\space-math\source\ufoenemy.cpp
 	"UFOEnemy.h"
 
 1623218974 source:c:\users\mario\downloads\c++ projects\space-math\icon.rc

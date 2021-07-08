@@ -15,6 +15,7 @@ public:
     MotherShip(mke::AssetManager& assets, sf::RenderWindow& win, mke::DeltaTime& dt);
     sf::Sprite sprite;
     mke::Effect explosion;
+    bool exploding = 0;
     float HP = 100.f;
     void findClosestEnemy(std::vector<std::unique_ptr<Enemy>>& enemies, Equations& equations, unsigned int& score);
     void update();

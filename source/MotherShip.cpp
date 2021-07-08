@@ -91,8 +91,10 @@ void MotherShip::update()
 
 void MotherShip::draw(sf::RenderTarget& target, sf::RenderStates states) const
 {
-    if(!explosion.running)
+    if(!exploding)
+    {
         target.draw(sprite, states);
-    target.draw(this->target, states);
+        target.draw(this->target, states);
+    }
     target.draw(explosion, states);
 }

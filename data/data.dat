@@ -1,14 +1,14 @@
 <?xml version = "1.0" encoding = "UTF-8"?>
 <high_scores>
     <level1>10</level1>
-    <level2>0</level2>
-    <level3>0</level3>
+    <level2>4</level2>
+    <level3>3</level3>
     <level4>0</level4>
 </high_scores>
 
 <settings>
-    <game_volume>80</game_volume>
-    <music_volume>30</music_volume>
+    <game_volume>60</game_volume>
+    <music_volume>20</music_volume>
 </settings>
 
 <achievements>

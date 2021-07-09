@@ -1,6 +1,7 @@
 #include "MotherShip.h"
 
 MotherShip::MotherShip(mke::AssetManager& assets, sf::RenderWindow& win, mke::DeltaTime& dt) :
+    explosion(assets),
     assets(assets),
     win(win),
     dt(dt)
@@ -31,7 +32,7 @@ void MotherShip::setupExplosion()
     explosion.loadSpriteSheet(assets.getTexture("explosion_texture"), sf::Vector2i(4, 4));
     explosion.setDuration(sf::seconds(1.f));
     explosion.sprite.setScale(4.f, 4.f);
-    explosion.loadSound(assets.getSound("explosion_sound"));
+    explosion.setSoundBufferName("explosion_sound");
 }
 
 void MotherShip::rotate()

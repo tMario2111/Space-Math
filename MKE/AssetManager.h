@@ -5,6 +5,7 @@
 #include <SFML/Audio.hpp>
 #include <string>
 #include <unordered_map>
+#include <vector>
 
 namespace mke
 {
@@ -20,19 +21,17 @@ public:
     void loadFont(std::string name, sf::Font& font);
     void unloadFont(std::string name);
     sf::Font& getFont(std::string name);
-    void loadSound(std::string name, std::string filename);
-    void unloadSound(std::string name);
-    sf::Sound& getSound(std::string name);
+    void loadSoundBuffer(std::string name, std::string filename);
+    void unloadSoundBuffer(std::string name);
+    sf::Sound* playSound(std::string buffer_name);
+    float sound_volume = 100.f;
+    void update();
 private:
     sf::RenderWindow& win;
     std::unordered_map<std::string, sf::Texture> textures;
     std::unordered_map<std::string, sf::Font> fonts;
-    struct SoundWithBuffer
-    {
-        sf::Sound sound;
-        sf::SoundBuffer sound_buffer;
-    };
-    std::unordered_map<std::string, SoundWithBuffer> sounds;
+    std::unordered_map<std::string, sf::SoundBuffer> sound_buffers;
+    std::vector<sf::Sound*> sounds;
 };
 }
 

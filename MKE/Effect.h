@@ -3,16 +3,19 @@
 
 #include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
+#include <string>
+
+#include "AssetManager.h"
 
 namespace mke
 {
 class Effect : public sf::Drawable
 {
 public:
-    Effect();
+    Effect(mke::AssetManager& assets);
     sf::Sprite sprite;
     void loadSpriteSheet(sf::Texture& sprite_sheet, sf::Vector2i size);
-    void loadSound(sf::Sound& sound);
+    void setSoundBufferName(std::string name);
     void setDuration(sf::Time duration);
     sf::Time getDuration();
     void run(sf::Time dt);
@@ -20,8 +23,9 @@ public:
     bool running = 0;
     void restart();
 private:
+    mke::AssetManager& assets;
     sf::Texture* sprite_sheet;
-    sf::Sound* sound;
+    std::string sound_buffer_name;
     bool sound_played = 0;
     sf::Vector2i size;
     sf::Vector2i frame_size;

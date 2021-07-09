@@ -62,22 +62,36 @@ sf::Font& AssetManager::getFont(std::string name)
     return fonts[name];
 }
 
-void AssetManager::loadSound(std::string name, std::string filename)
+void AssetManager::loadSoundBuffer(std::string name, std::string filename)
 {
-    if (sounds.count(name) != 0)
+    if (sound_buffers.count(name) != 0)
         return;
-    if (!sounds[name].sound_buffer.loadFromFile(filename))
+    if (!sound_buffers[name].loadFromFile(filename))
         win.close();
-    sounds[name].sound.setBuffer(sounds[name].sound_buffer);
 }
 
-void AssetManager::unloadSound(std::string name)
+void AssetManager::unloadSoundBuffer(std::string name)
 {
-    sounds.erase(name);
+    sound_buffers.erase(name);
 }
 
-sf::Sound& AssetManager::getSound(std::string name)
+sf::Sound* AssetManager::playSound(std::string buffer_name)
 {
-    return sounds[name].sound;
+    sf::Sound* sound = new sf::Sound;
+    sound->setBuffer(sound_buffers[buffer_name]);
+    sound->setVolume(sound_volume);
+    sound->play();
+    sounds.push_back(sound);
+    return sound;
+}
+
+void AssetManager::update()
+{
+    for (int i = 0; i < (int)sounds.size(); i++)
+        if (sounds[i]->getStatus() == sf::Sound::Stopped)
+        {
+            delete sounds[i];
+            sounds.erase(sounds.begin() + i--);
+        }
 }
 }

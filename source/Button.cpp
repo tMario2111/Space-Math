@@ -39,11 +39,11 @@ bool Button::selected(sf::RenderWindow& win)
         body.setTexture(*selected_texture);
         text.setFont(*selected_font);
         centerTextToBody();
-        text.setColor(sf::Color(199, 207, 221));
+        text.setFillColor(sf::Color(199, 207, 221));
         text.move(0.f, 3.f);
         return 1;
     }
-    text.setColor(sf::Color(255, 255, 255));
+    text.setFillColor(sf::Color(255, 255, 255));
     text.move(0.f, -3.f);
     body.setTexture(*base_texture);
     text.setFont(*base_font);

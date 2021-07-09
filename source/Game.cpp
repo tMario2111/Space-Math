@@ -34,7 +34,7 @@ void Game::loadAssets()
     assets.loadTexture("button_released", "assets/buttons/button_released.png");
 
     assets.loadTexture("explosion_texture", "assets/effects/explosion.png");
-    assets.loadSound("explosion_sound", "assets/sounds/explosion.wav");
+    assets.loadSoundBuffer("explosion_sound", "assets/sounds/explosion.wav");
     assets.loadTexture("fire_circle","assets/effects/fire_circle.png");
     assets.getTexture("fire_circle").setSmooth(true);
 
@@ -100,6 +100,7 @@ void Game::run()
     {
         input.update();
         dt.update();
+        assets.update();
         fps_counter.setString(std::to_string((int)(1.f / dt.get().asSeconds())));
         winEvents();
         states.top().update();

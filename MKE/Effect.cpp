@@ -5,7 +5,8 @@
 
 namespace mke
 {
-Effect::Effect()
+Effect::Effect(mke::AssetManager& assets) :
+    assets(assets)
 {
 
 }
@@ -33,9 +34,9 @@ void Effect::loadSpriteSheet(sf::Texture& sprite_sheet, sf::Vector2i size)
     sprite.setPosition(-1000, -1000);
 }
 
-void Effect::loadSound(sf::Sound& sound)
+void Effect::setSoundBufferName(std::string name)
 {
-    this->sound = &sound;
+    sound_buffer_name = name;
 }
 
 void Effect::setDuration(sf::Time duration)
@@ -66,16 +67,15 @@ void Effect::run(sf::Time dt)
     clock += dt;
     if (!sound_played)
     {
-        sound->play();
+        assets.playSound(sound_buffer_name);
         sound_played = 1;
     }
     if (!done && clock >= sf::seconds(duration.asSeconds() / (size.x * size.y)))
     {
-        if (current_frame == size.x * size.y - 1)
+        if ((int)current_frame == size.x * size.y - 1)
         {
             running = 0;
             done = 1;
-            sound->stop();
             return;
         }
         current_frame++;

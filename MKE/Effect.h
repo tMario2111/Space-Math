@@ -14,6 +14,7 @@ public:
     void loadSpriteSheet(sf::Texture& sprite_sheet, sf::Vector2i size);
     void loadSound(sf::Sound& sound);
     void setDuration(sf::Time duration);
+    sf::Time getDuration();
     void run(sf::Time dt);
     bool isDone();
     bool running = 0;

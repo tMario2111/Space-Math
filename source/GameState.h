@@ -52,6 +52,10 @@ private:
     Equations equations;
     sf::RectangleShape damage_effect;
     FireBarrierAbility fire_barrier_ability;
+    sf::Time final_enemy_explosion_rate;
+    sf::Time final_enemy_explosion_clock;
+    const sf::Time final_extra_time = sf::seconds(1.f);
+    sf::Time final_extra_clock;
     void setupBackground();
     void setupEnemiesRenderStates();
     void setupBulletsRenderStates();

@@ -43,6 +43,11 @@ void Effect::setDuration(sf::Time duration)
     this->duration = duration;
 }
 
+sf::Time Effect::getDuration()
+{
+    return duration;
+}
+
 bool Effect::isDone()
 {
     return done;

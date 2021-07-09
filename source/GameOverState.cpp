@@ -56,7 +56,7 @@ void GameOverState::checkAchievements()
     {
         unsigned int score;
         i->FirstChildElement("score")->QueryUnsignedText(&score);
-        if (this->score >= score)
+        if ((unsigned int)this->score >= score)
             i->FirstChildElement("done")->SetText(1);
     }
 }

@@ -143,23 +143,28 @@ void GameState::gameOverEvent()
 {
     if (mother_ship.HP <= 0.f)
     {
-        if(!mother_ship.explosion.isDone())
+        if(!mother_ship.explosion.isDone() && enemies.size() > 0)
         {
             mother_ship.exploding = 1;
             mother_ship.explosion.sprite.setPosition(mother_ship.sprite.getPosition());
             mother_ship.explosion.run(game.dt.get());
-            destroyAllEnemies();
+            final_enemy_explosion_rate = sf::seconds(mother_ship.explosion.getDuration().asSeconds() / enemies.size());
         }
         else
         {
-            sf::Texture texture;
-            texture.create(game.win.getSize().x, game.win.getSize().y);
-            texture.update(game.win);
-            game.states.states_just_changed = 1;
-            music_timestamp = music.getPlayingOffset();
-            music.stop();
-            game.states.push(std::make_unique<GameOverState>(game, texture.copyToImage(), (int)score, level, background));
+            final_extra_clock += game.dt.get();
+            if (final_extra_clock >= final_extra_time)
+            {
+                sf::Texture texture;
+                texture.create(game.win.getSize().x, game.win.getSize().y);
+                texture.update(game.win);
+                game.states.states_just_changed = 1;
+                music_timestamp = music.getPlayingOffset();
+                music.stop();
+                game.states.push(std::make_unique<GameOverState>(game, texture.copyToImage(), (int)score, level, background));
+            }
         }
+        destroyAllEnemies();
     }
 }
 
@@ -223,8 +228,17 @@ void GameState::deleteEnemies()
 
 void GameState::destroyAllEnemies()
 {
-    for (auto& i : enemies)
-        i.get()->going_to_die = 1;
+    final_enemy_explosion_clock += game.dt.get();
+    if (final_enemy_explosion_clock >= final_enemy_explosion_rate)
+    {
+        final_enemy_explosion_clock = sf::seconds(0.f);
+        for (auto& i : enemies)
+            if (!i.get()->going_to_die)
+            {
+                i.get()->going_to_die = 1;
+                break;
+            }
+    }
 }
 
 void GameState::updateDamageEffect()
@@ -261,7 +275,8 @@ void GameState::update()
         equations.star_questions_count = 0;
     }
     health_bar.setProgress(mother_ship.HP);
-    spawnEnemies();
+    if (!mother_ship.exploding)
+        spawnEnemies();
     for (auto& i : enemies)
         i.get()->update();
     mother_ship.findClosestEnemy(enemies, equations, score);

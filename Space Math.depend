@@ -411,9 +411,11 @@
 	<SFML/Graphics/Drawable.hpp>
 	<SFML/Window/GlResource.hpp>
 
-1624260101 c:\users\mario\downloads\c++ projects\space-math\source\game.h
+1626204141 c:\users\mario\downloads\c++ projects\space-math\source\game.h
 	<SFML/Graphics.hpp>
 	"../MKE/MKE.h"
+	<thread>
+	<string>
 	<ctime>
 	"GameSettings.h"
 	"MainMenuState.h"
@@ -769,7 +771,7 @@
 1625318540 source:c:\users\mario\downloads\c++ projects\space-math\source\equations.cpp
 	"Equations.h"
 
-1625846398 source:c:\users\mario\downloads\c++ projects\space-math\source\game.cpp
+1626204233 source:c:\users\mario\downloads\c++ projects\space-math\source\game.cpp
 	"Game.h"
 
 1625819888 source:c:\users\mario\downloads\c++ projects\space-math\source\gameoverstate.cpp
@@ -778,7 +780,7 @@
 1622651287 source:c:\users\mario\downloads\c++ projects\space-math\source\gamesettings.cpp
 	"GameSettings.h"
 
-1625845522 source:c:\users\mario\downloads\c++ projects\space-math\source\gamestate.cpp
+1625846725 source:c:\users\mario\downloads\c++ projects\space-math\source\gamestate.cpp
 	"GameState.h"
 
 1624204086 source:c:\users\mario\downloads\c++ projects\space-math\source\levelselectstate.cpp

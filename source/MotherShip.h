@@ -17,7 +17,7 @@ public:
     mke::Effect explosion;
     bool exploding = 0;
     float HP = 100.f;
-    void findClosestEnemy(std::vector<std::unique_ptr<Enemy>>& enemies, Equations& equations, unsigned int& score);
+    void updateTargeting(std::vector<std::unique_ptr<Enemy>>& enemies, Equations& equations, unsigned int& score);
     void update();
     void draw(sf::RenderTarget& target, sf::RenderStates states) const;
 private:

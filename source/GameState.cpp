@@ -279,7 +279,7 @@ void GameState::update()
         spawnEnemies();
     for (auto& i : enemies)
         i.get()->update();
-    mother_ship.findClosestEnemy(enemies, equations, score);
+    mother_ship.updateTargeting(enemies, equations, score);
     collisionBulletsMothership();
     collisionBulletsFireBarrierAbility();
     deleteEnemies();

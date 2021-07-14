@@ -40,35 +40,39 @@ void MotherShip::rotate()
     sprite.rotate(rotation_speed * dt.get().asSeconds());
 }
 
-void MotherShip::findClosestEnemy(std::vector<std::unique_ptr<Enemy>>& enemies, Equations& equations, unsigned int& score)
+void MotherShip::updateTargeting(std::vector<std::unique_ptr<Enemy>>& enemies, Equations& equations, unsigned int& score)
 {
+    bool ok = 0;
+    if (equations.correct_result)
+    {
+        ok = 1;
+        score++;
+        equations.correct_result = 0;
+    }
     for (auto& i : enemies)
         if (i.get()->locked_on)
         {
-            if (equations.correct_result)
+            if (ok)
             {
                 i.get()->locked_on = 0;
                 i.get()->going_to_die = 1;
-                equations.correct_result = 0;
-                score++;
             }
             else
                 target.setPosition(i.get()->sprite.getPosition());
             return;
         }
-    float min_distance = INT_MAX;
-    unsigned int min_i = INT_MAX;
-    for (unsigned int i = 0; i < enemies.size(); i++)
+    ok = 0;
+    for (auto& i : enemies)
     {
-        float distance = mke::utility::distance(enemies[i].get()->sprite.getPosition(), {(float)win.getSize().x / 2, (float)win.getSize().y / 2});
-        if (distance < min_distance && !enemies[i].get()->going_to_die)
+        if (!i.get()->going_to_die)
         {
-            min_distance = distance;
-            min_i = i;
+            i.get()->locked_on = 1;
+            ok = 1;
+            break;
         }
     }
-    if (min_i < enemies.size())
-        enemies[min_i].get()->locked_on = 1;
+    if (!ok)
+        target.setPosition(-10000.f, -10000.f);
 }
 
 void MotherShip::updateDamageTexture()

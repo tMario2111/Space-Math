@@ -18,7 +18,3 @@ void Enemy::setupExplosion()
     explosion.setSoundBufferName("explosion_sound");
 }
 
-void Enemy::update()
-{
-
-}

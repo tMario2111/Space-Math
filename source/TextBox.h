@@ -8,16 +8,20 @@
 class TextBox : public sf::Drawable
 {
 public:
-    TextBox(sf::Vector2f size, std::string message, sf::Font& font, int character_size);
+    TextBox(sf::RenderWindow& win, mke::Input& input, sf::Font& font, sf::Vector2f size, unsigned int character_size, std::string hint_string);
     sf::RectangleShape body;
-    sf::Text message;
-    int getContentsAsInt();
+    bool digits_only = 0;
+    unsigned int characters_limit = INT_MAX;
+    std::string getContents();
     void draw(sf::RenderTarget& target, sf::RenderStates states) const;
-    void update(char text_key, sf::RenderWindow* win);
+    void update();
 private:
+    sf::RenderWindow& win;
+    mke::Input& input;
+    sf::Text contents;
+    sf::Text hint;
     const char BACKSPACE = 8;
-    sf::Text contents_T;
-    std::string contents_str;
+    const float HINT_MARGIN = 10.f;
 };
 
 #endif

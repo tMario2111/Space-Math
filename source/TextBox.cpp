@@ -1,53 +1,68 @@
 #include "TextBox.h"
 
-TextBox::TextBox(sf::Vector2f size, std::string message, sf::Font& font, int character_size) :
-    body(size)
+TextBox::TextBox(sf::RenderWindow& win, mke::Input& input, sf::Font& font, sf::Vector2f size, unsigned int character_size, std::string hint_string) :
+    body(size),
+    win(win),
+    input(input)
 {
-    this->message.setString(message);
-    this->message.setFont(font);
-    this->message.setCharacterSize(character_size);
-    this->contents_T.setFont(font);
-    this->contents_T.setCharacterSize(character_size);
-    this->contents_T.setFillColor(sf::Color(0, 0, 0));
+    contents.setFont(font);
+    contents.setCharacterSize(character_size);
+    contents.setFillColor(sf::Color(225, 225, 225));
+    hint.setFont(font);
+    hint.setCharacterSize(character_size);
+    hint.setFillColor(sf::Color::White);
+    hint.setString(hint_string);
+    body.setOrigin(body.getLocalBounds().width / 2, body.getLocalBounds().height / 2);
+    body.setFillColor(sf::Color(0, 0, 0, 100));
+    body.setOutlineThickness(5.f);
+    body.setOutlineColor(sf::Color(0, 0, 0, 200));
 }
 
-int TextBox::getContentsAsInt()
+std::string TextBox::getContents()
 {
-    if (contents_str.size())
-    {
-        if (!(contents_str.size() == 1 && contents_str[0] == '-'))
-            return std::stoi(contents_str);
-    }
-    else
-        return -1000;
+    return contents.getString();
 }
 
-void TextBox::update(char text_key, sf::RenderWindow* win)
+void TextBox::update()
 {
-    sf::Vector2i m_local_pos = sf::Mouse::getPosition(*win);
-    sf::Vector2f m_global_pos = win->mapPixelToCoords(m_local_pos);
-    sf::FloatRect mouse_cursor (m_global_pos.x, m_global_pos.y, 1, 1);
-    if (mouse_cursor.intersects(body.getGlobalBounds()))
+    bool selected;
+    if (body.getGlobalBounds().contains(win.mapPixelToCoords(sf::Mouse::getPosition(win))))
     {
-        body.setFillColor(sf::Color(100, 100, 100));
-        if (text_key != 0)
-            if (text_key == BACKSPACE && contents_str.size())
-                contents_str.pop_back();
-            else if ((isdigit(text_key) || (text_key == '-' && contents_str.size() == 0)) && contents_str.size() < 3)
-                contents_str += text_key;
+        selected = 1;
+        body.setFillColor(sf::Color(100, 100, 100, 100));
     }
     else
-        body.setFillColor(sf::Color(255, 255, 255));
-    message.setPosition(body.getPosition().x - message.getGlobalBounds().width - 10.f, message.getPosition().y);
-    mke::utility::centerYAxis(message, body.getPosition().y, body.getPosition().y + body.getSize().y);
-    contents_T.setString(contents_str);
-    mke::utility::centerBothAxes(contents_T, body.getPosition().x, body.getPosition().x + body.getSize().x,
-                   body.getPosition().y, body.getPosition().y + body.getSize().y);
+    {
+        selected = 0;
+        body.setFillColor(sf::Color(0, 0, 0, 100));
+    }
+    std::string contents_string = contents.getString();
+    if (input.text_character != 0 && selected)
+    {
+        if (input.text_character == BACKSPACE)
+        {
+            if (contents_string.size() > 0)
+                contents_string.pop_back();
+        }
+        else if (digits_only && contents_string.size() < characters_limit)
+        {
+            if (input.text_character >= '0' && input.text_character <= '9')
+                contents_string.push_back(input.text_character);
+        }
+        else if (contents_string.size() < characters_limit)
+            contents_string.push_back(input.text_character);
+    }
+    contents.setString(contents_string);
+    mke::utility::centerBothAxes(hint, body.getGlobalBounds().left - hint.getGlobalBounds().width - HINT_MARGIN, body.getGlobalBounds().left,
+                                 body.getGlobalBounds().top, body.getGlobalBounds().top + body.getGlobalBounds().height);
+    mke::utility::centerBothAxes(contents, body.getGlobalBounds().left, body.getGlobalBounds().left + body.getGlobalBounds().width,
+                                 body.getGlobalBounds().top, body.getGlobalBounds().top + body.getGlobalBounds().height);
+
 }
 
 void TextBox::draw(sf::RenderTarget& target, sf::RenderStates states) const
 {
     target.draw(body, states);
-    target.draw(message, states);
-    target.draw(contents_T, states);
+    target.draw(hint, states);
+    target.draw(contents, states);
 }

@@ -559,7 +559,7 @@
 	<random>
 	<ctime>
 
-1620822998 c:\users\mario\downloads\c++ projects\space-math\mke\input.h
+1626455241 c:\users\mario\downloads\c++ projects\space-math\mke\input.h
 	<SFML/Graphics.hpp>
 	<map>
 
@@ -612,7 +612,7 @@
 	<android/log.h>
 	<assert.h>
 
-1625318540 c:\users\mario\downloads\c++ projects\space-math\source\mainmenustate.h
+1626455151 c:\users\mario\downloads\c++ projects\space-math\source\mainmenustate.h
 	<SFML/Graphics.hpp>
 	"../MKE/MKE.h"
 	<vector>
@@ -623,6 +623,7 @@
 	"Button.h"
 	"Background.h"
 	"AchievementsState.h"
+	"MultiplayerConnectionState.h"
 
 1624204086 c:\users\mario\downloads\c++ projects\space-math\source\levelselectstate.h
 	<SFML/Graphics.hpp>
@@ -738,7 +739,7 @@
 	<SFML/Graphics.hpp>
 	<SFML/Audio.hpp>
 
-1620822998 source:c:\users\mario\downloads\c++ projects\space-math\mke\input.cpp
+1626455258 source:c:\users\mario\downloads\c++ projects\space-math\mke\input.cpp
 	"Input.h"
 
 1620822998 source:c:\users\mario\downloads\c++ projects\space-math\mke\particles.cpp
@@ -762,7 +763,7 @@
 1625846168 source:c:\users\mario\downloads\c++ projects\space-math\source\button.cpp
 	"Button.h"
 
-1625774988 source:c:\users\mario\downloads\c++ projects\space-math\source\doveenemy.cpp
+1626340621 source:c:\users\mario\downloads\c++ projects\space-math\source\doveenemy.cpp
 	"DoveEnemy.h"
 
 1626340134 source:c:\users\mario\downloads\c++ projects\space-math\source\enemy.cpp
@@ -771,7 +772,7 @@
 1625318540 source:c:\users\mario\downloads\c++ projects\space-math\source\equations.cpp
 	"Equations.h"
 
-1626267533 source:c:\users\mario\downloads\c++ projects\space-math\source\game.cpp
+1626455266 source:c:\users\mario\downloads\c++ projects\space-math\source\game.cpp
 	"Game.h"
 
 1625819888 source:c:\users\mario\downloads\c++ projects\space-math\source\gameoverstate.cpp
@@ -780,13 +781,13 @@
 1622651287 source:c:\users\mario\downloads\c++ projects\space-math\source\gamesettings.cpp
 	"GameSettings.h"
 
-1626266880 source:c:\users\mario\downloads\c++ projects\space-math\source\gamestate.cpp
+1626340612 source:c:\users\mario\downloads\c++ projects\space-math\source\gamestate.cpp
 	"GameState.h"
 
 1624204086 source:c:\users\mario\downloads\c++ projects\space-math\source\levelselectstate.cpp
 	"LevelSelectState.h"
 
-1625318540 source:c:\users\mario\downloads\c++ projects\space-math\source\mainmenustate.cpp
+1626455151 source:c:\users\mario\downloads\c++ projects\space-math\source\mainmenustate.cpp
 	"MainMenuState.h"
 
 1626267594 source:c:\users\mario\downloads\c++ projects\space-math\source\mothership.cpp
@@ -1833,5 +1834,100 @@
 	<string>
 
 1626445622 source:c:\users\bogdan\documents\github\space-math\source\textbox.cpp
+	"TextBox.h"
+
+1626463282 c:\users\mario\downloads\c++ projects\space-math\source\multiplayerconnectionstate.h
+	<SFML/Graphics.hpp>
+	<SFML/Network.hpp>
+	"../MKE/MKE.h"
+	"Background.h"
+	"Button.h"
+	"Game.h"
+	"TextBox.h"
+
+1525815618 c:\program files (x86)\codeblocks\mingw\sfml\include\sfml\network.hpp
+	<SFML/System.hpp>
+	<SFML/Network/Ftp.hpp>
+	<SFML/Network/Http.hpp>
+	<SFML/Network/IpAddress.hpp>
+	<SFML/Network/Packet.hpp>
+	<SFML/Network/Socket.hpp>
+	<SFML/Network/SocketHandle.hpp>
+	<SFML/Network/SocketSelector.hpp>
+	<SFML/Network/TcpListener.hpp>
+	<SFML/Network/TcpSocket.hpp>
+	<SFML/Network/UdpSocket.hpp>
+
+1525815618 c:\program files (x86)\codeblocks\mingw\sfml\include\sfml\network\ftp.hpp
+	<SFML/Network/Export.hpp>
+	<SFML/Network/TcpSocket.hpp>
+	<SFML/System/NonCopyable.hpp>
+	<SFML/System/Time.hpp>
+	<string>
+	<vector>
+
+1525815618 c:\program files (x86)\codeblocks\mingw\sfml\include\sfml\network\export.hpp
+	<SFML/Config.hpp>
+
+1525815618 c:\program files (x86)\codeblocks\mingw\sfml\include\sfml\network\tcpsocket.hpp
+	<SFML/Network/Export.hpp>
+	<SFML/Network/Socket.hpp>
+	<SFML/System/Time.hpp>
+
+1525815618 c:\program files (x86)\codeblocks\mingw\sfml\include\sfml\network\socket.hpp
+	<SFML/Network/Export.hpp>
+	<SFML/Network/SocketHandle.hpp>
+	<SFML/System/NonCopyable.hpp>
+	<vector>
+
+1525815618 c:\program files (x86)\codeblocks\mingw\sfml\include\sfml\network\sockethandle.hpp
+	<SFML/Config.hpp>
+	<basetsd.h>
+
+1525815618 c:\program files (x86)\codeblocks\mingw\sfml\include\sfml\network\http.hpp
+	<SFML/Network/Export.hpp>
+	<SFML/Network/IpAddress.hpp>
+	<SFML/Network/TcpSocket.hpp>
+	<SFML/System/NonCopyable.hpp>
+	<SFML/System/Time.hpp>
+	<map>
+	<string>
+
+1525815618 c:\program files (x86)\codeblocks\mingw\sfml\include\sfml\network\ipaddress.hpp
+	<SFML/Network/Export.hpp>
+	<SFML/System/Time.hpp>
+	<istream>
+	<ostream>
+	<string>
+
+1525815618 c:\program files (x86)\codeblocks\mingw\sfml\include\sfml\network\packet.hpp
+	<SFML/Network/Export.hpp>
+	<string>
+	<vector>
+
+1525815618 c:\program files (x86)\codeblocks\mingw\sfml\include\sfml\network\socketselector.hpp
+	<SFML/Network/Export.hpp>
+	<SFML/System/Time.hpp>
+
+1525815618 c:\program files (x86)\codeblocks\mingw\sfml\include\sfml\network\tcplistener.hpp
+	<SFML/Network/Export.hpp>
+	<SFML/Network/Socket.hpp>
+	<SFML/Network/IpAddress.hpp>
+
+1525815618 c:\program files (x86)\codeblocks\mingw\sfml\include\sfml\network\udpsocket.hpp
+	<SFML/Network/Export.hpp>
+	<SFML/Network/Socket.hpp>
+	<SFML/Network/IpAddress.hpp>
+	<vector>
+
+1626464394 c:\users\mario\downloads\c++ projects\space-math\source\textbox.h
+	<SFML/Graphics.hpp>
+	"../MKE/MKE.h"
+	<string>
+
+1626464041 source:c:\users\mario\downloads\c++ projects\space-math\source\multiplayerconnectionstate.cpp
+	"MultiplayerConnectionState.h"
+
+1626464552 source:c:\users\mario\downloads\c++ projects\space-math\source\textbox.cpp
 	"TextBox.h"
 

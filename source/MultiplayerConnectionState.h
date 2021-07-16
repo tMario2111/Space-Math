@@ -18,13 +18,20 @@ public:
     void update();
     void render();
 private:
+    const float MARGIN = 50.f;
     Game& game;
     Background& background;
-    TextBox test;
     Button back_;
+    sf::Text host_title;
+    sf::Text connect_title;
+    TextBox host_name;
+    TextBox host_port;
+    TextBox client_name;
+    TextBox client_port;
+    TextBox client_adress;
+    void setupTexts();
+    void setupTextBoxes();
     void setupButtons();
-
-
 };
 
 #endif

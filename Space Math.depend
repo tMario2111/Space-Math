@@ -1237,9 +1237,11 @@
 1622643900 source:c:\users\bogdan\documents\github\space-math\main.cpp
 	"source/Game.h"
 
-1624296323 c:\users\bogdan\documents\github\space-math\source\game.h
+1626348962 c:\users\bogdan\documents\github\space-math\source\game.h
 	<SFML/Graphics.hpp>
 	"../MKE/MKE.h"
+	<thread>
+	<string>
 	<ctime>
 	"GameSettings.h"
 	"MainMenuState.h"
@@ -1372,17 +1374,18 @@
 1622643900 c:\users\bogdan\documents\github\space-math\mke\state.h
 	<string>
 
-1622643900 c:\users\bogdan\documents\github\space-math\mke\assetmanager.h
+1626348961 c:\users\bogdan\documents\github\space-math\mke\assetmanager.h
 	<SFML/Graphics.hpp>
 	<SFML/Audio.hpp>
 	<string>
 	<unordered_map>
+	<vector>
 
 1622643900 c:\users\bogdan\documents\github\space-math\mke\random.h
 	<random>
 	<ctime>
 
-1622643900 c:\users\bogdan\documents\github\space-math\mke\input.h
+1626445712 c:\users\bogdan\documents\github\space-math\mke\input.h
 	<SFML/Graphics.hpp>
 	<map>
 
@@ -1409,9 +1412,11 @@
 1622643900 c:\users\bogdan\documents\github\space-math\mke\spritebatch.h
 	<SFML/Graphics.hpp>
 
-1625682523 c:\users\bogdan\documents\github\space-math\mke\effect.h
+1626348961 c:\users\bogdan\documents\github\space-math\mke\effect.h
 	<SFML/Graphics.hpp>
 	<SFML/Audio.hpp>
+	<string>
+	"AssetManager.h"
 
 1622645630 c:\users\bogdan\documents\github\space-math\source\gamesettings.h
 	"../tinyxml2.h"
@@ -1433,7 +1438,7 @@
 	<android/log.h>
 	<assert.h>
 
-1625308533 c:\users\bogdan\documents\github\space-math\source\mainmenustate.h
+1626440912 c:\users\bogdan\documents\github\space-math\source\mainmenustate.h
 	<SFML/Graphics.hpp>
 	"../MKE/MKE.h"
 	<vector>
@@ -1444,6 +1449,7 @@
 	"Button.h"
 	"Background.h"
 	"AchievementsState.h"
+	"MultiplayerConnectionState.h"
 
 1624197943 c:\users\bogdan\documents\github\space-math\source\levelselectstate.h
 	<SFML/Graphics.hpp>
@@ -1453,7 +1459,7 @@
 	"Background.h"
 	"Button.h"
 
-1625218950 c:\users\bogdan\documents\github\space-math\source\gamestate.h
+1626348962 c:\users\bogdan\documents\github\space-math\source\gamestate.h
 	<SFML/Graphics.hpp>
 	<SFML/Audio.hpp>
 	"../MKE/MKE.h"
@@ -1477,7 +1483,7 @@
 1622643900 c:\users\bogdan\documents\github\space-math\source\background.h
 	<SFML/Graphics.hpp>
 
-1625682010 c:\users\bogdan\documents\github\space-math\source\mothership.h
+1626348962 c:\users\bogdan\documents\github\space-math\source\mothership.h
 	<SFML/Graphics.hpp>
 	"../MKE/MKE.h"
 	<memory>
@@ -1545,13 +1551,13 @@
 1622643900 source:c:\users\bogdan\documents\github\space-math\mke\animation.cpp
 	"Animation.h"
 
-1622643900 source:c:\users\bogdan\documents\github\space-math\mke\assetmanager.cpp
+1626348961 source:c:\users\bogdan\documents\github\space-math\mke\assetmanager.cpp
 	"AssetManager.h"
 
 1622643900 source:c:\users\bogdan\documents\github\space-math\mke\deltatime.cpp
 	"DeltaTime.h"
 
-1625682546 source:c:\users\bogdan\documents\github\space-math\mke\effect.cpp
+1626348961 source:c:\users\bogdan\documents\github\space-math\mke\effect.cpp
 	"Effect.h"
 	<SFML/Graphics.hpp>
 	<SFML/Audio.hpp>
@@ -1577,37 +1583,37 @@
 1622643900 source:c:\users\bogdan\documents\github\space-math\source\background.cpp
 	"Background.h"
 
-1622643900 source:c:\users\bogdan\documents\github\space-math\source\button.cpp
+1626348962 source:c:\users\bogdan\documents\github\space-math\source\button.cpp
 	"Button.h"
 
-1625682685 source:c:\users\bogdan\documents\github\space-math\source\doveenemy.cpp
+1625683016 source:c:\users\bogdan\documents\github\space-math\source\doveenemy.cpp
 	"DoveEnemy.h"
 
-1625681777 source:c:\users\bogdan\documents\github\space-math\source\enemy.cpp
+1626348962 source:c:\users\bogdan\documents\github\space-math\source\enemy.cpp
 	"Enemy.h"
 
 1625307005 source:c:\users\bogdan\documents\github\space-math\source\equations.cpp
 	"Equations.h"
 
-1625244608 source:c:\users\bogdan\documents\github\space-math\source\game.cpp
+1626445798 source:c:\users\bogdan\documents\github\space-math\source\game.cpp
 	"Game.h"
 
-1625680708 source:c:\users\bogdan\documents\github\space-math\source\gameoverstate.cpp
+1626348962 source:c:\users\bogdan\documents\github\space-math\source\gameoverstate.cpp
 	"GameOverState.h"
 
 1622645899 source:c:\users\bogdan\documents\github\space-math\source\gamesettings.cpp
 	"GameSettings.h"
 
-1625682305 source:c:\users\bogdan\documents\github\space-math\source\gamestate.cpp
+1626348962 source:c:\users\bogdan\documents\github\space-math\source\gamestate.cpp
 	"GameState.h"
 
 1624198255 source:c:\users\bogdan\documents\github\space-math\source\levelselectstate.cpp
 	"LevelSelectState.h"
 
-1625510933 source:c:\users\bogdan\documents\github\space-math\source\mainmenustate.cpp
+1626440935 source:c:\users\bogdan\documents\github\space-math\source\mainmenustate.cpp
 	"MainMenuState.h"
 
-1625682592 source:c:\users\bogdan\documents\github\space-math\source\mothership.cpp
+1626348962 source:c:\users\bogdan\documents\github\space-math\source\mothership.cpp
 	"MotherShip.h"
 
 1624199080 source:c:\users\bogdan\documents\github\space-math\source\pausemenustate.cpp
@@ -1733,4 +1739,99 @@
 
 1625562585 source:c:\users\mario\downloads\c++ projects\space-math\source\achievementsstate.cpp
 	"AchievementsState.h"
+
+1626441864 c:\users\bogdan\documents\github\space-math\source\multiplayerconnectionstate.h
+	<SFML/Graphics.hpp>
+	<SFML/Network.hpp>
+	"../MKE/MKE.h"
+	"Background.h"
+	"Button.h"
+	"Game.h"
+	"TextBox.h"
+
+1525812018 d:\scoala\informatica\sfml-2.5.1\include\sfml\network.hpp
+	<SFML/System.hpp>
+	<SFML/Network/Ftp.hpp>
+	<SFML/Network/Http.hpp>
+	<SFML/Network/IpAddress.hpp>
+	<SFML/Network/Packet.hpp>
+	<SFML/Network/Socket.hpp>
+	<SFML/Network/SocketHandle.hpp>
+	<SFML/Network/SocketSelector.hpp>
+	<SFML/Network/TcpListener.hpp>
+	<SFML/Network/TcpSocket.hpp>
+	<SFML/Network/UdpSocket.hpp>
+
+1525812018 d:\scoala\informatica\sfml-2.5.1\include\sfml\network\ftp.hpp
+	<SFML/Network/Export.hpp>
+	<SFML/Network/TcpSocket.hpp>
+	<SFML/System/NonCopyable.hpp>
+	<SFML/System/Time.hpp>
+	<string>
+	<vector>
+
+1525812018 d:\scoala\informatica\sfml-2.5.1\include\sfml\network\export.hpp
+	<SFML/Config.hpp>
+
+1525812018 d:\scoala\informatica\sfml-2.5.1\include\sfml\network\tcpsocket.hpp
+	<SFML/Network/Export.hpp>
+	<SFML/Network/Socket.hpp>
+	<SFML/System/Time.hpp>
+
+1525812018 d:\scoala\informatica\sfml-2.5.1\include\sfml\network\socket.hpp
+	<SFML/Network/Export.hpp>
+	<SFML/Network/SocketHandle.hpp>
+	<SFML/System/NonCopyable.hpp>
+	<vector>
+
+1525812018 d:\scoala\informatica\sfml-2.5.1\include\sfml\network\sockethandle.hpp
+	<SFML/Config.hpp>
+	<basetsd.h>
+
+1525812018 d:\scoala\informatica\sfml-2.5.1\include\sfml\network\http.hpp
+	<SFML/Network/Export.hpp>
+	<SFML/Network/IpAddress.hpp>
+	<SFML/Network/TcpSocket.hpp>
+	<SFML/System/NonCopyable.hpp>
+	<SFML/System/Time.hpp>
+	<map>
+	<string>
+
+1525812018 d:\scoala\informatica\sfml-2.5.1\include\sfml\network\ipaddress.hpp
+	<SFML/Network/Export.hpp>
+	<SFML/System/Time.hpp>
+	<istream>
+	<ostream>
+	<string>
+
+1525812018 d:\scoala\informatica\sfml-2.5.1\include\sfml\network\packet.hpp
+	<SFML/Network/Export.hpp>
+	<string>
+	<vector>
+
+1525812018 d:\scoala\informatica\sfml-2.5.1\include\sfml\network\socketselector.hpp
+	<SFML/Network/Export.hpp>
+	<SFML/System/Time.hpp>
+
+1525812018 d:\scoala\informatica\sfml-2.5.1\include\sfml\network\tcplistener.hpp
+	<SFML/Network/Export.hpp>
+	<SFML/Network/Socket.hpp>
+	<SFML/Network/IpAddress.hpp>
+
+1525812018 d:\scoala\informatica\sfml-2.5.1\include\sfml\network\udpsocket.hpp
+	<SFML/Network/Export.hpp>
+	<SFML/Network/Socket.hpp>
+	<SFML/Network/IpAddress.hpp>
+	<vector>
+
+1626445877 source:c:\users\bogdan\documents\github\space-math\source\multiplayerconnectionstate.cpp
+	"MultiplayerConnectionState.h"
+
+1626445641 c:\users\bogdan\documents\github\space-math\source\textbox.h
+	<SFML/Graphics.hpp>
+	"../MKE/MKE.h"
+	<string>
+
+1626445622 source:c:\users\bogdan\documents\github\space-math\source\textbox.cpp
+	"TextBox.h"
 

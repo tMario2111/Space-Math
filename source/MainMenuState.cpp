@@ -24,7 +24,7 @@ void MainMenuState::setupTitle()
     title.setCharacterSize(60);
     title.setString("SPACE MATH");
     title.setOrigin(title.getLocalBounds().width / 2, title.getLocalBounds().height / 2);
-    title.setPosition(game.win.getSize().x / 2, game.win.getSize().y / 4);
+    title.setPosition(game.win.getSize().x / 2, game.win.getSize().y / 5);
 }
 
 void MainMenuState::setupButtons()
@@ -33,15 +33,23 @@ void MainMenuState::setupButtons()
     achievements.setFonts(game.assets.getFont("font"), game.assets.getFont("font"));
     achievements.body.setScale(1.5f, 1.5f);
     achievements.setOriginsToCenter();
-    achievements.body.setPosition(game.win.getSize().x / 2, game.win.getSize().y / 2 - achievements.body.getGlobalBounds().height / 2 - BUTTON_MARGIN / 2);
+    achievements.body.setPosition(game.win.getSize().x / 2, game.win.getSize().y / 2);
     achievements.setupText(achievements.text, game.assets.getFont("font"), 35, "ACHIEVEMENTS", sf::Color::White);
     achievements.centerTextToBody();
+
+    multiplayer.setTextures(game.assets.getTexture("button_pressed"), game.assets.getTexture("button_released"));
+    multiplayer.setFonts(game.assets.getFont("font"), game.assets.getFont("font"));
+    multiplayer.body.setScale(1.5f, 1.5f);
+    multiplayer.setOriginsToCenter();
+    multiplayer.body.setPosition(game.win.getSize().x / 2, achievements.body.getPosition().y - achievements.body.getGlobalBounds().height - BUTTON_MARGIN);
+    multiplayer.setupText(multiplayer.text, game.assets.getFont("font"), 35, "MULTIPLAYER", sf::Color::White);
+    multiplayer.centerTextToBody();
 
     start.setTextures(game.assets.getTexture("button_pressed"), game.assets.getTexture("button_released"));
     start.setFonts(game.assets.getFont("font"), game.assets.getFont("font"));
     start.body.setScale(1.5f, 1.5f);
     start.setOriginsToCenter();
-    start.body.setPosition(game.win.getSize().x / 2, achievements.body.getGlobalBounds().top - start.body.getGlobalBounds().height / 2 - BUTTON_MARGIN);
+    start.body.setPosition(game.win.getSize().x / 2, multiplayer.body.getPosition().y - multiplayer.body.getGlobalBounds().height - BUTTON_MARGIN);
     start.setupText(start.text, game.assets.getFont("font"), 35, "START", sf::Color::White);
     start.centerTextToBody();
 
@@ -49,7 +57,7 @@ void MainMenuState::setupButtons()
     settings.setFonts(game.assets.getFont("font"), game.assets.getFont("font"));
     settings.body.setScale(1.5f, 1.5f);
     settings.setOriginsToCenter();
-    settings.body.setPosition(game.win.getSize().x / 2, game.win.getSize().y / 2 + settings.body.getGlobalBounds().height / 2 + BUTTON_MARGIN / 2);
+    settings.body.setPosition(game.win.getSize().x / 2, achievements.body.getPosition().y + achievements.body.getGlobalBounds().height + BUTTON_MARGIN);
     settings.setupText(settings.text, game.assets.getFont("font"), 35, "SETTINGS", sf::Color::White);
     settings.centerTextToBody();
 
@@ -57,7 +65,7 @@ void MainMenuState::setupButtons()
     exit.setFonts(game.assets.getFont("font"), game.assets.getFont("font"));
     exit.body.setScale(1.5f, 1.5f);
     exit.setOriginsToCenter();
-    exit.body.setPosition(game.win.getSize().x / 2, settings.body.getGlobalBounds().top + settings.body.getGlobalBounds().height + exit.body.getGlobalBounds().height / 2 + BUTTON_MARGIN);
+    exit.body.setPosition(game.win.getSize().x / 2, settings.body.getPosition().y + settings.body.getGlobalBounds().height + BUTTON_MARGIN);
     exit.setupText(exit.text, game.assets.getFont("font"), 35, "EXIT", sf::Color::White);
     exit.centerTextToBody();
 }
@@ -66,6 +74,8 @@ void MainMenuState::update()
 {
     if (start.selected(game.win) && game.input.isButtonReleased(sf::Mouse::Left))
         game.states.push(std::make_unique<LevelSelectState>(game, background));
+    if (multiplayer.selected(game.win) && game.input.isButtonReleased(sf::Mouse::Left))
+        game.states.push(std::make_unique<MultiplayerConnectionState>(game, background));
     if (achievements.selected(game.win) && game.input.isButtonReleased(sf::Mouse::Left))
         game.states.push(std::make_unique<AchievementsState>(game, background));
     if (settings.selected(game.win) && game.input.isButtonReleased(sf::Mouse::Left))
@@ -80,6 +90,7 @@ void MainMenuState::render()
     game.win.draw(background);
     game.win.draw(title);
     game.win.draw(start);
+    game.win.draw(multiplayer);
     game.win.draw(achievements);
     game.win.draw(settings);
     game.win.draw(exit);

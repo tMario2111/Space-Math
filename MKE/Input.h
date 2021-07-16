@@ -10,6 +10,7 @@ class Input
 {
 public:
     Input();
+    char last_pressed_key;
     void update();
     void addPressedKey(sf::Keyboard::Key key);
     void addReleasedKey(sf::Keyboard::Key key);

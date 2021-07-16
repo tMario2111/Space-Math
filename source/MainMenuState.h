@@ -12,6 +12,7 @@
 #include "Button.h"
 #include "Background.h"
 #include "AchievementsState.h"
+#include "MultiplayerConnectionState.h"
 
 class Game;
 
@@ -27,6 +28,7 @@ private:
     sf::Text title;
     const float BUTTON_MARGIN = 40.f;
     Button start;
+    Button multiplayer;
     Button achievements;
     Button settings;
     Button exit;

@@ -9,6 +9,7 @@ Input::Input()
 
 void Input::update()
 {
+    last_pressed_key = 0;
     for (auto& i : keyboard_input)
         if (i.second == KeyState::Released)
             i.second = KeyState::None;

@@ -98,6 +98,9 @@ void Game::winEvents()
         case sf::Event::MouseButtonReleased:
             input.addReleasedButton(event.mouseButton.button);
             break;
+        case sf::Event::TextEntered:
+            input.last_pressed_key = event.text.unicode;
+            break;
         default:
             break;
         }

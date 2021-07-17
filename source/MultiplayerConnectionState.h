@@ -29,9 +29,16 @@ private:
     TextBox client_name;
     TextBox client_port;
     TextBox client_adress;
+    Button connect_host;
+    Button connect_client;
+    bool waiting_host_connection = 0;
+    bool waiting_client_connection = 0;
+    sf::Sprite loader;
+    mke::Animation loader_animation;
     void setupTexts();
     void setupTextBoxes();
     void setupButtons();
+    void setupLoader();
 };
 
 #endif

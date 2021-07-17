@@ -4,6 +4,8 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/Network.hpp>
 #include "../MKE/MKE.h"
+#include <thread>
+#include "Networking.h"
 #include "Background.h"
 #include "Button.h"
 #include "Game.h"
@@ -35,6 +37,7 @@ private:
     bool waiting_client_connection = 0;
     sf::Sprite loader;
     mke::Animation loader_animation;
+    std::thread connection_thread;
     void setupTexts();
     void setupTextBoxes();
     void setupButtons();

@@ -11,6 +11,7 @@ GameState::GameState(Game& game, Background& background, unsigned int level) :
     fire_barrier_ability(game.win, game.assets, game.dt)
 {
     name = "Game";
+    game.random.setUniqueSeed();
     setupBackground();
     setupEnemiesRenderStates();
     setupBulletsRenderStates();

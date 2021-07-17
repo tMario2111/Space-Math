@@ -36,6 +36,11 @@ void Animation::setSpriteFrame(sf::Vector2u coordinates)
     sprite.setTextureRect(getIntRect(coordinates));
 }
 
+void Animation::reset()
+{
+    index = 0;
+}
+
 void Animation::run(sf::Time dt)
 {
     clock += dt;

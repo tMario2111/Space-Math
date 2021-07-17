@@ -97,6 +97,7 @@ void MultiplayerConnectionState::setupLoader()
     loader.setPosition((connect_host.body.getPosition().x + connect_client.body.getPosition().x) / 2,
                        connect_host.body.getPosition().y);
     loader.setScale(0.25f, 0.25f);
+    loader.setColor(sf::Color(100, 100, 100));
 }
 
 void MultiplayerConnectionState::update()
@@ -119,10 +120,56 @@ void MultiplayerConnectionState::update()
         connect_client.text.setString("CANCEL");
     else
         connect_client.text.setString("CONNECT");
-    if (connect_host.selected(game.win) && game.input.isButtonReleased(sf::Mouse::Left) && !waiting_client_connection)
+    if (connect_host.selected(game.win) && game.input.isButtonReleased(sf::Mouse::Left) && !waiting_client_connection &&
+        host_port.getContents().size() > 0)
+    {
         waiting_host_connection = 1 - waiting_host_connection;
-    else if (connect_client.selected(game.win) && game.input.isButtonReleased(sf::Mouse::Left) && !waiting_host_connection)
+        if (waiting_host_connection)
+            connection_thread = std::thread(&Networking::connectHost, &game.networking, host_name.getContents(),
+                                            (unsigned short)(std::stoi(host_port.getContents())));
+        else
+            connection_thread.detach();
+    }
+    else if (connect_client.selected(game.win) && game.input.isButtonReleased(sf::Mouse::Left) && !waiting_host_connection &&
+             client_port.getContents().size() > 0 && client_adress.getContents().size() > 0)
+    {
         waiting_client_connection = 1 - waiting_client_connection;
+        if (waiting_client_connection)
+        {
+            sf::IpAddress adress;
+            if (client_adress.getContents().compare("LOCALHOST") == 0 || client_adress.getContents().compare("localhost") == 0)
+                adress = sf::IpAddress::getLocalAddress();
+            else
+                adress = client_adress.getContents();
+            connection_thread = std::thread(&Networking::connectClient, &game.networking, client_name.getContents(),
+                                            (unsigned short)(std::stoi(client_port.getContents())), adress);
+        }
+        else
+            connection_thread.detach();
+    }
+    if (waiting_host_connection)
+    {
+        if (game.networking.connected)
+        {
+            connection_thread.detach();
+            game.win.close();
+        }
+        loader.setPosition(connect_host.body.getGlobalBounds().left + connect_host.body.getGlobalBounds().width + 50.f,
+        loader.getPosition().y);
+    }
+    else if (waiting_client_connection)
+    {
+        if (game.networking.connected)
+        {
+            connection_thread.detach();
+            game.win.close();
+        }
+        loader.setPosition(connect_client.body.getGlobalBounds().left + connect_client.body.getGlobalBounds().width + 50.f,
+        loader.getPosition().y);
+    }
+    else
+        loader_animation.reset();
+
 }
 
 void MultiplayerConnectionState::render()

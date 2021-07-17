@@ -119,6 +119,8 @@
 		<Unit filename="source/MotherShip.h" />
 		<Unit filename="source/MultiplayerConnectionState.cpp" />
 		<Unit filename="source/MultiplayerConnectionState.h" />
+		<Unit filename="source/Networking.cpp" />
+		<Unit filename="source/Networking.h" />
 		<Unit filename="source/ParanoidEnemy.cpp" />
 		<Unit filename="source/ParanoidEnemy.h" />
 		<Unit filename="source/PauseMenuState.cpp" />
@@ -137,6 +139,9 @@
 		<Unit filename="tinyxml2.h" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
+			<code_completion />
+			<envvars />
+			<debugger />
 		</Extensions>
 	</Project>
 </CodeBlocks_project_file>

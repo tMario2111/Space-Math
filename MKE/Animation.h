@@ -13,6 +13,7 @@ public:
     void loadAtlas(sf::Texture& atlas, sf::Vector2u size);
     void addFrame(sf::Vector2u coordinates, sf::Time duration);
     void setSpriteFrame(sf::Vector2u coordinates);
+    void reset();
     void run(sf::Time dt);
 private:
     sf::Sprite& sprite;

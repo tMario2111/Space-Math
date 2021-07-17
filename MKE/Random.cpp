@@ -8,14 +8,15 @@ Random::Random()
     random_engine.seed(seed);
 }
 
-Random::Random(unsigned long long seed)
+unsigned int Random::getSeed()
 {
-    random_engine.seed(seed);
-    this->seed = seed;
+    return seed;
 }
 
-unsigned long long Random::getSeed()
+unsigned int Random::setUniqueSeed()
 {
+    seed = time(0);
+    random_engine.seed(seed);
     return seed;
 }
 

@@ -10,13 +10,13 @@ class Random
 {
 public:
     Random();
-    Random(unsigned long long seed);
-    unsigned long long getSeed();
+    unsigned int getSeed();
+    unsigned int setUniqueSeed();
     int getInt(int a, int b);
     float getFloat(float a, float b);
 private:
     std::default_random_engine random_engine;
-    unsigned long long seed;
+    unsigned int seed;
 };
 }
 

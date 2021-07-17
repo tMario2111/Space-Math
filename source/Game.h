@@ -8,6 +8,7 @@
 #include <ctime>
 
 #include "GameSettings.h"
+#include "Networking.h"
 #include "MainMenuState.h"
 
 class Game
@@ -22,6 +23,7 @@ public:
     mke::Random random;
     sf::Text fps_counter;
     GameSettings game_settings;
+    Networking networking;
     bool showing_fps = 0;
     void run();
 private:

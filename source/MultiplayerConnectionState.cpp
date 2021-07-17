@@ -10,6 +10,7 @@ MultiplayerConnectionState::MultiplayerConnectionState(Game& game, Background& b
     client_adress(game.win, game.input, game.assets.getFont("font"), sf::Vector2f(400.f, 25.f), 20, "ADRESS: "),
     loader_animation(loader)
 {
+    name = "MultiplayerConnection";
     setupTexts();
     setupTextBoxes();
     setupButtons();
@@ -152,7 +153,7 @@ void MultiplayerConnectionState::update()
         if (game.networking.connected)
         {
             connection_thread.detach();
-            game.win.close();
+            game.states.push(std::make_unique<MultiplayerGameState>(game, background, 4));
         }
         loader.setPosition(connect_host.body.getGlobalBounds().left + connect_host.body.getGlobalBounds().width + 50.f,
         loader.getPosition().y);
@@ -162,7 +163,7 @@ void MultiplayerConnectionState::update()
         if (game.networking.connected)
         {
             connection_thread.detach();
-            game.win.close();
+            game.states.push(std::make_unique<MultiplayerGameState>(game, background, 4));
         }
         loader.setPosition(connect_client.body.getGlobalBounds().left + connect_client.body.getGlobalBounds().width + 50.f,
         loader.getPosition().y);

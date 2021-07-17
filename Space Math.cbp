@@ -119,6 +119,8 @@
 		<Unit filename="source/MotherShip.h" />
 		<Unit filename="source/MultiplayerConnectionState.cpp" />
 		<Unit filename="source/MultiplayerConnectionState.h" />
+		<Unit filename="source/MultiplayerGameState.cpp" />
+		<Unit filename="source/MultiplayerGameState.h" />
 		<Unit filename="source/Networking.cpp" />
 		<Unit filename="source/Networking.h" />
 		<Unit filename="source/ParanoidEnemy.cpp" />

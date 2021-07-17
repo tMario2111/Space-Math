@@ -10,6 +10,7 @@
 #include "Button.h"
 #include "Game.h"
 #include "TextBox.h"
+#include "MultiplayerGameState.h"
 
 class Game;
 

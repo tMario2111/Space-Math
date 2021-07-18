@@ -39,14 +39,16 @@ void UFOEnemy::setupShootingAbility()
 
 void UFOEnemy::onSpawn()
 {
-    rotation = mke::utility::toDeg(atan2(win.getSize().y / 2 - sprite.getPosition().y, win.getSize().x / 2 - sprite.getPosition().x));
+    if (target == sf::Vector2f(0, 0))
+        target = sf::Vector2f(win.getSize().x / 2, win.getSize().y / 2);
+    rotation = mke::utility::toDeg(atan2(target.y - sprite.getPosition().y, target.x - sprite.getPosition().x));
     sprite.setRotation(rotation + 90.f);
     shooting_ability.rotation = rotation;
 }
 
 void UFOEnemy::movement()
 {
-    if (mke::utility::distance(sprite.getPosition(), {(float)win.getSize().x / 2, (float)win.getSize().y / 2}) > radius_to_mother_ship)
+    if (mke::utility::distance(sprite.getPosition(), target) > radius_to_mother_ship)
     {
         sf::Vector2f velocity = {0, 0};
         velocity.x = movement_speed * cos(mke::utility::toRad(rotation)) * dt.get().asSeconds();

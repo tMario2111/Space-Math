@@ -4,6 +4,7 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/Network.hpp>
 #include "../MKE/MKE.h"
+#include "../Collision.h"
 #include <thread>
 #include "Networking.h"
 #include "Background.h"

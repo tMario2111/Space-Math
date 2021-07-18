@@ -556,7 +556,7 @@
 	<unordered_map>
 	<vector>
 
-1626512852 c:\users\mario\downloads\c++ projects\space-math\mke\random.h
+1626542621 c:\users\mario\downloads\c++ projects\space-math\mke\random.h
 	<random>
 	<ctime>
 
@@ -669,7 +669,7 @@
 	"Enemy.h"
 	"Equations.h"
 
-1622713085 c:\users\mario\downloads\c++ projects\space-math\source\enemy.h
+1626543367 c:\users\mario\downloads\c++ projects\space-math\source\enemy.h
 	<SFML/Graphics.hpp>
 	"../MKE/MKE.h"
 	"ShootingAbility.h"
@@ -746,7 +746,7 @@
 1620822998 source:c:\users\mario\downloads\c++ projects\space-math\mke\particles.cpp
 	"Particles.h"
 
-1626512901 source:c:\users\mario\downloads\c++ projects\space-math\mke\random.cpp
+1626542646 source:c:\users\mario\downloads\c++ projects\space-math\mke\random.cpp
 	"Random.h"
 
 1620847023 source:c:\users\mario\downloads\c++ projects\space-math\mke\spritebatch.cpp
@@ -773,7 +773,7 @@
 1625318540 source:c:\users\mario\downloads\c++ projects\space-math\source\equations.cpp
 	"Equations.h"
 
-1626514717 source:c:\users\mario\downloads\c++ projects\space-math\source\game.cpp
+1626542412 source:c:\users\mario\downloads\c++ projects\space-math\source\game.cpp
 	"Game.h"
 
 1625819888 source:c:\users\mario\downloads\c++ projects\space-math\source\gameoverstate.cpp
@@ -1686,7 +1686,7 @@
 	"Enemy.h"
 	"ShootingAbility.h"
 
-1622916170 c:\users\mario\downloads\c++ projects\space-math\source\ufoenemy.h
+1626543350 c:\users\mario\downloads\c++ projects\space-math\source\ufoenemy.h
 	<SFML/Graphics.hpp>
 	"../MKE/MKE.h"
 	<cmath>
@@ -1696,7 +1696,7 @@
 1625774988 source:c:\users\mario\downloads\c++ projects\space-math\source\paranoidenemy.cpp
 	"ParanoidEnemy.h"
 
-1625774988 source:c:\users\mario\downloads\c++ projects\space-math\source\ufoenemy.cpp
+1626543737 source:c:\users\mario\downloads\c++ projects\space-math\source\ufoenemy.cpp
 	"UFOEnemy.h"
 
 1623218974 source:c:\users\mario\downloads\c++ projects\space-math\icon.rc
@@ -1841,10 +1841,11 @@
 1626512148 source:c:\users\bogdan\documents\github\space-math\source\textbox.cpp
 	"TextBox.h"
 
-1626518449 c:\users\mario\downloads\c++ projects\space-math\source\multiplayerconnectionstate.h
+1626612903 c:\users\mario\downloads\c++ projects\space-math\source\multiplayerconnectionstate.h
 	<SFML/Graphics.hpp>
 	<SFML/Network.hpp>
 	"../MKE/MKE.h"
+	"../Collision.h"
 	<thread>
 	"Networking.h"
 	"Background.h"
@@ -1946,16 +1947,21 @@
 1626514022 source:c:\users\mario\downloads\c++ projects\space-math\source\networking.cpp
 	"Networking.h"
 
-1626519498 c:\users\mario\downloads\c++ projects\space-math\source\multiplayergamestate.h
+1626635654 c:\users\mario\downloads\c++ projects\space-math\source\multiplayergamestate.h
 	<SFML/Graphics.hpp>
 	<SFML/Network.hpp>
 	"../MKE/MKE.h"
+	<memory>
+	<vector>
 	"Game.h"
 	"Networking.h"
 	"Background.h"
 	"MotherShip.h"
+	"Enemy.h"
+	"UFOEnemy.h"
+	"Equations.h"
 
-1626519649 source:c:\users\mario\downloads\c++ projects\space-math\source\multiplayergamestate.cpp
+1626543484 source:c:\users\mario\downloads\c++ projects\space-math\source\multiplayergamestate.cpp
 	"MultiplayerGameState.h"
 
 1626512148 c:\users\bogdan\documents\github\space-math\source\networking.h

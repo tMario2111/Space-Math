@@ -12,6 +12,7 @@ public:
     Random();
     unsigned int getSeed();
     unsigned int setUniqueSeed();
+    void setCustomSeed(unsigned int seed);
     int getInt(int a, int b);
     float getFloat(float a, float b);
 private:

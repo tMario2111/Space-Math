@@ -17,6 +17,7 @@ public:
     bool locked_on = 0;
     bool going_to_die = 0;
     bool dead = 0;
+    sf::Vector2f target = sf::Vector2f(0, 0);
     virtual void onSpawn() = 0;
     virtual void update() = 0;
 protected:

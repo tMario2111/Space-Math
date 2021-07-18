@@ -20,6 +20,12 @@ unsigned int Random::setUniqueSeed()
     return seed;
 }
 
+void Random::setCustomSeed(unsigned int seed)
+{
+    this->seed = seed;
+    random_engine.seed(seed);
+}
+
 int Random::getInt(int a, int b)
 {
     return std::uniform_int_distribution<int>(a, b)(random_engine);

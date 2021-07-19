@@ -6,6 +6,7 @@
 #include "../MKE/MKE.h"
 #include <memory>
 #include <vector>
+#include <thread>
 
 #include "Game.h"
 #include "Networking.h"
@@ -27,7 +28,8 @@ private:
     Game& game;
     Background& background;
     unsigned int level;
-    mke::Random enemies_random;
+    mke::Random host_enemies_random;
+    mke::Random client_enemies_random;
     mke::Random questions_random;
     sf::RenderStates enemies_render_states;
     sf::RenderStates bullets_render_states;
@@ -47,6 +49,7 @@ private:
     sf::Time client_enemies_spawn_clock = sf::seconds(0.f);
     sf::Time host_enemies_spawn_delay = sf::seconds(7.5f);
     sf::Time client_enemies_spawn_delay = sf::seconds(7.5f);
+    std::thread receive_thread;
     void syncRandomSeed();
     void syncNames();
     void setupShips();
@@ -54,10 +57,13 @@ private:
     void spawnHostEnemy();
     void spawnClientEnemy();
     void spawnEnemies();
+    void receiveUpdates();
+    void sendUpdates();
     void addEnemiesToBatch();
     void addBulletsToBatch();
     void collisionHostBulletsMothership();
     void collisionClientBulletsMothership();
+    void deleteEnemies();
 };
 
 #endif

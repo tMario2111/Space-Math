@@ -17,13 +17,15 @@ MultiplayerGameState::MultiplayerGameState(Game& game, Background& background, u
     spawnHostEnemy();
     enemies_render_states.texture = &game.assets.getTexture("ufo_enemy");
     bullets_render_states.texture = &game.assets.getTexture("star_bullet");
+    receive_thread = std::thread(MultiplayerGameState::receiveUpdates, this);
 }
 
 void MultiplayerGameState::syncRandomSeed()
 {
     if (game.networking.user_type == Networking::UserType::Host)
     {
-        unsigned int seed = enemies_random.setUniqueSeed();
+        unsigned int seed = host_enemies_random.setUniqueSeed();
+        client_enemies_random.setCustomSeed(seed);
         questions_random.setCustomSeed(seed);
         sf::Packet packet;
         packet << seed;
@@ -35,7 +37,8 @@ void MultiplayerGameState::syncRandomSeed()
         sf::Packet packet;
         game.networking.socket.receive(packet);
         packet >> seed;
-        enemies_random.setCustomSeed(seed);
+        host_enemies_random.setCustomSeed(seed);
+        client_enemies_random.setCustomSeed(seed);
         questions_random.setCustomSeed(seed);
     }
 }
@@ -91,7 +94,7 @@ void MultiplayerGameState::spawnHostEnemy()
     std::unique_ptr<Enemy> new_enemy = std::make_unique<UFOEnemy>(game.assets, game.win, game.dt);
     sf::Vector2f position;
     position.x = -ENEMY_SPAWN_MARGIN;
-    position.y = enemies_random.getInt(-ENEMY_SPAWN_MARGIN, game.win.getSize().y + ENEMY_SPAWN_MARGIN);
+    position.y = host_enemies_random.getInt(-ENEMY_SPAWN_MARGIN, game.win.getSize().y + ENEMY_SPAWN_MARGIN);;
     new_enemy.get()->sprite.setPosition(position);
     new_enemy.get()->target = host_ship.sprite.getPosition();
     new_enemy.get()->onSpawn();
@@ -103,7 +106,7 @@ void MultiplayerGameState::spawnClientEnemy()
     std::unique_ptr<Enemy> new_enemy = std::make_unique<UFOEnemy>(game.assets, game.win, game.dt);
     sf::Vector2f position;
     position.x = game.win.getSize().x + ENEMY_SPAWN_MARGIN;
-    position.y = enemies_random.getInt(-ENEMY_SPAWN_MARGIN, game.win.getSize().y + ENEMY_SPAWN_MARGIN);
+    position.y = client_enemies_random.getInt(-ENEMY_SPAWN_MARGIN, game.win.getSize().y + ENEMY_SPAWN_MARGIN);
     new_enemy.get()->sprite.setPosition(position);
     new_enemy.get()->target = client_ship.sprite.getPosition();
     new_enemy.get()->onSpawn();
@@ -125,6 +128,41 @@ void MultiplayerGameState::spawnEnemies()
         client_enemies_spawn_clock = sf::seconds(0.f);
         spawnClientEnemy();
     }
+}
+
+void MultiplayerGameState::receiveUpdates()
+{
+    while (1)
+    {
+        sf::Packet packet;
+        if (game.networking.socket.receive(packet) == sf::Socket::Done)
+        {
+            std::string str;
+            packet >> str;
+            if (str.size() > 0)
+            {
+                if (game.networking.user_type == Networking::UserType::Host)
+                {
+                    client_enemies[0].get()->locked_on = 0;
+                    client_enemies[0].get()->going_to_die = 1;
+                }
+                else
+                {
+                    host_enemies[0].get()->locked_on = 0;
+                    host_enemies[0].get()->going_to_die = 1;
+                }
+            }
+        }
+    }
+}
+
+void MultiplayerGameState::sendUpdates()
+{
+    if (!equations.correct_result)
+        return;
+    sf::Packet packet;
+    packet << "HIT!";
+    game.networking.socket.send(packet);
 }
 
 void MultiplayerGameState::addEnemiesToBatch()
@@ -171,10 +209,37 @@ void MultiplayerGameState::collisionClientBulletsMothership()
             }
 }
 
+void MultiplayerGameState::deleteEnemies()
+{
+    for (unsigned int i = 0; i < host_enemies.size(); i++)
+        if (host_enemies[i].get()->dead)
+        {
+            if (host_enemies.size() == 1)
+            {
+                host_enemies.erase(host_enemies.begin() + i);
+                break; /// !?
+            }
+            else
+                host_enemies.erase(host_enemies.begin() + i--);
+        }
+    for (unsigned int i = 0; i < client_enemies.size(); i++)
+        if (client_enemies[i].get()->dead)
+        {
+            if (client_enemies.size() == 1)
+            {
+                client_enemies.erase(client_enemies.begin() + i);
+                break; /// !?
+            }
+            else
+                client_enemies.erase(client_enemies.begin() + i--);
+        }
+}
+
 void MultiplayerGameState::update()
 {
     background.update(game.dt.get());
     equations.update();
+    sendUpdates();
     host_ship.update();
     client_ship.update();
     spawnEnemies();
@@ -182,10 +247,19 @@ void MultiplayerGameState::update()
         i.get()->update();
     for(auto& i : client_enemies)
         i.get()->update();
-    host_ship.updateTargeting(host_enemies, equations, host_score);
-    client_ship.updateTargeting(client_enemies, equations, client_score);
+    if (game.networking.user_type == Networking::UserType::Host)
+    {
+        host_ship.updateTargeting(host_enemies, equations, host_score);
+        client_ship.updateTargeting(client_enemies, equations, client_score);
+    }
+    else
+    {
+        client_ship.updateTargeting(client_enemies, equations, client_score);
+        host_ship.updateTargeting(host_enemies, equations, host_score);
+    }
     collisionHostBulletsMothership();
     collisionClientBulletsMothership();
+    deleteEnemies();
     addEnemiesToBatch();
     addBulletsToBatch();
 }
@@ -197,6 +271,10 @@ void MultiplayerGameState::render()
     game.win.draw(enemies_batch, enemies_render_states);
     game.win.draw(host_ship);
     game.win.draw(client_ship);
+    for (auto& i : host_enemies)
+        game.win.draw(i.get()->explosion);
+    for (auto& i : client_enemies)
+        game.win.draw(i.get()->explosion);
     game.win.draw(equations);
     game.win.draw(host_name_text);
     game.win.draw(client_name_text);

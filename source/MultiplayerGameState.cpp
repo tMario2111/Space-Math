@@ -10,7 +10,8 @@ MultiplayerGameState::MultiplayerGameState(Game& game, Background& background, u
     host_fire_barrier(game.win, game.assets, game.dt),
     client_fire_barrier(game.win, game.assets, game.dt),
     host_health_bar(game.assets.getFont("font")),
-    client_health_bar(game.assets.getFont("font"))
+    client_health_bar(game.assets.getFont("font")),
+    damage_effect(static_cast<sf::Vector2f>(game.win.getSize()))
 {
     name = "MultiplayerGame";
     syncRandomSeed();
@@ -19,6 +20,7 @@ MultiplayerGameState::MultiplayerGameState(Game& game, Background& background, u
     setupShips();
     setupTexts();
     setupHealthBars();
+    setupDamageEffect();
     spawnClientEnemy();
     spawnHostEnemy();
     enemies_render_states.texture = &game.assets.getTexture("ufo_enemy");
@@ -109,9 +111,15 @@ void MultiplayerGameState::setupTexts()
 void MultiplayerGameState::setupHealthBars()
 {
     host_health_bar.setTextures(game.assets.getTexture("health_bar_empty"), game.assets.getTexture("health_bar_fill"));
-    host_health_bar.setPosition(sf::Vector2f(host_ship.sprite.getPosition().x, 55.f));
+    host_health_bar.setPosition(sf::Vector2f(host_ship.sprite.getPosition().x - host_health_bar.getSize().x / 2, 55.f));
     client_health_bar.setTextures(game.assets.getTexture("health_bar_empty"), game.assets.getTexture("health_bar_fill"));
-    client_health_bar.setPosition(sf::Vector2f(client_ship.sprite.getPosition().x, 55.f));
+    client_health_bar.setPosition(sf::Vector2f(client_ship.sprite.getPosition().x + client_health_bar.getSize().x / 2, 55.f));
+}
+
+void MultiplayerGameState::setupDamageEffect()
+{
+    damage_effect.setFillColor(sf::Color(255, 0, 0, 0));
+    damage_effect.setPosition(0.f, 0.f);
 }
 
 void MultiplayerGameState::spawnHostEnemy()
@@ -227,6 +235,8 @@ void MultiplayerGameState::collisionHostBulletsMothership()
             {
                 host_enemies[i].get()->shooting_ability.bullets.erase(host_enemies[i].get()->shooting_ability.bullets.begin() + j--);
                 host_ship.HP -= host_enemies[i].get()->damage;
+                if (game.networking.user_type == Networking::UserType::Host)
+                    damage_effect.setFillColor(sf::Color(255, 0, 0, 80));
             }
 }
 
@@ -238,6 +248,8 @@ void MultiplayerGameState::collisionClientBulletsMothership()
             {
                 client_enemies[i].get()->shooting_ability.bullets.erase(client_enemies[i].get()->shooting_ability.bullets.begin() + j--);
                 client_ship.HP -= client_enemies[i].get()->damage;
+                if (game.networking.user_type == Networking::UserType::Client)
+                    damage_effect.setFillColor(sf::Color(255, 0, 0, 80));
             }
 }
 
@@ -293,6 +305,18 @@ void MultiplayerGameState::deleteEnemies()
         }
 }
 
+void MultiplayerGameState::updateDamageEffect()
+{
+    int opacity = damage_effect.getFillColor().a;
+    if (opacity == 0)
+        return;
+    const unsigned int DECREMENT = 160.f;
+    opacity -= DECREMENT * game.dt.get().asSeconds();
+    opacity = opacity < 0 ? 0 : opacity;
+    damage_effect.setFillColor(sf::Color(damage_effect.getFillColor().r, damage_effect.getFillColor().g, damage_effect.getFillColor().b,
+                                         opacity));
+}
+
 void MultiplayerGameState::update()
 {
     background.update(game.dt.get());
@@ -335,6 +359,7 @@ void MultiplayerGameState::update()
     collisionHostBulletsFireBarrier();
     collisionClientBulletsFireBarrier();
     deleteEnemies();
+    updateDamageEffect();
     addEnemiesToBatch();
     addBulletsToBatch();
 }
@@ -352,6 +377,7 @@ void MultiplayerGameState::render()
         game.win.draw(i.get()->explosion);
     for (auto& i : client_enemies)
         game.win.draw(i.get()->explosion);
+    game.win.draw(damage_effect);
     game.win.draw(equations);
     game.win.draw(host_name_text);
     game.win.draw(client_name_text);

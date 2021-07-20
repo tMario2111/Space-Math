@@ -22,6 +22,8 @@ void ProgressBar::setPosition(sf::Vector2f position)
 void ProgressBar::setProgress(float percentage)
 {
     percentage -= 0.00001f; /// FEATURE
+    if (percentage < 0.f)
+        percentage = 0.f;
     if ((percentage == 100.f && !reversed) || (percentage == 0.f && reversed))
         filled = 1;
     else
@@ -35,6 +37,11 @@ void ProgressBar::setProgress(float percentage)
     margin.x = empty_bar.getGlobalBounds().left;
     margin.y = empty_bar.getGlobalBounds().top;
     mke::utility::centerBothAxes(text, margin.x + 12, margin.x + 96, margin.y + 12, margin.y + 93);
+}
+
+sf::Vector2f ProgressBar::getSize()
+{
+    return sf::Vector2f(empty_bar.getGlobalBounds().width, empty_bar.getGlobalBounds().height);
 }
 
 void ProgressBar::draw(sf::RenderTarget& target, sf::RenderStates states) const

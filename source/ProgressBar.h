@@ -13,6 +13,7 @@ public:
     void setTextures(sf::Texture& t_empty, sf::Texture& t_fill);
     void setPosition(sf::Vector2f position);
     void setProgress(float percentage);
+    sf::Vector2f getSize();
     bool reversed = 0;
 private:
     sf::Sprite empty_bar;

@@ -50,6 +50,7 @@ private:
     ProgressBar client_health_bar;
     unsigned int host_score = 0;
     unsigned int client_score = 0;
+    sf::RectangleShape damage_effect;
     std::vector<std::unique_ptr<Enemy>> host_enemies;
     std::vector<std::unique_ptr<Enemy>> client_enemies;
     sf::Time host_enemies_spawn_clock = sf::seconds(0.f);
@@ -63,6 +64,7 @@ private:
     void setupShips();
     void setupTexts();
     void setupHealthBars();
+    void setupDamageEffect();
     void spawnHostEnemy();
     void spawnClientEnemy();
     void spawnEnemies();
@@ -75,6 +77,7 @@ private:
     void collisionHostBulletsFireBarrier();
     void collisionClientBulletsFireBarrier();
     void deleteEnemies();
+    void updateDamageEffect();
 };
 
 #endif

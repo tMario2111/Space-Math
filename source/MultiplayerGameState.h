@@ -53,10 +53,10 @@ private:
     sf::RectangleShape damage_effect;
     std::vector<std::unique_ptr<Enemy>> host_enemies;
     std::vector<std::unique_ptr<Enemy>> client_enemies;
-    sf::Time host_enemies_spawn_clock = sf::seconds(0.f);
-    sf::Time client_enemies_spawn_clock = sf::seconds(0.f);
-    sf::Time host_enemies_spawn_delay = sf::seconds(7.5f);
-    sf::Time client_enemies_spawn_delay = sf::seconds(7.5f);
+    sf::Time enemies_spawn_clock = sf::seconds(0.f);
+    sf::Time enemies_spawn_delay = sf::seconds(7.5f);
+    const sf::Time DEFAULT_ENEMIES_SPAWN_DELAY = sf::seconds(7.5f);
+    sf::Time time_since_start;
     std::thread receive_thread;
     void syncRandomSeed();
     void syncNames();

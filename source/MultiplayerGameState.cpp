@@ -148,17 +148,11 @@ void MultiplayerGameState::spawnClientEnemy()
 
 void MultiplayerGameState::spawnEnemies()
 {
-    host_enemies_spawn_clock += game.dt.get();
-    if(host_enemies_spawn_clock > host_enemies_spawn_delay)
+    enemies_spawn_clock += game.dt.get();
+    if (enemies_spawn_clock > enemies_spawn_delay)
     {
-        host_enemies_spawn_clock = sf::seconds(0.f);
+        enemies_spawn_clock = sf::seconds(0.f);
         spawnHostEnemy();
-    }
-
-    client_enemies_spawn_clock += game.dt.get();
-    if(client_enemies_spawn_clock > client_enemies_spawn_delay)
-    {
-        client_enemies_spawn_clock = sf::seconds(0.f);
         spawnClientEnemy();
     }
 }
@@ -319,6 +313,7 @@ void MultiplayerGameState::updateDamageEffect()
 
 void MultiplayerGameState::update()
 {
+    time_since_start += game.dt.get();
     background.update(game.dt.get());
     equations.update();
     sendUpdates();
@@ -359,6 +354,7 @@ void MultiplayerGameState::update()
     collisionHostBulletsFireBarrier();
     collisionClientBulletsFireBarrier();
     deleteEnemies();
+    enemies_spawn_delay = sf::seconds(DEFAULT_ENEMIES_SPAWN_DELAY.asSeconds() - time_since_start.asSeconds() / 25);
     updateDamageEffect();
     addEnemiesToBatch();
     addBulletsToBatch();

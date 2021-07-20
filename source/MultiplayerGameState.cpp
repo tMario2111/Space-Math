@@ -6,13 +6,19 @@ MultiplayerGameState::MultiplayerGameState(Game& game, Background& background, u
     level(level),
     equations(game.assets, game.win, questions_random, game.input, game.dt, 4),
     host_ship(game.assets, game.win, game.dt),
-    client_ship(game.assets, game.win, game.dt)
+    client_ship(game.assets, game.win, game.dt),
+    host_fire_barrier(game.win, game.assets, game.dt),
+    client_fire_barrier(game.win, game.assets, game.dt),
+    host_health_bar(game.assets.getFont("font")),
+    client_health_bar(game.assets.getFont("font"))
 {
     name = "MultiplayerGame";
     syncRandomSeed();
     syncNames();
+    setupMusic();
     setupShips();
     setupTexts();
+    setupHealthBars();
     spawnClientEnemy();
     spawnHostEnemy();
     enemies_render_states.texture = &game.assets.getTexture("ufo_enemy");
@@ -53,6 +59,15 @@ void MultiplayerGameState::syncNames()
     packet >> game.networking.remote_name;
 }
 
+void MultiplayerGameState::setupMusic()
+{
+    game.assets.sound_volume = game.game_settings.game_volume;
+    music.setLoop(1);
+    music.setVolume(game.game_settings.music_volume);
+    music.openFromFile("assets/music/game_music.wav");
+    music.play();
+}
+
 void MultiplayerGameState::setupShips()
 {
     host_ship.sprite.setPosition(game.win.getSize().x / 2 - host_ship.sprite.getGlobalBounds().width / 2, game.win.getSize().y / 2);
@@ -82,11 +97,21 @@ void MultiplayerGameState::setupTexts()
     client_name_text.setOrigin(client_name_text.getLocalBounds().width / 2, client_name_text.getLocalBounds().height / 2);
     sf::FloatRect host_ship_bounds = host_ship.sprite.getGlobalBounds();
     sf::FloatRect client_ship_bounds = client_ship.sprite.getGlobalBounds();
-    const float Y_MARGIN = 200.f;
+    const float Y_MARGIN = 100.f;
     mke::utility::centerXAxis(host_name_text, host_ship_bounds.left, host_ship_bounds.left + host_ship_bounds.width);
     mke::utility::centerYAxis(host_name_text, host_ship_bounds.top, host_ship_bounds.top - Y_MARGIN);
     mke::utility::centerXAxis(client_name_text, client_ship_bounds.left, client_ship_bounds.left + client_ship_bounds.width);
     mke::utility::centerYAxis(client_name_text, client_ship_bounds.top, client_ship_bounds.top - Y_MARGIN);
+    host_fire_barrier.sprite.setPosition(host_ship.sprite.getPosition());
+    client_fire_barrier.sprite.setPosition(client_ship.sprite.getPosition());
+}
+
+void MultiplayerGameState::setupHealthBars()
+{
+    host_health_bar.setTextures(game.assets.getTexture("health_bar_empty"), game.assets.getTexture("health_bar_fill"));
+    host_health_bar.setPosition(sf::Vector2f(host_ship.sprite.getPosition().x, 55.f));
+    client_health_bar.setTextures(game.assets.getTexture("health_bar_empty"), game.assets.getTexture("health_bar_fill"));
+    client_health_bar.setPosition(sf::Vector2f(client_ship.sprite.getPosition().x, 55.f));
 }
 
 void MultiplayerGameState::spawnHostEnemy()
@@ -139,7 +164,7 @@ void MultiplayerGameState::receiveUpdates()
         {
             std::string str;
             packet >> str;
-            if (str.size() > 0)
+            if (str.compare("HIT!") == 0)
             {
                 if (game.networking.user_type == Networking::UserType::Host)
                 {
@@ -151,6 +176,13 @@ void MultiplayerGameState::receiveUpdates()
                     host_enemies[0].get()->locked_on = 0;
                     host_enemies[0].get()->going_to_die = 1;
                 }
+            }
+            else if (str.compare("FIRE BARRIER!") == 0)
+            {
+                if (game.networking.user_type == Networking::UserType::Host)
+                    client_fire_barrier.setActive();
+                else
+                    host_fire_barrier.setActive();
             }
         }
     }
@@ -209,6 +241,32 @@ void MultiplayerGameState::collisionClientBulletsMothership()
             }
 }
 
+void MultiplayerGameState::collisionHostBulletsFireBarrier()
+{
+    if (host_fire_barrier.getActive() == 0)
+        return;
+    for (unsigned int i = 0; i < host_enemies.size(); i++)
+        for (unsigned int j = 0; j < host_enemies[i].get()->shooting_ability.bullets.size(); j++)
+            if (Collision::PixelPerfectTest(host_fire_barrier.sprite, host_enemies[i].get()->shooting_ability.bullets[j], 1))
+            {
+                host_enemies[i].get()->shooting_ability.bullets.erase(host_enemies[i].get()->shooting_ability.bullets.begin() + j--);
+                host_fire_barrier.HP -= host_enemies[i].get()->damage;
+            }
+}
+
+void MultiplayerGameState::collisionClientBulletsFireBarrier()
+{
+    if (client_fire_barrier.getActive() == 0)
+        return;
+    for (unsigned int i = 0; i < client_enemies.size(); i++)
+        for (unsigned int j = 0; j < client_enemies[i].get()->shooting_ability.bullets.size(); j++)
+            if (Collision::PixelPerfectTest(client_fire_barrier.sprite, client_enemies[i].get()->shooting_ability.bullets[j], 1))
+            {
+                client_enemies[i].get()->shooting_ability.bullets.erase(client_enemies[i].get()->shooting_ability.bullets.begin() + j--);
+                client_fire_barrier.HP -= client_enemies[i].get()->damage;
+            }
+}
+
 void MultiplayerGameState::deleteEnemies()
 {
     for (unsigned int i = 0; i < host_enemies.size(); i++)
@@ -257,8 +315,25 @@ void MultiplayerGameState::update()
         client_ship.updateTargeting(client_enemies, equations, client_score);
         host_ship.updateTargeting(host_enemies, equations, host_score);
     }
+    host_fire_barrier.update();
+    client_fire_barrier.update();
+    if (equations.star_questions_count == equations.star_questions_target)
+    {
+        if (game.networking.user_type == Networking::UserType::Host)
+            host_fire_barrier.setActive();
+        else
+            client_fire_barrier.setActive();
+        equations.star_questions_count = 0;
+        sf::Packet packet;
+        packet << "FIRE BARRIER!";
+        game.networking.socket.send(packet);
+    }
+    host_health_bar.setProgress(host_ship.HP);
+    client_health_bar.setProgress(client_ship.HP);
     collisionHostBulletsMothership();
     collisionClientBulletsMothership();
+    collisionHostBulletsFireBarrier();
+    collisionClientBulletsFireBarrier();
     deleteEnemies();
     addEnemiesToBatch();
     addBulletsToBatch();
@@ -271,6 +346,8 @@ void MultiplayerGameState::render()
     game.win.draw(enemies_batch, enemies_render_states);
     game.win.draw(host_ship);
     game.win.draw(client_ship);
+    game.win.draw(host_fire_barrier);
+    game.win.draw(client_fire_barrier);
     for (auto& i : host_enemies)
         game.win.draw(i.get()->explosion);
     for (auto& i : client_enemies)
@@ -278,4 +355,6 @@ void MultiplayerGameState::render()
     game.win.draw(equations);
     game.win.draw(host_name_text);
     game.win.draw(client_name_text);
+    game.win.draw(host_health_bar);
+    game.win.draw(client_health_bar);
 }

@@ -18,6 +18,7 @@ public:
 private:
     sf::RenderWindow& win;
     mke::Input& input;
+    bool selected = 0;
     sf::Text contents;
     sf::Text hint;
     const char BACKSPACE = 8;

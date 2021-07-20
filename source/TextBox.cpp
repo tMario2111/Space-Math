@@ -25,16 +25,18 @@ std::string TextBox::getContents()
 
 void TextBox::update()
 {
-    bool selected;
-    if (body.getGlobalBounds().contains(win.mapPixelToCoords(sf::Mouse::getPosition(win))))
+    if (input.isButtonPressed(sf::Mouse::Left))
     {
-        selected = 1;
-        body.setFillColor(sf::Color(100, 100, 100, 100));
-    }
-    else
-    {
-        selected = 0;
-        body.setFillColor(sf::Color(0, 0, 0, 100));
+        if (body.getGlobalBounds().contains(win.mapPixelToCoords(sf::Mouse::getPosition(win))))
+        {
+            selected = 1;
+            body.setFillColor(sf::Color(100, 100, 100, 100));
+        }
+        else
+        {
+            selected = 0;
+            body.setFillColor(sf::Color(0, 0, 0, 100));
+        }
     }
     std::string contents_string = contents.getString();
     if (input.text_character != 0 && selected)

@@ -15,6 +15,8 @@
 #include "Enemy.h"
 #include "UFOEnemy.h"
 #include "Equations.h"
+#include "FireBarrierAbility.h"
+#include "ProgressBar.h"
 
 class Game;
 
@@ -28,6 +30,7 @@ private:
     Game& game;
     Background& background;
     unsigned int level;
+    sf::Music music;
     mke::Random host_enemies_random;
     mke::Random client_enemies_random;
     mke::Random questions_random;
@@ -41,6 +44,10 @@ private:
     Equations equations;
     MotherShip host_ship;
     MotherShip client_ship;
+    FireBarrierAbility host_fire_barrier;
+    FireBarrierAbility client_fire_barrier;
+    ProgressBar host_health_bar;
+    ProgressBar client_health_bar;
     unsigned int host_score = 0;
     unsigned int client_score = 0;
     std::vector<std::unique_ptr<Enemy>> host_enemies;
@@ -52,8 +59,10 @@ private:
     std::thread receive_thread;
     void syncRandomSeed();
     void syncNames();
+    void setupMusic();
     void setupShips();
     void setupTexts();
+    void setupHealthBars();
     void spawnHostEnemy();
     void spawnClientEnemy();
     void spawnEnemies();
@@ -63,6 +72,8 @@ private:
     void addBulletsToBatch();
     void collisionHostBulletsMothership();
     void collisionClientBulletsMothership();
+    void collisionHostBulletsFireBarrier();
+    void collisionClientBulletsFireBarrier();
     void deleteEnemies();
 };
 

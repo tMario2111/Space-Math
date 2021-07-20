@@ -270,7 +270,7 @@ void GameState::update()
     equations.update();
     mother_ship.update();
     fire_barrier_ability.update();
-    if(equations.star_questions_count == equations.star_questions_target)
+    if (equations.star_questions_count == equations.star_questions_target)
     {
         fire_barrier_ability.setActive();
         equations.star_questions_count = 0;

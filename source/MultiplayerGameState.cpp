@@ -49,6 +49,7 @@ void MultiplayerGameState::syncRandomSeed()
         client_enemies_random.setCustomSeed(seed);
         questions_random.setCustomSeed(seed);
     }
+    questions_random.getInt(0,15); ///FEATURE
 }
 
 void MultiplayerGameState::syncNames()
@@ -311,6 +312,89 @@ void MultiplayerGameState::updateDamageEffect()
                                          opacity));
 }
 
+void MultiplayerGameState::destroyAllHostEnemies()
+{
+    final_enemy_explosion_clock += game.dt.get();
+    if (final_enemy_explosion_clock >= final_enemy_explosion_rate)
+    {
+        final_enemy_explosion_clock = sf::seconds(0.f);
+        for (auto& i : host_enemies)
+            if (!i.get()->going_to_die)
+            {
+                i.get()->going_to_die = 1;
+                break;
+            }
+    }
+}
+
+void MultiplayerGameState::destroyAllClientEnemies()
+{
+    final_enemy_explosion_clock += game.dt.get();
+    if (final_enemy_explosion_clock >= final_enemy_explosion_rate)
+    {
+        final_enemy_explosion_clock = sf::seconds(0.f);
+        for (auto& i : client_enemies)
+            if (!i.get()->going_to_die)
+            {
+                i.get()->going_to_die = 1;
+                break;
+            }
+    }
+}
+
+void MultiplayerGameState::gameOverEvent()
+{
+    if (host_ship.HP <= 0.f)
+    {
+        if(!host_ship.explosion.isDone() && host_enemies.size() > 0)
+        {
+            host_ship.exploding = 1;
+            host_ship.explosion.sprite.setPosition(host_ship.sprite.getPosition());
+            host_ship.explosion.run(game.dt.get());
+            final_enemy_explosion_rate = sf::seconds(host_ship.explosion.getDuration().asSeconds() / host_enemies.size());
+        }
+        else
+        {
+            final_extra_clock += game.dt.get();
+            if (final_extra_clock >= final_extra_time)
+            {
+                sf::Texture texture;
+                texture.create(game.win.getSize().x, game.win.getSize().y);
+                texture.update(game.win);
+                game.states.states_just_changed = 1;
+                music.stop();
+                game.states.push(std::make_unique<MultiplayerGameOverState>(game, background, Networking::UserType::Client, texture.copyToImage()));
+            }
+        }
+        destroyAllHostEnemies();
+    }
+
+    if (client_ship.HP <= 0.f)
+    {
+        if(!client_ship.explosion.isDone() && client_enemies.size() > 0)
+        {
+            client_ship.exploding = 1;
+            client_ship.explosion.sprite.setPosition(client_ship.sprite.getPosition());
+            client_ship.explosion.run(game.dt.get());
+            final_enemy_explosion_rate = sf::seconds(client_ship.explosion.getDuration().asSeconds() / client_enemies.size());
+        }
+        else
+        {
+            final_extra_clock += game.dt.get();
+            if (final_extra_clock >= final_extra_time)
+            {
+                sf::Texture texture;
+                texture.create(game.win.getSize().x, game.win.getSize().y);
+                texture.update(game.win);
+                game.states.states_just_changed = 1;
+                music.stop();
+                game.states.push(std::make_unique<MultiplayerGameOverState>(game, background, Networking::UserType::Host, texture.copyToImage()));
+            }
+        }
+        destroyAllClientEnemies();
+    }
+}
+
 void MultiplayerGameState::update()
 {
     time_since_start += game.dt.get();
@@ -319,7 +403,8 @@ void MultiplayerGameState::update()
     sendUpdates();
     host_ship.update();
     client_ship.update();
-    spawnEnemies();
+    if(!host_ship.exploding && !client_ship.exploding)
+        spawnEnemies();
     for(auto& i : host_enemies)
         i.get()->update();
     for(auto& i : client_enemies)
@@ -355,6 +440,7 @@ void MultiplayerGameState::update()
     collisionClientBulletsFireBarrier();
     deleteEnemies();
     enemies_spawn_delay = sf::seconds(DEFAULT_ENEMIES_SPAWN_DELAY.asSeconds() - time_since_start.asSeconds() / 25);
+    gameOverEvent();
     updateDamageEffect();
     addEnemiesToBatch();
     addBulletsToBatch();
@@ -373,10 +459,13 @@ void MultiplayerGameState::render()
         game.win.draw(i.get()->explosion);
     for (auto& i : client_enemies)
         game.win.draw(i.get()->explosion);
-    game.win.draw(damage_effect);
-    game.win.draw(equations);
     game.win.draw(host_name_text);
     game.win.draw(client_name_text);
-    game.win.draw(host_health_bar);
-    game.win.draw(client_health_bar);
+    if(!host_ship.exploding && !client_ship.exploding)
+    {
+        game.win.draw(damage_effect);
+        game.win.draw(equations);
+        game.win.draw(host_health_bar);
+        game.win.draw(client_health_bar);
+    }
 }

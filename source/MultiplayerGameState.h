@@ -17,6 +17,7 @@
 #include "Equations.h"
 #include "FireBarrierAbility.h"
 #include "ProgressBar.h"
+#include "MultiplayerGameOverState.h"
 
 class Game;
 
@@ -57,6 +58,10 @@ private:
     sf::Time enemies_spawn_delay = sf::seconds(7.5f);
     const sf::Time DEFAULT_ENEMIES_SPAWN_DELAY = sf::seconds(7.5f);
     sf::Time time_since_start;
+    sf::Time final_enemy_explosion_rate;
+    sf::Time final_enemy_explosion_clock;
+    const sf::Time final_extra_time = sf::seconds(1.f);
+    sf::Time final_extra_clock;
     std::thread receive_thread;
     void syncRandomSeed();
     void syncNames();
@@ -76,7 +81,10 @@ private:
     void collisionClientBulletsMothership();
     void collisionHostBulletsFireBarrier();
     void collisionClientBulletsFireBarrier();
+    void destroyAllHostEnemies();
+    void destroyAllClientEnemies();
     void deleteEnemies();
+    void gameOverEvent();
     void updateDamageEffect();
 };
 

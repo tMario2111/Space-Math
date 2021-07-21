@@ -1384,7 +1384,7 @@
 	<unordered_map>
 	<vector>
 
-1626512148 c:\users\bogdan\documents\github\space-math\mke\random.h
+1626858673 c:\users\bogdan\documents\github\space-math\mke\random.h
 	<random>
 	<ctime>
 
@@ -1494,7 +1494,7 @@
 	"Enemy.h"
 	"Equations.h"
 
-1622722772 c:\users\bogdan\documents\github\space-math\source\enemy.h
+1626858673 c:\users\bogdan\documents\github\space-math\source\enemy.h
 	<SFML/Graphics.hpp>
 	"../MKE/MKE.h"
 	"ShootingAbility.h"
@@ -1518,7 +1518,7 @@
 	"Enemy.h"
 	"ShootingAbility.h"
 
-1624134221 c:\users\bogdan\documents\github\space-math\source\progressbar.h
+1626858673 c:\users\bogdan\documents\github\space-math\source\progressbar.h
 	<SFML/Graphics.hpp>
 	"../MKE/MKE.h"
 	<cmath>
@@ -1571,7 +1571,7 @@
 1622643900 source:c:\users\bogdan\documents\github\space-math\mke\particles.cpp
 	"Particles.h"
 
-1626512148 source:c:\users\bogdan\documents\github\space-math\mke\random.cpp
+1626858673 source:c:\users\bogdan\documents\github\space-math\mke\random.cpp
 	"Random.h"
 
 1622643900 source:c:\users\bogdan\documents\github\space-math\mke\spritebatch.cpp
@@ -1598,7 +1598,7 @@
 1625307005 source:c:\users\bogdan\documents\github\space-math\source\equations.cpp
 	"Equations.h"
 
-1626518481 source:c:\users\bogdan\documents\github\space-math\source\game.cpp
+1626858673 source:c:\users\bogdan\documents\github\space-math\source\game.cpp
 	"Game.h"
 
 1626348962 source:c:\users\bogdan\documents\github\space-math\source\gameoverstate.cpp
@@ -1607,7 +1607,7 @@
 1622645899 source:c:\users\bogdan\documents\github\space-math\source\gamesettings.cpp
 	"GameSettings.h"
 
-1626512148 source:c:\users\bogdan\documents\github\space-math\source\gamestate.cpp
+1626858673 source:c:\users\bogdan\documents\github\space-math\source\gamestate.cpp
 	"GameState.h"
 
 1624198255 source:c:\users\bogdan\documents\github\space-math\source\levelselectstate.cpp
@@ -1622,7 +1622,7 @@
 1624199080 source:c:\users\bogdan\documents\github\space-math\source\pausemenustate.cpp
 	"PauseMenuState.h"
 
-1624134221 source:c:\users\bogdan\documents\github\space-math\source\progressbar.cpp
+1626858673 source:c:\users\bogdan\documents\github\space-math\source\progressbar.cpp
 	"ProgressBar.h"
 
 1625511559 source:c:\users\bogdan\documents\github\space-math\source\settingsstate.cpp
@@ -1676,7 +1676,7 @@
 	"Enemy.h"
 	"ShootingAbility.h"
 
-1625681571 source:c:\users\bogdan\documents\github\space-math\source\ufoenemy.cpp
+1626858673 source:c:\users\bogdan\documents\github\space-math\source\ufoenemy.cpp
 	"UFOEnemy.h"
 
 1622916170 c:\users\mario\downloads\c++ projects\space-math\source\paranoidenemy.h
@@ -1743,10 +1743,11 @@
 1625562585 source:c:\users\mario\downloads\c++ projects\space-math\source\achievementsstate.cpp
 	"AchievementsState.h"
 
-1626516315 c:\users\bogdan\documents\github\space-math\source\multiplayerconnectionstate.h
+1626858673 c:\users\bogdan\documents\github\space-math\source\multiplayerconnectionstate.h
 	<SFML/Graphics.hpp>
 	<SFML/Network.hpp>
 	"../MKE/MKE.h"
+	"../Collision.h"
 	<thread>
 	"Networking.h"
 	"Background.h"
@@ -1833,12 +1834,12 @@
 1626518626 source:c:\users\bogdan\documents\github\space-math\source\multiplayerconnectionstate.cpp
 	"MultiplayerConnectionState.h"
 
-1626512148 c:\users\bogdan\documents\github\space-math\source\textbox.h
+1626858673 c:\users\bogdan\documents\github\space-math\source\textbox.h
 	<SFML/Graphics.hpp>
 	"../MKE/MKE.h"
 	<string>
 
-1626512148 source:c:\users\bogdan\documents\github\space-math\source\textbox.cpp
+1626858673 source:c:\users\bogdan\documents\github\space-math\source\textbox.cpp
 	"TextBox.h"
 
 1626612903 c:\users\mario\downloads\c++ projects\space-math\source\multiplayerconnectionstate.h
@@ -1971,23 +1972,40 @@
 	<SFML/Network.hpp>
 	<string>
 
-1626518149 c:\users\bogdan\documents\github\space-math\source\multiplayergamestate.h
+1626865079 c:\users\bogdan\documents\github\space-math\source\multiplayergamestate.h
 	<SFML/Graphics.hpp>
 	<SFML/Network.hpp>
 	"../MKE/MKE.h"
 	<memory>
 	<vector>
+	<thread>
 	"Game.h"
 	"Networking.h"
 	"Background.h"
 	"MotherShip.h"
 	"Enemy.h"
 	"UFOEnemy.h"
+	"Equations.h"
+	"FireBarrierAbility.h"
+	"ProgressBar.h"
+	"MultiplayerGameOverState.h"
 
-1626518697 source:c:\users\bogdan\documents\github\space-math\source\multiplayergamestate.cpp
+1626866049 source:c:\users\bogdan\documents\github\space-math\source\multiplayergamestate.cpp
 	"MultiplayerGameState.h"
-	<iostream>
 
 1626512148 source:c:\users\bogdan\documents\github\space-math\source\networking.cpp
 	"Networking.h"
+
+1626865327 c:\users\bogdan\documents\github\space-math\source\multiplayergameoverstate.h
+	<SFML/Graphics.hpp>
+	<SFML/Network.hpp>
+	"../MKE/MKE.h"
+	"Background.h"
+	"Game.h"
+	"Button.h"
+	"GameState.h"
+	"Networking.h"
+
+1626866310 source:c:\users\bogdan\documents\github\space-math\source\multiplayergameoverstate.cpp
+	"MultiplayerGameOverState.h"
 

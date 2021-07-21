@@ -187,6 +187,8 @@ void MultiplayerGameState::receiveUpdates()
                 else
                     host_fire_barrier.setActive();
             }
+            else if (str.compare("DONE!") == 0)
+                return;
         }
     }
 }
@@ -358,6 +360,9 @@ void MultiplayerGameState::gameOverEvent()
             final_extra_clock += game.dt.get();
             if (final_extra_clock >= final_extra_time)
             {
+                sf::Packet packet;
+                packet << "DONE!";
+                game.networking.socket.send(packet);
                 sf::Texture texture;
                 texture.create(game.win.getSize().x, game.win.getSize().y);
                 texture.update(game.win);
@@ -383,6 +388,9 @@ void MultiplayerGameState::gameOverEvent()
             final_extra_clock += game.dt.get();
             if (final_extra_clock >= final_extra_time)
             {
+                sf::Packet packet;
+                packet << "DONE!";
+                game.networking.socket.send(packet);
                 sf::Texture texture;
                 texture.create(game.win.getSize().x, game.win.getSize().y);
                 texture.update(game.win);

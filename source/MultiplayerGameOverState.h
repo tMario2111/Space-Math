@@ -4,12 +4,15 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/Network.hpp>
 #include "../MKE/MKE.h"
+#include <thread>
+#include <string>
 
 #include "Background.h"
 #include "Game.h"
 #include "Button.h"
 #include "GameState.h"
 #include "Networking.h"
+#include "MultiplayerGameState.h"
 
 class Game;
 
@@ -29,8 +32,15 @@ private:
     const float BUTTON_MARGIN = 50.f;
     Button main_menu;
     Button reset;
+    sf::Sprite loader;
+    mke::Animation loader_animation;
+    bool waiting_reset_confirmation = 0;
+    bool reset_confirmed = 0;
+    std::thread reset_thread;
     void setupText();
     void setupButtons();
+    void setupLoader();
+    void checkReset();
 };
 
 #endif

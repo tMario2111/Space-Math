@@ -54,7 +54,6 @@
 			<Add library="gdi32" />
 			<Add library="winmm" />
 			<Add library="dxguid" />
-			<Add library="sfml-audio-d" />
 			<Add directory="C:/Program Files (x86)/CodeBlocks/MinGW/sfml/lib" />
 			<Add directory="E:/SFML-2.5.1/lib" />
 			<Add directory="D:/Scoala/Informatica/SFML-2.5.1/lib" />
@@ -143,6 +142,9 @@
 		<Unit filename="tinyxml2.h" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
+			<code_completion />
+			<envvars />
+			<debugger />
 		</Extensions>
 	</Project>
 </CodeBlocks_project_file>

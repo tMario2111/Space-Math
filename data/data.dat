@@ -8,7 +8,7 @@
 
 <settings>
     <game_volume>80</game_volume>
-    <music_volume>30</music_volume>
+    <music_volume>0</music_volume>
 </settings>
 
 <achievements>
@@ -65,6 +65,15 @@ AS THE SCORE INCREASES
 -THE SHIP AUTOMATICALLY
 TARGETS THE NEAREST ENEMY
 SPACESHIP
+
+-ACTIVATE A PROTECTIVE
+BARRIER BY COLLECTING 3
+STARS
+
+-A STAR CAN BE COLLECTED
+BY RESPONDING CORRECTLY
+TO A STAR QUESTION IN 5
+SECONDS
 
 -A QUESTION CAN BE SKIPPED
 AFTER A SMALL TIME DELAY

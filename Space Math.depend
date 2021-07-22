@@ -1598,7 +1598,7 @@
 1625307005 source:c:\users\bogdan\documents\github\space-math\source\equations.cpp
 	"Equations.h"
 
-1626858673 source:c:\users\bogdan\documents\github\space-math\source\game.cpp
+1626943007 source:c:\users\bogdan\documents\github\space-math\source\game.cpp
 	"Game.h"
 
 1626348962 source:c:\users\bogdan\documents\github\space-math\source\gameoverstate.cpp
@@ -1991,23 +1991,26 @@
 	"ProgressBar.h"
 	"MultiplayerGameOverState.h"
 
-1626866049 source:c:\users\bogdan\documents\github\space-math\source\multiplayergamestate.cpp
+1626943007 source:c:\users\bogdan\documents\github\space-math\source\multiplayergamestate.cpp
 	"MultiplayerGameState.h"
 
 1626512148 source:c:\users\bogdan\documents\github\space-math\source\networking.cpp
 	"Networking.h"
 
-1626865327 c:\users\bogdan\documents\github\space-math\source\multiplayergameoverstate.h
+1626943007 c:\users\bogdan\documents\github\space-math\source\multiplayergameoverstate.h
 	<SFML/Graphics.hpp>
 	<SFML/Network.hpp>
 	"../MKE/MKE.h"
+	<thread>
+	<string>
 	"Background.h"
 	"Game.h"
 	"Button.h"
 	"GameState.h"
 	"Networking.h"
+	"MultiplayerGameState.h"
 
-1626866310 source:c:\users\bogdan\documents\github\space-math\source\multiplayergameoverstate.cpp
+1626943007 source:c:\users\bogdan\documents\github\space-math\source\multiplayergameoverstate.cpp
 	"MultiplayerGameOverState.h"
 
 1626896636 c:\users\mario\downloads\c++ projects\space-math\source\multiplayergameoverstate.h

@@ -25,3 +25,8 @@ Arhitectura jocului consta într-o stiva de stări (meniu principal, joc, etc.),
 Jocul rulează la o performanta ridicata, deoarece desenările se fac eficient (sprite batch-uri). Codul este abstractizat si modularizat, întrucât am folosit programare orientata pe obiecte.
 
 Jocul poate fi descarcat din sectiunea Releases din repository-ul de pe Github.
+
+![Barrier](https://github.com/tMario2111/Space-Math/blob/main/Screenshots/barrier.png)
+![Equations](https://github.com/tMario2111/Space-Math/blob/main/Screenshots/gigel%20vs%20costel.png)
+![Multiplayer](https://github.com/tMario2111/Space-Math/blob/main/Screenshots/gigel%20vs%20costell.png)
+

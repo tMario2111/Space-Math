@@ -613,7 +613,7 @@
 	<android/log.h>
 	<assert.h>
 
-1626455151 c:\users\mario\downloads\c++ projects\space-math\source\mainmenustate.h
+1627984100 c:\users\mario\downloads\c++ projects\space-math\source\mainmenustate.h
 	<SFML/Graphics.hpp>
 	"../MKE/MKE.h"
 	<vector>
@@ -773,7 +773,7 @@
 1625318540 source:c:\users\mario\downloads\c++ projects\space-math\source\equations.cpp
 	"Equations.h"
 
-1627564499 source:c:\users\mario\downloads\c++ projects\space-math\source\game.cpp
+1627983876 source:c:\users\mario\downloads\c++ projects\space-math\source\game.cpp
 	"Game.h"
 
 1625819888 source:c:\users\mario\downloads\c++ projects\space-math\source\gameoverstate.cpp
@@ -788,7 +788,7 @@
 1624204086 source:c:\users\mario\downloads\c++ projects\space-math\source\levelselectstate.cpp
 	"LevelSelectState.h"
 
-1626455151 source:c:\users\mario\downloads\c++ projects\space-math\source\mainmenustate.cpp
+1627984785 source:c:\users\mario\downloads\c++ projects\space-math\source\mainmenustate.cpp
 	"MainMenuState.h"
 
 1626679639 source:c:\users\mario\downloads\c++ projects\space-math\source\mothership.cpp

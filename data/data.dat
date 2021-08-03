@@ -2,13 +2,13 @@
 <high_scores>
     <level1>84</level1>
     <level2>4</level2>
-    <level3>3</level3>
-    <level4>0</level4>
+    <level3>6</level3>
+    <level4>1</level4>
 </high_scores>
 
 <settings>
-    <game_volume>40</game_volume>
-    <music_volume>20</music_volume>
+    <game_volume>45</game_volume>
+    <music_volume>25</music_volume>
 </settings>
 
 <achievements>
@@ -83,4 +83,7 @@ GOOD LUCK!
 
 
     </instructions>
+    <credits>
+MADE BY NEAGU MARIO-IUSTIN &amp; BALICA BOGDAN IULIAN 
+MUSIC PROVIDED AND PRODUCED BY LONEPEAKMUSIC</credits>
 </strings>

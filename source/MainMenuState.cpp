@@ -8,6 +8,7 @@ MainMenuState::MainMenuState(Game& game) :
     setupBackground();
     setupTitle();
     setupButtons();
+    setupCredits();
 }
 
 void MainMenuState::setupBackground()
@@ -70,17 +71,25 @@ void MainMenuState::setupButtons()
     exit.centerTextToBody();
 }
 
+void MainMenuState::setupCredits()
+{
+    credits.setFont(game.assets.getFont("font"));
+    credits.setCharacterSize(15);
+    credits.setString(game.game_settings.doc.FirstChildElement("strings")->FirstChildElement("credits")->GetText());
+    credits.setPosition(5.f - credits.getLocalBounds().left, game.win.getSize().y - credits.getGlobalBounds().height - credits.getLocalBounds().top - 5.f);
+}
+
 void MainMenuState::update()
 {
     if (start.selected(game.win) && game.input.isButtonReleased(sf::Mouse::Left))
         game.states.push(std::make_unique<LevelSelectState>(game, background));
-    if (multiplayer.selected(game.win) && game.input.isButtonReleased(sf::Mouse::Left))
+    else if (multiplayer.selected(game.win) && game.input.isButtonReleased(sf::Mouse::Left))
         game.states.push(std::make_unique<MultiplayerConnectionState>(game, background));
-    if (achievements.selected(game.win) && game.input.isButtonReleased(sf::Mouse::Left))
+    else if (achievements.selected(game.win) && game.input.isButtonReleased(sf::Mouse::Left))
         game.states.push(std::make_unique<AchievementsState>(game, background));
-    if (settings.selected(game.win) && game.input.isButtonReleased(sf::Mouse::Left))
+    else if (settings.selected(game.win) && game.input.isButtonReleased(sf::Mouse::Left))
         game.states.push(std::make_unique<SettingsState>(game, background));
-    if (exit.selected(game.win) && game.input.isButtonReleased(sf::Mouse::Left))
+    else if (exit.selected(game.win) && game.input.isButtonReleased(sf::Mouse::Left))
         game.win.close();
     background.update(game.dt.get());
 }
@@ -94,4 +103,5 @@ void MainMenuState::render()
     game.win.draw(achievements);
     game.win.draw(settings);
     game.win.draw(exit);
+    game.win.draw(credits);
 }

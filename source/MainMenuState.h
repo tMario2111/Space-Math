@@ -32,9 +32,11 @@ private:
     Button achievements;
     Button settings;
     Button exit;
+    sf::Text credits;
     void setupBackground();
     void setupTitle();
     void setupButtons();
+    void setupCredits();
 };
 
 #endif

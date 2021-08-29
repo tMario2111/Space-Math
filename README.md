@@ -1,6 +1,6 @@
 # Space Math #
 
-   Space Math este un soft educațional de calcul  matematic cu limita de timp. Space Math combină exersarea/învățarea și divertismentul interactiv într-o aplicație compactă, ușor de folosit pentru un domeniu larg de categorii de utilizatori. 
+Space Math este un soft educațional de calcul  matematic cu limita de timp. Space Math combină exersarea/învățarea și divertismentul interactiv într-o aplicație compactă, ușor de folosit pentru un domeniu larg de categorii de utilizatori. 
 La momentul actual, jocul conține următoarele categorii: calcul matematic simplu (operații aritmetice elementare), rezolvarea unor ecuații de gradul 1, trigonometrie și un mod care include toate tipurile anterioare. 
 De asemenea, jocul conține și un mod multiplayer, perfect pentru a exersa calculul matematic și pentru a intra într-o atmosfera competitivă cu prietenii tăi care sunt interesați de calcul matematic. 
 

@@ -5,7 +5,7 @@ La momentul actual, jocul conține următoarele categorii: calcul matematic simp
 De asemenea, jocul conține și un mod multiplayer, perfect pentru a exersa calculul matematic și pentru a intra într-o atmosfera competitivă cu prietenii tăi care sunt interesați de calcul matematic. 
 
 
-Modul singleplayer
+## Modul singleplayer ##
 
 Scopul jocului este de a proteja ”nava mamă” de navele inamice generate în mod aleatoriu de aplicație. În funcție de categoria selectată, interfața oferă la fiecare moment un exercițiu matematic iar utilizatorul trebuie să editeze rezultatul obținut prin calcul matematic (mintal). Fiecare “răspuns” corect  va elimina cea mai apropiată navă inamică și va actualiza scorul jucătorului. Cu cat scorul creste, cu atât creste și dificultatea jocului. 
 Jocul se sfarseste atunci cand "nava mama" se deterioreaza si explodeaza. Ulterior, daca scorul este un nou record, acesta se memoreaza (pentru fiecare categorie).
@@ -13,14 +13,14 @@ Jucătorul trebuie să se folosească de cunoștințele de matematica, dar și d
    - Anumite intrebari sunt marcate cu o steluta care poate fi colectata daca raspunsul este scris suficient de rapid.
    - Daca jucatorul aduna 3 stelute se va activa o bariera care apara nava de gloantele inamice temporar.
 
-Modul multiplayer
+## Modul multiplayer ##
 
    - Daca jucatorul doreste sa se joace cu prietenii de la departare (retele diferite), atunci acesta poate folosi un VPN, care sa stabileasca legaturi directe intre calculatoare. (ex: Hamachi, ZeroTier, Evolve, etc.)
    - Pentru a juca multiplayer in reteaua locala, jucatorul care se conecteaza poate sa introduca comanda "LOCALHOST" sau IP-ul local la sectiunea "Adress".
    - Dupa ce jucatorii se conecteaza, acestia vor primi acelasi set de intrebari si inamici. Scopul modului multiplayer este de a ramane ultimul in viata.
 
 
-Descriere Tehnică:
+## Descriere Tehnică: ##
 
 Jocul a fost realizat integral in C++ folosind biblioteca SFML pentru grafica, audio și networking.
 Arhitectura jocului consta într-o stiva de stări (meniu principal, joc, etc.), ce reprezintă un automat finit. 
